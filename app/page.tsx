@@ -11,12 +11,46 @@ export default function Home() {
     interest: 'ai-audit',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission - integrate with your backend/email service
-    console.log('Form submitted:', formData);
-    alert('Thank you! We\'ll be in touch within 24 hours.');
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      const response = await fetch('https://formspree.io/f/xykkgnrk', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          company: formData.company,
+          interest: formData.interest,
+          message: formData.message,
+        }),
+      });
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        setFormData({
+          name: '',
+          email: '',
+          company: '',
+          interest: 'ai-audit',
+          message: ''
+        });
+      } else {
+        setSubmitStatus('error');
+      }
+    } catch {
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -580,10 +614,23 @@ export default function Home() {
 
             <button
               type="submit"
-              className="w-full py-4 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-xl font-semibold text-lg hover:shadow-2xl hover:shadow-cyan-500/30 transition-all duration-300"
+              disabled={isSubmitting}
+              className="w-full py-4 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-xl font-semibold text-lg hover:shadow-2xl hover:shadow-cyan-500/30 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Send Enquiry
+              {isSubmitting ? 'Sending...' : 'Send Enquiry'}
             </button>
+
+            {submitStatus === 'success' && (
+              <div className="mt-4 p-4 bg-emerald-500/20 border border-emerald-500/30 rounded-xl text-emerald-400 text-center">
+                Thank you! We'll be in touch within 24 hours.
+              </div>
+            )}
+
+            {submitStatus === 'error' && (
+              <div className="mt-4 p-4 bg-red-500/20 border border-red-500/30 rounded-xl text-red-400 text-center">
+                Something went wrong. Please try again or email us directly.
+              </div>
+            )}
           </form>
         </div>
       </section>
