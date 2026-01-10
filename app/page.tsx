@@ -1,7 +1,10 @@
 'use client';
 
-import { useState } from 'react';
-import ServicesGrid from '@/components/ServicesGrid';
+import { useState, lazy, Suspense } from 'react';
+import Image from 'next/image';
+
+// Lazy load components that aren't immediately visible
+const ServicesGrid = lazy(() => import('@/components/ServicesGrid'));
 
 export default function Home() {
   const [formData, setFormData] = useState({
@@ -20,7 +23,8 @@ export default function Home() {
     setSubmitStatus('idle');
 
     try {
-      const response = await fetch('https://formspree.io/f/xykkgnrk', {
+      const formspreeId = process.env.NEXT_PUBLIC_FORMSPREE_ID || 'xykkgnrk';
+      const response = await fetch(`https://formspree.io/f/${formspreeId}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -55,20 +59,35 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-slate-950 text-white overflow-x-hidden">
+      {/* Skip to main content link for accessibility */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[60] focus:px-4 focus:py-2 focus:bg-cyan-500 focus:text-white focus:rounded-lg"
+      >
+        Skip to main content
+      </a>
+
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-950/80 backdrop-blur-xl border-b border-slate-800/50">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-950/80 backdrop-blur-xl border-b border-slate-800/50" aria-label="Main navigation">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center font-bold text-lg">
-              TAC
-            </div>
-            <span className="font-semibold text-lg tracking-tight">Training Assurance Consultancy</span>
-          </div>
+          <a href="/" className="flex items-center" aria-label="Training Assurance Consultancy - Home">
+            <Image
+              src="/logo.png"
+              alt="TAC - Training Assurance Consultancy"
+              width={200}
+              height={50}
+              className="h-10 w-auto"
+              priority
+            />
+          </a>
           <div className="hidden md:flex items-center gap-8 text-sm">
             <a href="#services" className="text-slate-400 hover:text-cyan-400 transition-colors">Services</a>
             <a href="#ai-audit" className="text-slate-400 hover:text-cyan-400 transition-colors">AI Governance</a>
             <a href="#picms" className="text-slate-400 hover:text-emerald-400 transition-colors">PICMS</a>
             <a href="#global" className="text-slate-400 hover:text-cyan-400 transition-colors">Global Reach</a>
+            <a href="/about" className="text-slate-400 hover:text-cyan-400 transition-colors">About</a>
+            <a href="/case-studies" className="text-slate-400 hover:text-cyan-400 transition-colors">Case Studies</a>
+            <a href="/resources" className="text-slate-400 hover:text-cyan-400 transition-colors">Resources</a>
             <a href="#contact" className="px-5 py-2.5 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-lg font-medium hover:shadow-lg hover:shadow-cyan-500/25 transition-all">
               Book Consultation
             </a>
@@ -77,7 +96,7 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center pt-20">
+      <section id="main-content" className="relative min-h-screen flex items-center justify-center pt-20" aria-label="Hero">
         {/* Background Effects */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-1/4 -left-32 w-96 h-96 bg-cyan-500/20 rounded-full blur-[128px]" />
@@ -176,7 +195,20 @@ export default function Home() {
             </p>
           </div>
 
-          <ServicesGrid />
+          <Suspense fallback={
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[...Array(6)].map((_, i) => (
+                <div key={i} className="p-6 rounded-2xl bg-slate-800/50 border border-slate-700/50 animate-pulse">
+                  <div className="w-14 h-14 rounded-xl bg-slate-700 mb-5" />
+                  <div className="h-4 bg-slate-700 rounded w-1/3 mb-2" />
+                  <div className="h-6 bg-slate-700 rounded w-2/3 mb-3" />
+                  <div className="h-16 bg-slate-700 rounded" />
+                </div>
+              ))}
+            </div>
+          }>
+            <ServicesGrid />
+          </Suspense>
         </div>
       </section>
 
@@ -531,7 +563,7 @@ export default function Home() {
       </section>
 
       {/* Contact / Lead Gen Section */}
-      <section id="contact" className="py-32 relative">
+      <section id="contact" className="py-32 relative" aria-label="Contact form">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-[128px]" />
           <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-[128px]" />
@@ -549,27 +581,31 @@ export default function Home() {
             </p>
           </div>
 
-          <form onSubmit={handleSubmit} className="bg-slate-800/50 border border-slate-700/50 rounded-2xl p-8 backdrop-blur-sm">
+          <form onSubmit={handleSubmit} className="bg-slate-800/50 border border-slate-700/50 rounded-2xl p-8 backdrop-blur-sm" aria-label="Contact form">
             <div className="grid md:grid-cols-2 gap-6 mb-6">
               <div>
-                <label className="block text-sm font-medium text-slate-300 mb-2">Your Name</label>
+                <label htmlFor="contact-name" className="block text-sm font-medium text-slate-300 mb-2">Your Name</label>
                 <input
+                  id="contact-name"
                   type="text"
                   required
+                  aria-required="true"
                   value={formData.name}
                   onChange={(e) => setFormData({...formData, name: e.target.value})}
-                  className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-xl focus:outline-none focus:border-cyan-500 transition-colors text-white placeholder-slate-500"
+                  className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-xl focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-colors text-white placeholder-slate-500"
                   placeholder="John Smith"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-slate-300 mb-2">Email Address</label>
+                <label htmlFor="contact-email" className="block text-sm font-medium text-slate-300 mb-2">Email Address</label>
                 <input
+                  id="contact-email"
                   type="email"
                   required
+                  aria-required="true"
                   value={formData.email}
                   onChange={(e) => setFormData({...formData, email: e.target.value})}
-                  className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-xl focus:outline-none focus:border-cyan-500 transition-colors text-white placeholder-slate-500"
+                  className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-xl focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-colors text-white placeholder-slate-500"
                   placeholder="john@company.com"
                 />
               </div>
@@ -577,21 +613,23 @@ export default function Home() {
 
             <div className="grid md:grid-cols-2 gap-6 mb-6">
               <div>
-                <label className="block text-sm font-medium text-slate-300 mb-2">Company</label>
+                <label htmlFor="contact-company" className="block text-sm font-medium text-slate-300 mb-2">Company</label>
                 <input
+                  id="contact-company"
                   type="text"
                   value={formData.company}
                   onChange={(e) => setFormData({...formData, company: e.target.value})}
-                  className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-xl focus:outline-none focus:border-cyan-500 transition-colors text-white placeholder-slate-500"
+                  className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-xl focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-colors text-white placeholder-slate-500"
                   placeholder="Company Ltd"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-slate-300 mb-2">I&apos;m Interested In</label>
+                <label htmlFor="contact-interest" className="block text-sm font-medium text-slate-300 mb-2">I&apos;m Interested In</label>
                 <select
+                  id="contact-interest"
                   value={formData.interest}
                   onChange={(e) => setFormData({...formData, interest: e.target.value})}
-                  className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-xl focus:outline-none focus:border-cyan-500 transition-colors text-white"
+                  className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-xl focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-colors text-white"
                 >
                   <option value="ai-audit">AI Audit &amp; Governance</option>
                   <option value="saas-demo">SaaS Platform Demo</option>
@@ -602,12 +640,13 @@ export default function Home() {
             </div>
 
             <div className="mb-6">
-              <label className="block text-sm font-medium text-slate-300 mb-2">Message (Optional)</label>
+              <label htmlFor="contact-message" className="block text-sm font-medium text-slate-300 mb-2">Message (Optional)</label>
               <textarea
+                id="contact-message"
                 rows={4}
                 value={formData.message}
                 onChange={(e) => setFormData({...formData, message: e.target.value})}
-                className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-xl focus:outline-none focus:border-cyan-500 transition-colors text-white placeholder-slate-500 resize-none"
+                className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-xl focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-colors text-white placeholder-slate-500 resize-none"
                 placeholder="Tell us about your requirements..."
               />
             </div>
@@ -615,19 +654,19 @@ export default function Home() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full py-4 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-xl font-semibold text-lg hover:shadow-2xl hover:shadow-cyan-500/30 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full py-4 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-xl font-semibold text-lg hover:shadow-2xl hover:shadow-cyan-500/30 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-slate-900"
             >
               {isSubmitting ? 'Sending...' : 'Send Enquiry'}
             </button>
 
             {submitStatus === 'success' && (
-              <div className="mt-4 p-4 bg-emerald-500/20 border border-emerald-500/30 rounded-xl text-emerald-400 text-center">
+              <div role="alert" className="mt-4 p-4 bg-emerald-500/20 border border-emerald-500/30 rounded-xl text-emerald-400 text-center">
                 Thank you! We'll be in touch within 24 hours.
               </div>
             )}
 
             {submitStatus === 'error' && (
-              <div className="mt-4 p-4 bg-red-500/20 border border-red-500/30 rounded-xl text-red-400 text-center">
+              <div role="alert" className="mt-4 p-4 bg-red-500/20 border border-red-500/30 rounded-xl text-red-400 text-center">
                 Something went wrong. Please try again or email us directly.
               </div>
             )}
@@ -636,15 +675,18 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="py-12 border-t border-slate-800/50">
+      <footer className="py-12 border-t border-slate-800/50" role="contentinfo">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-4 gap-8 mb-12">
             <div className="md:col-span-2">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center font-bold text-lg">
-                  TAC
-                </div>
-                <span className="font-semibold text-lg">Training Assurance Consultancy</span>
+              <div className="mb-4">
+                <Image
+                  src="/logo.png"
+                  alt="TAC - Training Assurance Consultancy"
+                  width={180}
+                  height={45}
+                  className="h-10 w-auto"
+                />
               </div>
               <p className="text-slate-500 max-w-md">
                 Strategic SHEQ consultancy and AI governance solutions for forward-thinking organisations.
@@ -653,12 +695,14 @@ export default function Home() {
             </div>
 
             <div>
-              <h4 className="font-semibold mb-4">Services</h4>
+              <h4 className="font-semibold mb-4">Company</h4>
               <ul className="space-y-2 text-slate-500">
-                <li><a href="#services" className="hover:text-cyan-400 transition-colors">AI Audits</a></li>
+                <li><a href="/about" className="hover:text-cyan-400 transition-colors">About Us</a></li>
+                <li><a href="/case-studies" className="hover:text-cyan-400 transition-colors">Case Studies</a></li>
+                <li><a href="/resources" className="hover:text-cyan-400 transition-colors">Resources</a></li>
+                <li><a href="#services" className="hover:text-cyan-400 transition-colors">Services</a></li>
                 <li><a href="https://www.picms.com" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-400 transition-colors flex items-center gap-1">PICMS Platform <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg></a></li>
-                <li><a href="#services" className="hover:text-cyan-400 transition-colors">ISO Consultancy</a></li>
-                <li><a href="#services" className="hover:text-cyan-400 transition-colors">SHEQ Training</a></li>
+                <li><a href="#contact" className="hover:text-cyan-400 transition-colors">Contact</a></li>
               </ul>
             </div>
 
@@ -679,9 +723,9 @@ export default function Home() {
               © {new Date().getFullYear()} Training Assurance Consultancy. All rights reserved.
             </p>
             <div className="flex items-center gap-6 text-sm text-slate-500">
-              <a href="#" className="hover:text-cyan-400 transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-cyan-400 transition-colors">Terms of Service</a>
-              <a href="#" className="hover:text-cyan-400 transition-colors">Contact</a>
+              <a href="/privacy-policy" className="hover:text-cyan-400 transition-colors">Privacy Policy</a>
+              <a href="/terms-of-service" className="hover:text-cyan-400 transition-colors">Terms of Service</a>
+              <a href="#contact" className="hover:text-cyan-400 transition-colors">Contact</a>
             </div>
           </div>
         </div>
