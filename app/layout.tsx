@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_GB",
-    url: "https://www.trainingassurance.com",
+    url: "https://www.trainingassuranceconsultancy.com",
     siteName: "Training Assurance Consultancy",
     title: "Training Assurance Consultancy | AI Governance & ISO Compliance Experts",
     description: "Strategic SHEQ compliance and AI governance consultancy. Specialists in ISO/IEC 42001 and traditional ISO standards. 20+ years experience across Europe.",
