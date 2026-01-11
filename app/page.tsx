@@ -348,7 +348,7 @@ export default function Home() {
       {/* Global Experience Section */}
       <section id="global" className="py-32 relative">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
+          <div className="text-center">
             <span className="text-cyan-400 font-medium tracking-widest text-sm uppercase">Global Reach</span>
             <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6">
               Proven Track Record Across Europe
@@ -357,31 +357,6 @@ export default function Home() {
               Delivering excellence in compliance and governance across diverse industries
               and regulatory environments throughout the UK, Europe, and Nordics.
             </p>
-          </div>
-
-          <div className="grid md:grid-cols-5 gap-6">
-            {[
-              { country: 'United Kingdom', flag: '🇬🇧', projects: '200+', focus: 'ISO 9001, 45001, AI Audits' },
-              { country: 'Ireland', flag: '🇮🇪', projects: '50+', focus: 'SHEQ Consultancy' },
-              { country: 'Netherlands', flag: '🇳🇱', projects: '75+', focus: 'ISO 14001, 27001' },
-              { country: 'Norway', flag: '🇳🇴', projects: '60+', focus: 'Energy & Maritime' },
-              { country: 'Italy', flag: '🇮🇹', projects: '40+', focus: 'Manufacturing & Food' },
-            ].map((item, index) => (
-              <div
-                key={index}
-                className="group p-6 rounded-2xl bg-gradient-to-br from-slate-800/50 to-slate-900/50 border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-300 hover:-translate-y-1"
-              >
-                <div className="text-5xl mb-4">{item.flag}</div>
-                <h3 className="font-semibold text-lg mb-1">{item.country}</h3>
-                <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 mb-2">
-                  {item.projects}
-                </div>
-                <p className="text-slate-500 text-sm">Projects</p>
-                <div className="mt-4 pt-4 border-t border-slate-700/50">
-                  <p className="text-slate-400 text-xs">{item.focus}</p>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
