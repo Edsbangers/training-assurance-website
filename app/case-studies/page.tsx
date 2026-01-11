@@ -6,20 +6,20 @@ import Image from "next/image";
 export default function CaseStudies() {
   const caseStudies = [
     {
-      id: "fintech-ai-governance",
-      title: "AI Governance Implementation for UK Fintech",
-      client: "Leading UK Digital Banking Platform",
-      industry: "Financial Services",
-      services: ["ISO/IEC 42001", "AI Risk Assessment", "Algorithmic Auditing"],
+      id: "construction-ai-audit",
+      title: "AI Audit Transforms Construction Operations",
+      client: "Major UK Construction Firm",
+      industry: "Construction",
+      services: ["AI Audit", "Agentic Solutions", "Process Optimisation"],
       challenge:
-        "A rapidly growing digital bank needed to establish robust AI governance frameworks to meet regulatory expectations and build customer trust in their AI-powered lending decisions.",
+        "A large construction firm managing a major project was struggling with outdated manual processes that significantly slowed their operations, causing delays and inefficiencies across their management system.",
       solution:
-        "We conducted a comprehensive AI risk assessment, developed bespoke governance policies aligned with ISO/IEC 42001, and implemented algorithmic transparency measures for their credit scoring models.",
+        "We conducted a comprehensive AI audit to identify bottlenecks and opportunities for automation. We then implemented agentic solutions across their management system, automating document workflows, scheduling, and compliance tracking.",
       results: [
-        "Achieved ISO/IEC 42001 certification within 8 months",
-        "Reduced regulatory concerns by implementing full audit trails",
-        "Improved model explainability for customer communications",
-        "Established AI ethics committee and governance structure",
+        "Increased productivity by 60% across operations",
+        "Automated key management system processes",
+        "Reduced project delays through intelligent scheduling",
+        "Established scalable AI-driven workflow systems",
       ],
       gradient: "from-cyan-500 to-blue-600",
     },
@@ -189,8 +189,8 @@ export default function CaseStudies() {
               <div className="text-slate-400 mt-1">Countries Served</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-orange-400">20+</div>
-              <div className="text-slate-400 mt-1">Years Experience</div>
+              <div className="text-4xl font-bold text-orange-400">3+</div>
+              <div className="text-slate-400 mt-1">Years Excellence</div>
             </div>
           </div>
         </div>
