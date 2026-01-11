@@ -33,8 +33,8 @@ export default function About() {
       ),
     },
     {
-      title: "20+ Years Experience",
-      description: "Two decades of SHEQ consultancy across Europe",
+      title: "500+ Audits",
+      description: "Successful audits with 100% certification rate",
       icon: (
         <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -68,32 +68,32 @@ export default function About() {
 
   const timeline = [
     {
-      year: "2004",
+      year: "2022",
       title: "Founded",
       description: "TAC established with focus on health & safety consultancy in the UK",
     },
     {
-      year: "2008",
+      year: "2023",
       title: "ISO Expansion",
       description: "Expanded services to include full ISO management system consultancy",
     },
     {
-      year: "2012",
+      year: "2023",
       title: "European Growth",
       description: "Extended operations to Ireland, Netherlands, Norway, and Italy",
     },
     {
-      year: "2018",
-      title: "Digital Transformation",
-      description: "Launched PICMS platform to digitise compliance management",
-    },
-    {
-      year: "2023",
+      year: "2024",
       title: "AI Governance",
       description: "Pioneered AI auditing services with ISO/IEC 42001 specialisation",
     },
     {
-      year: "2024",
+      year: "2025",
+      title: "Digital Transformation",
+      description: "Launched PICMS platform to digitise compliance management",
+    },
+    {
+      year: "2025",
       title: "500+ Audits",
       description: "Reached milestone of 500+ successful audits with 100% certification rate",
     },
