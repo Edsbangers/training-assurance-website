@@ -83,7 +83,7 @@ const services: Service[] = [
     ),
     title: 'ISO 45001',
     subtitle: 'Occupational Health & Safety',
-    description: 'Comprehensive OH&S management system implementation led by an NVQ Level 7 Strategic Health & Safety professional.',
+    description: 'Comprehensive OH&S management system implementation with expert guidance for certification success.',
     features: [
       'Risk assessment frameworks',
       'Hazard identification systems',

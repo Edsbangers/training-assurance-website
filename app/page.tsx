@@ -149,7 +149,7 @@ export default function Home() {
               IRCA Registered Principal Auditor
             </span>
             <span className="px-4 py-2 bg-slate-800/60 border border-slate-700/50 rounded-full text-xs font-medium text-cyan-400 backdrop-blur-sm">
-              NVQ Level 7 Strategic H&amp;S
+              500+ Successful Audits
             </span>
             <span className="px-4 py-2 bg-slate-800/60 border border-slate-700/50 rounded-full text-xs font-medium text-cyan-400 backdrop-blur-sm">
               ISO/IEC 42001 Specialist
@@ -703,7 +703,7 @@ export default function Home() {
               </div>
               <p className="text-slate-500 max-w-md">
                 Strategic SHEQ consultancy and AI governance solutions for forward-thinking organisations.
-                IRCA Registered Principal Auditor. NVQ Level 7 Strategic Health &amp; Safety.
+                IRCA Registered Principal Auditor. 100% Certification Success Rate.
               </p>
             </div>
 
