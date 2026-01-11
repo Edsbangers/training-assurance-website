@@ -16,6 +16,7 @@ export default function Home() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -80,6 +81,7 @@ export default function Home() {
               priority
             />
           </a>
+          {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8 text-sm">
             <a href="#services" className="text-slate-400 hover:text-cyan-400 transition-colors">Services</a>
             <a href="#ai-audit" className="text-slate-400 hover:text-cyan-400 transition-colors">AI Governance</a>
@@ -92,7 +94,43 @@ export default function Home() {
               Book Consultation
             </a>
           </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden p-2 text-slate-400 hover:text-white transition-colors"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={mobileMenuOpen}
+          >
+            {mobileMenuOpen ? (
+              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            )}
+          </button>
         </div>
+
+        {/* Mobile Menu */}
+        {mobileMenuOpen && (
+          <div className="md:hidden bg-slate-950/95 backdrop-blur-xl border-t border-slate-800/50">
+            <div className="px-6 py-4 space-y-4">
+              <a href="#services" onClick={() => setMobileMenuOpen(false)} className="block text-slate-400 hover:text-cyan-400 transition-colors py-2">Services</a>
+              <a href="#ai-audit" onClick={() => setMobileMenuOpen(false)} className="block text-slate-400 hover:text-cyan-400 transition-colors py-2">AI Governance</a>
+              <a href="#picms" onClick={() => setMobileMenuOpen(false)} className="block text-slate-400 hover:text-emerald-400 transition-colors py-2">PICMS</a>
+              <a href="#global" onClick={() => setMobileMenuOpen(false)} className="block text-slate-400 hover:text-cyan-400 transition-colors py-2">Global Reach</a>
+              <a href="/about" onClick={() => setMobileMenuOpen(false)} className="block text-slate-400 hover:text-cyan-400 transition-colors py-2">About</a>
+              <a href="/case-studies" onClick={() => setMobileMenuOpen(false)} className="block text-slate-400 hover:text-cyan-400 transition-colors py-2">Case Studies</a>
+              <a href="/resources" onClick={() => setMobileMenuOpen(false)} className="block text-slate-400 hover:text-cyan-400 transition-colors py-2">Resources</a>
+              <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="block w-full text-center px-5 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-lg font-medium hover:shadow-lg hover:shadow-cyan-500/25 transition-all">
+                Book Consultation
+              </a>
+            </div>
+          </div>
+        )}
       </nav>
 
       {/* Hero Section */}
