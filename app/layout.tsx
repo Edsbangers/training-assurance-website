@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Analytics from "@/components/Analytics";
+import ChatWidget from "@/components/ChatWidget";
+import VisitorTracker from "@/components/VisitorTracker";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,7 +17,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Training Assurance Consultancy | AI Governance & ISO Compliance Experts",
-  description: "Strategic SHEQ compliance and AI governance consultancy. Specialists in ISO/IEC 42001, ISO 9001, 14001, 45001, 27001. 20+ years experience, 500+ audits across Europe.",
+  description: "Strategic SHEQ compliance and AI governance consultancy. Specialists in ISO/IEC 42001, ISO 9001, 14001, 45001, 27001. 500+ audits across Europe with 100% certification success.",
   keywords: ["AI governance", "ISO compliance", "SHEQ consultancy", "ISO 42001", "AI auditing", "ISO 9001", "ISO 14001", "ISO 45001", "ISO 27001", "UK compliance consultancy"],
   authors: [{ name: "Training Assurance Consultancy" }],
   creator: "Training Assurance Consultancy",
@@ -27,7 +29,7 @@ export const metadata: Metadata = {
     url: "https://www.trainingassuranceconsultancy.com",
     siteName: "Training Assurance Consultancy",
     title: "Training Assurance Consultancy | AI Governance & ISO Compliance Experts",
-    description: "Strategic SHEQ compliance and AI governance consultancy. Specialists in ISO/IEC 42001 and traditional ISO standards. 20+ years experience across Europe.",
+    description: "Strategic SHEQ compliance and AI governance consultancy. Specialists in ISO/IEC 42001 and traditional ISO standards. 500+ audits across Europe.",
   },
   twitter: {
     card: "summary_large_image",
@@ -47,7 +49,9 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Analytics />
+        <VisitorTracker />
         {children}
+        <ChatWidget />
       </body>
     </html>
   );
