@@ -88,7 +88,7 @@ export default function Home() {
             <a href="#picms" className="text-slate-400 hover:text-emerald-400 transition-colors">PICMS</a>
             <a href="#global" className="text-slate-400 hover:text-cyan-400 transition-colors">Global Reach</a>
             <a href="/about" className="text-slate-400 hover:text-cyan-400 transition-colors">About</a>
-            <a href="/case-studies" className="text-slate-400 hover:text-cyan-400 transition-colors">Case Studies</a>
+            <a href="/blog" className="text-slate-400 hover:text-cyan-400 transition-colors">Insights</a>
             <a href="/resources" className="text-slate-400 hover:text-cyan-400 transition-colors">Resources</a>
             <a href="#contact" className="px-5 py-2.5 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-lg font-medium hover:shadow-lg hover:shadow-cyan-500/25 transition-all">
               Book Consultation
@@ -123,7 +123,7 @@ export default function Home() {
               <a href="#picms" onClick={() => setMobileMenuOpen(false)} className="block text-slate-400 hover:text-emerald-400 transition-colors py-2">PICMS</a>
               <a href="#global" onClick={() => setMobileMenuOpen(false)} className="block text-slate-400 hover:text-cyan-400 transition-colors py-2">Global Reach</a>
               <a href="/about" onClick={() => setMobileMenuOpen(false)} className="block text-slate-400 hover:text-cyan-400 transition-colors py-2">About</a>
-              <a href="/case-studies" onClick={() => setMobileMenuOpen(false)} className="block text-slate-400 hover:text-cyan-400 transition-colors py-2">Case Studies</a>
+              <a href="/blog" onClick={() => setMobileMenuOpen(false)} className="block text-slate-400 hover:text-cyan-400 transition-colors py-2">Insights</a>
               <a href="/resources" onClick={() => setMobileMenuOpen(false)} className="block text-slate-400 hover:text-cyan-400 transition-colors py-2">Resources</a>
               <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="block w-full text-center px-5 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-lg font-medium hover:shadow-lg hover:shadow-cyan-500/25 transition-all">
                 Book Consultation
@@ -711,7 +711,7 @@ export default function Home() {
               <h4 className="font-semibold mb-4">Company</h4>
               <ul className="space-y-2 text-slate-500">
                 <li><a href="/about" className="hover:text-cyan-400 transition-colors">About Us</a></li>
-                <li><a href="/case-studies" className="hover:text-cyan-400 transition-colors">Case Studies</a></li>
+                <li><a href="/blog" className="hover:text-cyan-400 transition-colors">Insights</a></li>
                 <li><a href="/resources" className="hover:text-cyan-400 transition-colors">Resources</a></li>
                 <li><a href="#services" className="hover:text-cyan-400 transition-colors">Services</a></li>
                 <li><a href="https://www.picms.com" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-400 transition-colors flex items-center gap-1">PICMS Platform <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg></a></li>
