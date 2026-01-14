@@ -67,7 +67,8 @@ export async function POST(request: NextRequest) {
         content,
         excerpt,
         category,
-        keywords,
+        tags: keywords || [],  // Map keywords to tags column
+        meta_keywords: keywords || [],  // Also store in meta_keywords
         status: status || 'draft',
         published_at: status === 'published' ? new Date().toISOString() : null,
       })
