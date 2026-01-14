@@ -41,7 +41,29 @@ interface User {
   role: string;
 }
 
-type Tab = "overview" | "leads" | "conversations" | "analytics";
+interface SocialCaption {
+  id: string;
+  platform: string;
+  caption: string;
+  hashtags: string[];
+  status: string;
+  sent_at: string | null;
+}
+
+interface BlogPost {
+  id: string;
+  title: string;
+  slug: string;
+  content: string;
+  excerpt: string | null;
+  status: string;
+  category: string | null;
+  published_at: string | null;
+  created_at: string;
+  blog_social_captions: SocialCaption[];
+}
+
+type Tab = "overview" | "leads" | "conversations" | "analytics" | "blog";
 
 export default function AdminDashboard() {
   const [user, setUser] = useState<User | null>(null);
@@ -59,6 +81,10 @@ export default function AdminDashboard() {
   });
   const [selectedConversation, setSelectedConversation] = useState<string | null>(null);
   const [conversationMessages, setConversationMessages] = useState<{ role: string; content: string; created_at: string }[]>([]);
+  const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
+  const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
+  const [pushingToSocials, setPushingToSocials] = useState<string | null>(null);
+  const [publishingPost, setPublishingPost] = useState<string | null>(null);
   const router = useRouter();
 
   useEffect(() => {
@@ -111,6 +137,80 @@ export default function AdminDashboard() {
         const data = await res.json();
         setConversations(data.conversations || []);
       }
+    }
+
+    if (activeTab === "blog") {
+      const res = await fetch("/api/admin/blog");
+      if (res.ok) {
+        const data = await res.json();
+        setBlogPosts(data.posts || []);
+      }
+    }
+  };
+
+  const publishPost = async (postId: string) => {
+    setPublishingPost(postId);
+    try {
+      const res = await fetch(`/api/admin/blog/${postId}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ status: "published" }),
+      });
+
+      if (res.ok) {
+        setBlogPosts(blogPosts.map((p) =>
+          p.id === postId ? { ...p, status: "published", published_at: new Date().toISOString() } : p
+        ));
+      }
+    } finally {
+      setPublishingPost(null);
+    }
+  };
+
+  const unpublishPost = async (postId: string) => {
+    setPublishingPost(postId);
+    try {
+      const res = await fetch(`/api/admin/blog/${postId}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ status: "draft" }),
+      });
+
+      if (res.ok) {
+        setBlogPosts(blogPosts.map((p) =>
+          p.id === postId ? { ...p, status: "draft" } : p
+        ));
+      }
+    } finally {
+      setPublishingPost(null);
+    }
+  };
+
+  const pushToSocials = async (postId: string) => {
+    setPushingToSocials(postId);
+    try {
+      const res = await fetch(`/api/admin/blog/${postId}/push-social`, {
+        method: "POST",
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        alert("Successfully pushed to socials!");
+        // Refresh blog posts to update caption statuses
+        const refreshRes = await fetch("/api/admin/blog");
+        if (refreshRes.ok) {
+          const refreshData = await refreshRes.json();
+          setBlogPosts(refreshData.posts || []);
+        }
+      } else {
+        alert(`Failed to push to socials: ${data.error || "Unknown error"}`);
+      }
+    } catch (error) {
+      console.error("Push to socials error:", error);
+      alert("Failed to push to socials. Please try again.");
+    } finally {
+      setPushingToSocials(null);
     }
   };
 
@@ -191,7 +291,7 @@ export default function AdminDashboard() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Tabs */}
         <div className="flex gap-2 mb-8 border-b border-slate-800 pb-4">
-          {(["overview", "leads", "conversations", "analytics"] as Tab[]).map((tab) => (
+          {(["overview", "leads", "conversations", "analytics", "blog"] as Tab[]).map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
@@ -428,6 +528,166 @@ export default function AdminDashboard() {
               {analytics.length === 0 && (
                 <div className="p-8 text-center text-slate-500">No analytics data yet</div>
               )}
+            </div>
+          </div>
+        )}
+
+        {/* Blog Tab */}
+        {activeTab === "blog" && (
+          <div className="grid md:grid-cols-2 gap-6">
+            {/* Blog Posts List */}
+            <div className="bg-slate-900/50 border border-slate-800 rounded-xl overflow-hidden">
+              <div className="p-4 border-b border-slate-800 flex items-center justify-between">
+                <h2 className="text-white font-semibold">Blog Posts</h2>
+                <span className="text-slate-400 text-sm">{blogPosts.length} posts</span>
+              </div>
+              <div className="divide-y divide-slate-800 max-h-[600px] overflow-y-auto">
+                {blogPosts.map((post) => (
+                  <button
+                    key={post.id}
+                    onClick={() => setSelectedPost(post)}
+                    className={`w-full p-4 text-left hover:bg-slate-800/50 transition-colors ${
+                      selectedPost?.id === post.id ? "bg-slate-800/50" : ""
+                    }`}
+                  >
+                    <div className="flex items-center justify-between mb-2">
+                      <span className={`px-2 py-0.5 rounded-full text-xs ${
+                        post.status === "published" ? "bg-emerald-500/20 text-emerald-400" :
+                        post.status === "draft" ? "bg-yellow-500/20 text-yellow-400" :
+                        "bg-slate-500/20 text-slate-400"
+                      }`}>
+                        {post.status}
+                      </span>
+                      {post.blog_social_captions?.length > 0 && (
+                        <span className="text-cyan-400 text-xs">
+                          {post.blog_social_captions.length} captions
+                        </span>
+                      )}
+                    </div>
+                    <div className="text-white font-medium truncate">{post.title}</div>
+                    <div className="text-slate-400 text-sm mt-1">
+                      {new Date(post.created_at).toLocaleDateString()}
+                    </div>
+                  </button>
+                ))}
+                {blogPosts.length === 0 && (
+                  <div className="p-8 text-center text-slate-500">No blog posts yet</div>
+                )}
+              </div>
+            </div>
+
+            {/* Post Details Panel */}
+            <div className="bg-slate-900/50 border border-slate-800 rounded-xl overflow-hidden">
+              <div className="p-4 border-b border-slate-800">
+                <h2 className="text-white font-semibold">Post Details</h2>
+              </div>
+              <div className="p-4 max-h-[600px] overflow-y-auto">
+                {selectedPost ? (
+                  <div className="space-y-4">
+                    {/* Post Info */}
+                    <div>
+                      <h3 className="text-lg font-semibold text-white">{selectedPost.title}</h3>
+                      <p className="text-slate-400 text-sm mt-1">
+                        Created: {new Date(selectedPost.created_at).toLocaleString()}
+                      </p>
+                      {selectedPost.published_at && (
+                        <p className="text-emerald-400 text-sm">
+                          Published: {new Date(selectedPost.published_at).toLocaleString()}
+                        </p>
+                      )}
+                    </div>
+
+                    {/* Excerpt */}
+                    {selectedPost.excerpt && (
+                      <div>
+                        <h4 className="text-slate-400 text-xs uppercase mb-1">Excerpt</h4>
+                        <p className="text-slate-300 text-sm">{selectedPost.excerpt}</p>
+                      </div>
+                    )}
+
+                    {/* Action Buttons */}
+                    <div className="flex gap-2 pt-4 border-t border-slate-800">
+                      {selectedPost.status === "draft" ? (
+                        <button
+                          onClick={() => publishPost(selectedPost.id)}
+                          disabled={publishingPost === selectedPost.id}
+                          className="flex-1 px-4 py-2 bg-emerald-500 hover:bg-emerald-600 disabled:bg-emerald-500/50 text-white rounded-lg text-sm font-medium transition-colors"
+                        >
+                          {publishingPost === selectedPost.id ? "Publishing..." : "Publish to Website"}
+                        </button>
+                      ) : (
+                        <button
+                          onClick={() => unpublishPost(selectedPost.id)}
+                          disabled={publishingPost === selectedPost.id}
+                          className="flex-1 px-4 py-2 bg-yellow-500 hover:bg-yellow-600 disabled:bg-yellow-500/50 text-white rounded-lg text-sm font-medium transition-colors"
+                        >
+                          {publishingPost === selectedPost.id ? "Updating..." : "Unpublish"}
+                        </button>
+                      )}
+                      <button
+                        onClick={() => pushToSocials(selectedPost.id)}
+                        disabled={pushingToSocials === selectedPost.id}
+                        className="flex-1 px-4 py-2 bg-cyan-500 hover:bg-cyan-600 disabled:bg-cyan-500/50 text-white rounded-lg text-sm font-medium transition-colors"
+                      >
+                        {pushingToSocials === selectedPost.id ? "Pushing..." : "Push to Socials"}
+                      </button>
+                    </div>
+
+                    {/* Social Captions */}
+                    {selectedPost.blog_social_captions?.length > 0 && (
+                      <div className="pt-4 border-t border-slate-800">
+                        <h4 className="text-slate-400 text-xs uppercase mb-3">Social Captions</h4>
+                        <div className="space-y-3">
+                          {selectedPost.blog_social_captions.map((caption) => (
+                            <div key={caption.id} className="bg-slate-800/50 rounded-lg p-3">
+                              <div className="flex items-center justify-between mb-2">
+                                <span className={`px-2 py-0.5 rounded text-xs font-medium ${
+                                  caption.platform === "linkedin" ? "bg-blue-500/20 text-blue-400" :
+                                  caption.platform === "facebook" ? "bg-indigo-500/20 text-indigo-400" :
+                                  caption.platform === "instagram" ? "bg-pink-500/20 text-pink-400" :
+                                  "bg-slate-500/20 text-slate-400"
+                                }`}>
+                                  {caption.platform}
+                                </span>
+                                <span className={`text-xs ${
+                                  caption.status === "sent" ? "text-emerald-400" :
+                                  caption.status === "published" ? "text-cyan-400" :
+                                  "text-slate-500"
+                                }`}>
+                                  {caption.status}
+                                  {caption.sent_at && ` - ${new Date(caption.sent_at).toLocaleString()}`}
+                                </span>
+                              </div>
+                              <p className="text-slate-300 text-sm">{caption.caption}</p>
+                              {caption.hashtags?.length > 0 && (
+                                <p className="text-cyan-400 text-xs mt-2">
+                                  {caption.hashtags.map(h => `#${h}`).join(" ")}
+                                </p>
+                              )}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* View on Website Link */}
+                    {selectedPost.status === "published" && (
+                      <div className="pt-4 border-t border-slate-800">
+                        <a
+                          href={`/blog/${selectedPost.slug}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-cyan-400 hover:text-cyan-300 text-sm"
+                        >
+                          View on website →
+                        </a>
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <p className="text-slate-500 text-center">Select a post to view details</p>
+                )}
+              </div>
             </div>
           </div>
         )}
