@@ -1,19 +1,33 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
+import { getAuthUser } from '@/lib/auth';
 
-// Debug endpoint to test Supabase connection
-export async function GET() {
+// Debug endpoint to test Supabase connection and auth
+export async function GET(request: NextRequest) {
   const debug = {
     hasSupabaseUrl: !!process.env.NEXT_PUBLIC_SUPABASE_URL,
     hasServiceKey: !!process.env.SUPABASE_SERVICE_ROLE_KEY,
+    hasJwtSecret: !!process.env.JWT_SECRET,
     supabaseUrlPrefix: process.env.NEXT_PUBLIC_SUPABASE_URL?.substring(0, 30),
-    error: null as string | null,
+    cookiePresent: !!request.cookies.get('tac_admin_token')?.value,
+    authUser: null as unknown,
+    authError: null as string | null,
+    supabaseError: null as string | null,
     posts: null as unknown,
   };
 
+  // Test auth
+  try {
+    const user = await getAuthUser();
+    debug.authUser = user;
+  } catch (e) {
+    debug.authError = `Auth exception: ${String(e)}`;
+  }
+
+  // Test Supabase
   try {
     if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY) {
-      debug.error = 'Missing environment variables';
+      debug.supabaseError = 'Missing environment variables';
       return NextResponse.json(debug);
     }
 
@@ -29,12 +43,12 @@ export async function GET() {
       .limit(5);
 
     if (error) {
-      debug.error = `Supabase error: ${error.message} (code: ${error.code})`;
+      debug.supabaseError = `Supabase error: ${error.message} (code: ${error.code})`;
     } else {
       debug.posts = data;
     }
   } catch (e) {
-    debug.error = `Exception: ${String(e)}`;
+    debug.supabaseError = `Supabase exception: ${String(e)}`;
   }
 
   return NextResponse.json(debug);
