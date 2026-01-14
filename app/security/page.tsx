@@ -96,6 +96,9 @@ export default function SecurityPage() {
               <Link href="/" className="text-slate-400 hover:text-white transition-colors">
                 Home
               </Link>
+              <Link href="/blog" className="text-slate-400 hover:text-white transition-colors">
+                Insights
+              </Link>
               <Link href="/security/certifications" className="text-slate-400 hover:text-white transition-colors">
                 Certifications
               </Link>

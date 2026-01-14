@@ -100,8 +100,8 @@ export default function PICMSPage() {
               <Link href="#features" className="hidden sm:block text-slate-400 hover:text-white transition-colors">
                 Features
               </Link>
-              <Link href="#pricing" className="hidden sm:block text-slate-400 hover:text-white transition-colors">
-                Pricing
+              <Link href="/blog" className="text-slate-400 hover:text-white transition-colors">
+                Insights
               </Link>
               <a
                 href="https://picms.com"

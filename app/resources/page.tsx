@@ -177,6 +177,12 @@ export default function Resources() {
                 About
               </Link>
               <Link
+                href="/blog"
+                className="text-slate-300 hover:text-white transition-colors"
+              >
+                Insights
+              </Link>
+              <Link
                 href="/#contact"
                 className="text-slate-300 hover:text-white transition-colors"
               >

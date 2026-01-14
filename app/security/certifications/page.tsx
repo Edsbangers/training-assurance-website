@@ -83,6 +83,9 @@ export default function CertificationsPage() {
               <Link href="/" className="text-[#B0C4DE] hover:text-white transition-colors">
                 Home
               </Link>
+              <Link href="/blog" className="text-[#B0C4DE] hover:text-white transition-colors">
+                Insights
+              </Link>
               <Link href="/security" className="text-[#B0C4DE] hover:text-white transition-colors">
                 Security
               </Link>

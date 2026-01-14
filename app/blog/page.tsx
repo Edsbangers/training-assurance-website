@@ -80,8 +80,14 @@ export default async function BlogPage() {
               <Link href="/" className="text-slate-400 hover:text-white transition-colors">
                 Home
               </Link>
-              <Link href="/picms" className="text-slate-400 hover:text-white transition-colors">
-                PICMS
+              <Link href="/#services" className="text-slate-400 hover:text-white transition-colors">
+                Services
+              </Link>
+              <Link href="/about" className="text-slate-400 hover:text-white transition-colors">
+                About
+              </Link>
+              <Link href="/resources" className="text-slate-400 hover:text-white transition-colors">
+                Resources
               </Link>
               <Link
                 href="/#contact"
