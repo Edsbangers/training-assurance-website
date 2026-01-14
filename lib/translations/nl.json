@@ -1,0 +1,110 @@
+{
+  "meta": {
+    "title": "Training Assurance Consultancy | Strategisch SHEQ Hoofdauditor Autoriteit",
+    "description": "Strategisch SHEQ Hoofdauditor Autoriteit. Deskundig advies op het gebied van AI-governance, kwaliteit, milieu, gezondheid & veiligheid en informatiebeveiligingsmanagementsystemen."
+  },
+  "nav": {
+    "home": "Home",
+    "services": "Diensten",
+    "about": "Over ons",
+    "contact": "Contact",
+    "caseStudies": "Casestudies",
+    "resources": "Bronnen"
+  },
+  "hero": {
+    "badge": "ISO/IEC 42001 Gecertificeerd Hoofdauditor",
+    "title": "Strategisch SHEQ Hoofdauditor Autoriteit",
+    "subtitle": "Deskundig advies op het gebied van AI-governance en ISO-managementsystemen in heel Europa. Wij helpen organisaties certificeringsexcellentie te bereiken met bewezen methodologieën.",
+    "cta": {
+      "primary": "Boek Strategisch Consult",
+      "secondary": "Ontdek Diensten"
+    }
+  },
+  "stats": {
+    "audits": "Succesvolle Audits",
+    "certificationRate": "Certificeringspercentage",
+    "countries": "Landen",
+    "yearsExcellence": "Jaar Excellentie"
+  },
+  "services": {
+    "title": "Onze Diensten",
+    "subtitle": "Uitgebreide compliance- en governance-oplossingen",
+    "aiGovernance": {
+      "title": "AI-audits & Governance",
+      "subtitle": "ISO/IEC 42001 Compliance",
+      "description": "Uitgebreide audits van AI-systemen op compliance, ethiek, veiligheid en algoritmische transparantie. Zorg ervoor dat uw AI-implementaties voldoen aan internationale normen."
+    },
+    "picms": {
+      "title": "PICMS Platform",
+      "subtitle": "ISO Compliance voor MKB",
+      "description": "Ons vlaggenschip SaaS-platform op picms.com – speciaal gebouwd voor kleine en middelgrote ondernemingen om ISO-compliance betaalbaar en efficiënt te beheren."
+    },
+    "iso9001": {
+      "title": "ISO 9001",
+      "subtitle": "Kwaliteitsmanagementsystemen",
+      "description": "Deskundige begeleiding bij het implementeren en onderhouden van ISO 9001 kwaliteitsmanagementsystemen. Behaal certificering en stimuleer continue verbetering."
+    },
+    "iso45001": {
+      "title": "ISO 45001",
+      "subtitle": "Arbeidsgezondheid & Veiligheid",
+      "description": "Uitgebreide implementatie van arbeidsgezondheidsmanagementsystemen met deskundige begeleiding voor certificeringssucces."
+    },
+    "iso14001": {
+      "title": "ISO 14001",
+      "subtitle": "Milieubeheer",
+      "description": "Ontwikkel robuuste milieumanagementsystemen die uw voetafdruk verkleinen, compliance waarborgen en duurzaam leiderschap tonen."
+    },
+    "iso27001": {
+      "title": "ISO 27001",
+      "subtitle": "Informatiebeveiliging",
+      "description": "Bescherm uw informatiemiddelen met een uitgebreid ISMS. Essentieel voor organisaties die gevoelige gegevens verwerken en digitale transformatie nastreven."
+    }
+  },
+  "contact": {
+    "title": "Neem Contact Op",
+    "subtitle": "Klaar om uw compliance-eisen te bespreken? Laten we een gesprek beginnen.",
+    "form": {
+      "name": "Volledige Naam",
+      "email": "E-mailadres",
+      "company": "Bedrijfsnaam",
+      "phone": "Telefoonnummer",
+      "message": "Uw Bericht",
+      "submit": "Verstuur Bericht",
+      "sending": "Versturen..."
+    },
+    "info": {
+      "email": "E-mail",
+      "phone": "Telefoon",
+      "location": "Locatie"
+    }
+  },
+  "footer": {
+    "copyright": "Alle rechten voorbehouden.",
+    "privacy": "Privacybeleid",
+    "terms": "Algemene Voorwaarden"
+  },
+  "chat": {
+    "title": "Strategisch Adviseur",
+    "subtitle": "AI-governance & ISO Experts",
+    "welcome": "Hallo! Ik ben de TAC strategisch adviseur. Ik kan u helpen met vragen over onze AI-governance audits, ISO-certificeringen en het PICMS-platform. Hoe kan ik u vandaag helpen?",
+    "placeholder": "Typ uw bericht...",
+    "leadForm": {
+      "title": "Neem contact op met ons team",
+      "description": "Laat uw gegevens achter en we nemen contact met u op om uw eisen te bespreken.",
+      "name": "Uw naam",
+      "email": "E-mailadres",
+      "company": "Bedrijfsnaam",
+      "phone": "Telefoonnummer",
+      "submit": "Versturen",
+      "later": "Later"
+    }
+  },
+  "cta": {
+    "bookConsultation": "Boek Strategisch Consult",
+    "exploreServices": "Ontdek Diensten",
+    "getInTouch": "Neem Contact Op",
+    "viewServices": "Bekijk Diensten",
+    "learnMore": "Meer informatie",
+    "showLess": "Minder tonen"
+  }
+}

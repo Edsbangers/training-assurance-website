@@ -1,0 +1,110 @@
+{
+  "meta": {
+    "title": "Training Assurance Consultancy | Strategic SHEQ Lead Auditor Authority",
+    "description": "Strategic SHEQ Lead Auditor Authority. Expert consultancy in AI Governance, Quality, Environmental, Health & Safety, and Information Security management systems."
+  },
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "about": "About",
+    "contact": "Contact",
+    "caseStudies": "Case Studies",
+    "resources": "Resources"
+  },
+  "hero": {
+    "badge": "ISO/IEC 42001 Certified Lead Auditor",
+    "title": "Strategic SHEQ Lead Auditor Authority",
+    "subtitle": "Expert AI Governance & ISO Management Systems consultancy across Europe. Helping organisations achieve certification excellence with proven methodologies.",
+    "cta": {
+      "primary": "Book Strategic Consultation",
+      "secondary": "Explore Services"
+    }
+  },
+  "stats": {
+    "audits": "Successful Audits",
+    "certificationRate": "Certification Rate",
+    "countries": "Countries",
+    "yearsExcellence": "Years Excellence"
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Comprehensive compliance and governance solutions",
+    "aiGovernance": {
+      "title": "AI Audits & Governance",
+      "subtitle": "ISO/IEC 42001 Compliance",
+      "description": "Comprehensive auditing of AI systems for compliance, ethics, safety, and algorithmic transparency. Ensure your AI implementations meet international standards."
+    },
+    "picms": {
+      "title": "PICMS Platform",
+      "subtitle": "ISO Compliance for UK SMEs",
+      "description": "Our flagship SaaS platform at picms.com – built specifically for UK small and medium enterprises to manage ISO compliance affordably and efficiently."
+    },
+    "iso9001": {
+      "title": "ISO 9001",
+      "subtitle": "Quality Management Systems",
+      "description": "Expert guidance for implementing and maintaining ISO 9001 quality management systems. Achieve certification and drive continuous improvement."
+    },
+    "iso45001": {
+      "title": "ISO 45001",
+      "subtitle": "Occupational Health & Safety",
+      "description": "Comprehensive OH&S management system implementation with expert guidance for certification success."
+    },
+    "iso14001": {
+      "title": "ISO 14001",
+      "subtitle": "Environmental Management",
+      "description": "Develop robust environmental management systems that reduce your footprint, ensure compliance, and demonstrate sustainability leadership."
+    },
+    "iso27001": {
+      "title": "ISO 27001",
+      "subtitle": "Information Security",
+      "description": "Protect your information assets with a comprehensive ISMS. Critical for organisations handling sensitive data and pursuing digital transformation."
+    }
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "Ready to discuss your compliance requirements? Let's start a conversation.",
+    "form": {
+      "name": "Full Name",
+      "email": "Email Address",
+      "company": "Company Name",
+      "phone": "Phone Number",
+      "message": "Your Message",
+      "submit": "Send Message",
+      "sending": "Sending..."
+    },
+    "info": {
+      "email": "Email",
+      "phone": "Phone",
+      "location": "Location"
+    }
+  },
+  "footer": {
+    "copyright": "All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
+  },
+  "chat": {
+    "title": "Strategic Advisor",
+    "subtitle": "AI Governance & ISO Experts",
+    "welcome": "Hello! I'm the TAC strategic advisor. I can help you with questions about our AI governance audits, ISO certifications, and PICMS platform. How can I assist you today?",
+    "placeholder": "Type your message...",
+    "leadForm": {
+      "title": "Get in touch with our team",
+      "description": "Leave your details and we'll reach out to discuss your requirements.",
+      "name": "Your name",
+      "email": "Email address",
+      "company": "Company name",
+      "phone": "Phone number",
+      "submit": "Submit",
+      "later": "Later"
+    }
+  },
+  "cta": {
+    "bookConsultation": "Book Strategic Consultation",
+    "exploreServices": "Explore Services",
+    "getInTouch": "Get in Touch",
+    "viewServices": "View Services",
+    "learnMore": "Learn more",
+    "showLess": "Show less"
+  }
+}

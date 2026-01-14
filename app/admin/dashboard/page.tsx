@@ -304,6 +304,12 @@ export default function AdminDashboard() {
               {tab.charAt(0).toUpperCase() + tab.slice(1)}
             </button>
           ))}
+          <a
+            href="/admin/audit-agent"
+            className="ml-auto px-4 py-2 bg-emerald-500/20 text-emerald-400 rounded-lg text-sm font-medium hover:bg-emerald-500/30 transition-colors"
+          >
+            + Create Blog Post
+          </a>
         </div>
 
         {/* Overview Tab */}

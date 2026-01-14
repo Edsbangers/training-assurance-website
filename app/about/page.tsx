@@ -158,13 +158,13 @@ export default function About() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl font-bold mb-6">Our Mission</h2>
-              <p className="text-slate-300 mb-4">
+              <p className="text-slate-400 mb-4">
                 To empower organisations with the knowledge, systems, and
                 confidence to achieve and maintain world-class compliance
                 standards, whether in traditional SHEQ disciplines or emerging
                 AI governance frameworks.
               </p>
-              <p className="text-slate-300">
+              <p className="text-slate-400">
                 We believe that robust compliance isn&apos;t just about meeting
                 requirements—it&apos;s about building resilient, ethical, and
                 sustainable business practices that create lasting value.
@@ -176,11 +176,11 @@ export default function About() {
                   key={index}
                   className="bg-slate-800/50 border border-slate-700 rounded-xl p-4 text-center"
                 >
-                  <div className="text-cyan-400 flex justify-center mb-3">
+                  <div className="text-cyan-500 flex justify-center mb-3">
                     {credential.icon}
                   </div>
                   <h3 className="font-semibold text-sm mb-1">{credential.title}</h3>
-                  <p className="text-xs text-slate-400">{credential.description}</p>
+                  <p className="text-xs text-slate-500">{credential.description}</p>
                 </div>
               ))}
             </div>
@@ -196,12 +196,12 @@ export default function About() {
             {values.map((value, index) => (
               <div
                 key={index}
-                className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 border border-slate-700 rounded-xl p-6"
+                className="bg-gradient-to-br from-slate-800/80 to-slate-950/80 border border-slate-700 rounded-xl p-6"
               >
                 <h3 className="text-xl font-semibold text-cyan-400 mb-3">
                   {value.title}
                 </h3>
-                <p className="text-slate-400 text-sm">{value.description}</p>
+                <p className="text-slate-500 text-sm">{value.description}</p>
               </div>
             ))}
           </div>
@@ -214,7 +214,7 @@ export default function About() {
           <h2 className="text-3xl font-bold mb-12 text-center">Our Journey</h2>
           <div className="relative">
             {/* Timeline line */}
-            <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-cyan-500 via-emerald-500 to-purple-500" />
+            <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-cyan-500 via-blue-600 to-slate-400" />
 
             {timeline.map((item, index) => (
               <div
@@ -224,7 +224,7 @@ export default function About() {
                 }`}
               >
                 {/* Dot */}
-                <div className="absolute left-4 md:left-1/2 w-3 h-3 bg-cyan-400 rounded-full transform -translate-x-1/2 ring-4 ring-slate-950" />
+                <div className="absolute left-4 md:left-1/2 w-3 h-3 bg-cyan-500 rounded-full transform -translate-x-1/2 ring-4 ring-slate-950" />
 
                 {/* Content */}
                 <div
@@ -237,7 +237,7 @@ export default function About() {
                       {item.year}
                     </span>
                     <h3 className="font-semibold text-white mt-1">{item.title}</h3>
-                    <p className="text-slate-400 text-sm mt-1">
+                    <p className="text-slate-500 text-sm mt-1">
                       {item.description}
                     </p>
                   </div>
@@ -254,37 +254,37 @@ export default function About() {
           <h2 className="text-3xl font-bold mb-12 text-center">Our Expertise</h2>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center">
-              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center">
+              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-slate-700 to-slate-800 flex items-center justify-center">
                 <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
               </div>
               <h3 className="text-xl font-semibold mb-2">AI Governance</h3>
-              <p className="text-slate-400 text-sm">
+              <p className="text-slate-500 text-sm">
                 Pioneering ISO/IEC 42001 implementation and AI risk assessment
                 for responsible AI deployment.
               </p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-emerald-500 to-green-600 flex items-center justify-center">
+              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center">
                 <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
               </div>
               <h3 className="text-xl font-semibold mb-2">ISO Standards</h3>
-              <p className="text-slate-400 text-sm">
+              <p className="text-slate-500 text-sm">
                 Comprehensive consultancy across ISO 9001, 14001, 45001, and
                 27001 management systems.
               </p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-purple-500 to-violet-600 flex items-center justify-center">
+              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-blue-600 to-slate-700 flex items-center justify-center">
                 <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
                 </svg>
               </div>
               <h3 className="text-xl font-semibold mb-2">SHEQ Excellence</h3>
-              <p className="text-slate-400 text-sm">
+              <p className="text-slate-500 text-sm">
                 Strategic health, safety, environment, and quality management
                 with proven expertise.
               </p>
@@ -294,7 +294,7 @@ export default function About() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-cyan-900/20 to-emerald-900/20">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-slate-800/20 to-cyan-500/10">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-4">Ready to Work Together?</h2>
           <p className="text-slate-400 mb-8">
@@ -304,13 +304,13 @@ export default function About() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/#contact"
-              className="px-8 py-3 bg-gradient-to-r from-cyan-500 to-emerald-500 text-white font-semibold rounded-lg hover:opacity-90 transition-opacity"
+              className="px-8 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-lg hover:opacity-90 transition-opacity"
             >
               Get in Touch
             </Link>
             <Link
               href="/#services"
-              className="px-8 py-3 border border-slate-600 text-white font-semibold rounded-lg hover:bg-slate-800 transition-colors"
+              className="px-8 py-3 border border-slate-700 text-white font-semibold rounded-lg hover:bg-slate-800 transition-colors"
             >
               View Services
             </Link>

@@ -202,12 +202,12 @@ export default function ChatWidget() {
 
       {/* Chat Window */}
       {isOpen && (
-        <div className="fixed bottom-24 right-6 z-50 w-[380px] max-w-[calc(100vw-3rem)] bg-slate-950 border border-slate-800 rounded-2xl shadow-2xl flex flex-col overflow-hidden">
+        <div className="fixed bottom-24 right-6 z-50 w-[380px] max-w-[calc(100vw-3rem)] bg-slate-950 border border-slate-700 rounded-2xl shadow-2xl flex flex-col overflow-hidden">
           {/* Header */}
-          <div className="bg-gradient-to-r from-cyan-600 to-blue-600 px-4 py-3 flex items-center justify-between">
+          <div className="bg-gradient-to-r from-slate-800 to-slate-900 px-4 py-3 flex items-center justify-between border-b border-cyan-500/30">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
-                <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <div className="w-10 h-10 bg-cyan-500/20 rounded-full flex items-center justify-center">
+                <svg className="w-5 h-5 text-cyan-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -217,8 +217,8 @@ export default function ChatWidget() {
                 </svg>
               </div>
               <div>
-                <h3 className="text-white font-semibold text-sm">TAC Assistant</h3>
-                <p className="text-cyan-100 text-xs">AI Governance & ISO Experts</p>
+                <h3 className="text-white font-semibold text-sm">Strategic Advisor</h3>
+                <p className="text-slate-400 text-xs">AI Governance & ISO Experts</p>
               </div>
             </div>
             <button
@@ -243,7 +243,7 @@ export default function ChatWidget() {
                   className={`max-w-[85%] rounded-2xl px-4 py-2.5 text-sm ${
                     msg.role === "user"
                       ? "bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-br-md"
-                      : "bg-slate-800 text-slate-200 rounded-bl-md"
+                      : "bg-slate-800 text-slate-300 rounded-bl-md border border-slate-700"
                   }`}
                 >
                   {msg.content}
@@ -254,11 +254,11 @@ export default function ChatWidget() {
             {/* Loading indicator */}
             {isLoading && (
               <div className="flex justify-start">
-                <div className="bg-slate-800 rounded-2xl rounded-bl-md px-4 py-3">
+                <div className="bg-slate-800 border border-slate-700 rounded-2xl rounded-bl-md px-4 py-3">
                   <div className="flex gap-1.5">
-                    <span className="w-2 h-2 bg-slate-500 rounded-full animate-bounce" style={{ animationDelay: "0ms" }} />
-                    <span className="w-2 h-2 bg-slate-500 rounded-full animate-bounce" style={{ animationDelay: "150ms" }} />
-                    <span className="w-2 h-2 bg-slate-500 rounded-full animate-bounce" style={{ animationDelay: "300ms" }} />
+                    <span className="w-2 h-2 bg-cyan-500 rounded-full animate-bounce" style={{ animationDelay: "0ms" }} />
+                    <span className="w-2 h-2 bg-cyan-500 rounded-full animate-bounce" style={{ animationDelay: "150ms" }} />
+                    <span className="w-2 h-2 bg-cyan-500 rounded-full animate-bounce" style={{ animationDelay: "300ms" }} />
                   </div>
                 </div>
               </div>
@@ -266,7 +266,7 @@ export default function ChatWidget() {
 
             {/* Lead Capture Form */}
             {showLeadForm && !leadCaptured && (
-              <div className="bg-slate-800/50 border border-slate-700 rounded-xl p-4">
+              <div className="bg-slate-800/80 border border-slate-700 rounded-xl p-4">
                 <h4 className="text-white font-medium text-sm mb-2">Get in touch with our team</h4>
                 <p className="text-slate-400 text-xs mb-3">
                   Leave your details and we'll reach out to discuss your requirements.
@@ -278,7 +278,7 @@ export default function ChatWidget() {
                     value={leadForm.name}
                     onChange={(e) => setLeadForm((prev) => ({ ...prev, name: e.target.value }))}
                     required
-                    className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500"
+                    className="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500"
                   />
                   <input
                     type="email"
@@ -286,21 +286,21 @@ export default function ChatWidget() {
                     value={leadForm.email}
                     onChange={(e) => setLeadForm((prev) => ({ ...prev, email: e.target.value }))}
                     required
-                    className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500"
+                    className="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500"
                   />
                   <input
                     type="text"
                     placeholder="Company name"
                     value={leadForm.company}
                     onChange={(e) => setLeadForm((prev) => ({ ...prev, company: e.target.value }))}
-                    className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500"
+                    className="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500"
                   />
                   <input
                     type="tel"
                     placeholder="Phone number"
                     value={leadForm.phone}
                     onChange={(e) => setLeadForm((prev) => ({ ...prev, phone: e.target.value }))}
-                    className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500"
+                    className="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500"
                   />
                   <div className="flex gap-2 pt-1">
                     <button
@@ -326,7 +326,7 @@ export default function ChatWidget() {
           </div>
 
           {/* Input */}
-          <form onSubmit={handleSubmit} className="p-3 border-t border-slate-800">
+          <form onSubmit={handleSubmit} className="p-3 border-t border-slate-700">
             <div className="flex gap-2">
               <input
                 type="text"
@@ -334,7 +334,7 @@ export default function ChatWidget() {
                 onChange={(e) => setInputValue(e.target.value)}
                 placeholder="Type your message..."
                 disabled={isLoading}
-                className="flex-1 bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500 disabled:opacity-50"
+                className="flex-1 bg-slate-800 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500 disabled:opacity-50"
               />
               <button
                 type="submit"

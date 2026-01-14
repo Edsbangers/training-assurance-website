@@ -1,0 +1,110 @@
+{
+  "meta": {
+    "title": "Training Assurance Consultancy | Autorità Strategica SHEQ Lead Auditor",
+    "description": "Autorità Strategica SHEQ Lead Auditor. Consulenza esperta in AI Governance, Qualità, Ambiente, Salute e Sicurezza e sistemi di gestione della sicurezza delle informazioni."
+  },
+  "nav": {
+    "home": "Home",
+    "services": "Servizi",
+    "about": "Chi siamo",
+    "contact": "Contatti",
+    "caseStudies": "Case Study",
+    "resources": "Risorse"
+  },
+  "hero": {
+    "badge": "Lead Auditor Certificato ISO/IEC 42001",
+    "title": "Autorità Strategica SHEQ Lead Auditor",
+    "subtitle": "Consulenza esperta in AI Governance e sistemi di gestione ISO in tutta Europa. Aiutiamo le organizzazioni a raggiungere l'eccellenza nella certificazione con metodologie comprovate.",
+    "cta": {
+      "primary": "Prenota Consulenza Strategica",
+      "secondary": "Esplora Servizi"
+    }
+  },
+  "stats": {
+    "audits": "Audit Riusciti",
+    "certificationRate": "Tasso di Certificazione",
+    "countries": "Paesi",
+    "yearsExcellence": "Anni di Eccellenza"
+  },
+  "services": {
+    "title": "I Nostri Servizi",
+    "subtitle": "Soluzioni complete di conformità e governance",
+    "aiGovernance": {
+      "title": "Audit AI & Governance",
+      "subtitle": "Conformità ISO/IEC 42001",
+      "description": "Audit completi dei sistemi AI per conformità, etica, sicurezza e trasparenza algoritmica. Assicurati che le tue implementazioni AI soddisfino gli standard internazionali."
+    },
+    "picms": {
+      "title": "Piattaforma PICMS",
+      "subtitle": "Conformità ISO per PMI",
+      "description": "La nostra piattaforma SaaS di punta su picms.com – costruita specificamente per le piccole e medie imprese per gestire la conformità ISO in modo conveniente ed efficiente."
+    },
+    "iso9001": {
+      "title": "ISO 9001",
+      "subtitle": "Sistemi di Gestione Qualità",
+      "description": "Guida esperta per l'implementazione e il mantenimento dei sistemi di gestione qualità ISO 9001. Ottieni la certificazione e promuovi il miglioramento continuo."
+    },
+    "iso45001": {
+      "title": "ISO 45001",
+      "subtitle": "Salute e Sicurezza sul Lavoro",
+      "description": "Implementazione completa del sistema di gestione della salute e sicurezza sul lavoro con guida esperta per il successo della certificazione."
+    },
+    "iso14001": {
+      "title": "ISO 14001",
+      "subtitle": "Gestione Ambientale",
+      "description": "Sviluppa sistemi di gestione ambientale robusti che riducono la tua impronta, garantiscono la conformità e dimostrano leadership nella sostenibilità."
+    },
+    "iso27001": {
+      "title": "ISO 27001",
+      "subtitle": "Sicurezza delle Informazioni",
+      "description": "Proteggi i tuoi asset informativi con un ISMS completo. Critico per le organizzazioni che gestiscono dati sensibili e perseguono la trasformazione digitale."
+    }
+  },
+  "contact": {
+    "title": "Contattaci",
+    "subtitle": "Pronto a discutere i tuoi requisiti di conformità? Iniziamo una conversazione.",
+    "form": {
+      "name": "Nome Completo",
+      "email": "Indirizzo Email",
+      "company": "Nome Azienda",
+      "phone": "Numero di Telefono",
+      "message": "Il Tuo Messaggio",
+      "submit": "Invia Messaggio",
+      "sending": "Invio..."
+    },
+    "info": {
+      "email": "Email",
+      "phone": "Telefono",
+      "location": "Sede"
+    }
+  },
+  "footer": {
+    "copyright": "Tutti i diritti riservati.",
+    "privacy": "Politica sulla Privacy",
+    "terms": "Termini di Servizio"
+  },
+  "chat": {
+    "title": "Consulente Strategico",
+    "subtitle": "Esperti AI Governance & ISO",
+    "welcome": "Ciao! Sono il consulente strategico TAC. Posso aiutarti con domande sui nostri audit di AI governance, certificazioni ISO e piattaforma PICMS. Come posso assisterti oggi?",
+    "placeholder": "Scrivi il tuo messaggio...",
+    "leadForm": {
+      "title": "Contatta il nostro team",
+      "description": "Lascia i tuoi dati e ti contatteremo per discutere le tue esigenze.",
+      "name": "Il tuo nome",
+      "email": "Indirizzo email",
+      "company": "Nome azienda",
+      "phone": "Numero di telefono",
+      "submit": "Invia",
+      "later": "Dopo"
+    }
+  },
+  "cta": {
+    "bookConsultation": "Prenota Consulenza Strategica",
+    "exploreServices": "Esplora Servizi",
+    "getInTouch": "Contattaci",
+    "viewServices": "Vedi Servizi",
+    "learnMore": "Scopri di più",
+    "showLess": "Mostra meno"
+  }
+}

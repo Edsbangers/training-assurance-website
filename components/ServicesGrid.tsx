@@ -31,7 +31,7 @@ const services: Service[] = [
       'Ethical AI implementation reviews',
       'Regulatory compliance mapping'
     ],
-    gradient: 'from-cyan-500 to-blue-600',
+    gradient: 'from-slate-700 to-slate-800',
     borderColor: 'hover:border-cyan-500/50'
   },
   {
@@ -51,8 +51,8 @@ const services: Service[] = [
       'Document control with version history',
       'Real-time compliance dashboards'
     ],
-    gradient: 'from-emerald-500 to-cyan-600',
-    borderColor: 'hover:border-emerald-500/50'
+    gradient: 'from-cyan-500 to-blue-600',
+    borderColor: 'hover:border-cyan-500/50'
   },
   {
     id: 'iso-9001',
@@ -71,8 +71,8 @@ const services: Service[] = [
       'Management review facilitation',
       'Certification body liaison'
     ],
-    gradient: 'from-emerald-500 to-teal-600',
-    borderColor: 'hover:border-emerald-500/50'
+    gradient: 'from-slate-700 to-blue-700',
+    borderColor: 'hover:border-slate-400/50'
   },
   {
     id: 'iso-45001',
@@ -91,8 +91,8 @@ const services: Service[] = [
       'Incident investigation protocols',
       'Behavioural safety programmes'
     ],
-    gradient: 'from-orange-500 to-amber-600',
-    borderColor: 'hover:border-orange-500/50'
+    gradient: 'from-emerald-500 to-cyan-500',
+    borderColor: 'hover:border-emerald-500/50'
   },
   {
     id: 'iso-14001',
@@ -111,8 +111,8 @@ const services: Service[] = [
       'Waste management optimisation',
       'Sustainability reporting'
     ],
-    gradient: 'from-green-500 to-emerald-600',
-    borderColor: 'hover:border-green-500/50'
+    gradient: 'from-blue-600 to-slate-700',
+    borderColor: 'hover:border-slate-400/50'
   },
   {
     id: 'iso-27001',
@@ -131,8 +131,8 @@ const services: Service[] = [
       'Business continuity planning',
       'Third-party security assessments'
     ],
-    gradient: 'from-violet-500 to-purple-600',
-    borderColor: 'hover:border-violet-500/50'
+    gradient: 'from-slate-800 to-slate-700',
+    borderColor: 'hover:border-slate-400/50'
   }
 ];
 
@@ -144,7 +144,7 @@ export default function ServicesGrid() {
       {services.map((service) => (
         <div
           key={service.id}
-          className={`group relative p-6 rounded-2xl bg-gradient-to-br from-slate-800/50 to-slate-900/50 border border-slate-700/50 ${service.borderColor} transition-all duration-300 hover:-translate-y-1 cursor-pointer`}
+          className={`group relative p-6 rounded-2xl bg-gradient-to-br from-slate-800/80 to-slate-950/80 border border-slate-700/50 ${service.borderColor} transition-all duration-300 hover:-translate-y-1 cursor-pointer`}
           onClick={() => setExpandedId(expandedId === service.id ? null : service.id)}
         >
           {/* Icon */}
@@ -154,7 +154,7 @@ export default function ServicesGrid() {
 
           {/* Content */}
           <div className="mb-4">
-            <span className="text-xs font-medium text-slate-500 uppercase tracking-wider">{service.subtitle}</span>
+            <span className="text-xs font-medium text-slate-400 uppercase tracking-wider">{service.subtitle}</span>
             <h3 className="text-xl font-bold mt-1 mb-3">{service.title}</h3>
             <p className="text-slate-400 text-sm leading-relaxed">{service.description}</p>
           </div>
@@ -166,11 +166,11 @@ export default function ServicesGrid() {
             }`}
           >
             <div className="pt-4 border-t border-slate-700/50">
-              <h4 className="text-sm font-semibold text-slate-300 mb-3">Key Deliverables</h4>
+              <h4 className="text-sm font-semibold text-slate-400 mb-3">Key Deliverables</h4>
               <ul className="space-y-2">
                 {service.features.map((feature, index) => (
                   <li key={index} className="flex items-start gap-2 text-sm text-slate-400">
-                    <svg className="w-4 h-4 text-cyan-400 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="w-4 h-4 text-cyan-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                     {feature}
@@ -181,7 +181,7 @@ export default function ServicesGrid() {
           </div>
 
           {/* Expand Indicator */}
-          <div className="flex items-center gap-2 mt-4 text-sm text-cyan-400">
+          <div className="flex items-center gap-2 mt-4 text-sm text-cyan-500">
             <span>{expandedId === service.id ? 'Show less' : 'Learn more'}</span>
             <svg
               className={`w-4 h-4 transition-transform duration-300 ${expandedId === service.id ? 'rotate-180' : ''}`}

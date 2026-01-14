@@ -1,0 +1,110 @@
+{
+  "meta": {
+    "title": "Training Assurance Consultancy | Strategisk SHEQ Hovedrevisor Autoritet",
+    "description": "Strategisk SHEQ Hovedrevisor Autoritet. Ekspertrådgivning innen AI-styring, kvalitet, miljø, helse & sikkerhet og informasjonssikkerhetsstyringssystemer."
+  },
+  "nav": {
+    "home": "Hjem",
+    "services": "Tjenester",
+    "about": "Om oss",
+    "contact": "Kontakt",
+    "caseStudies": "Casestudier",
+    "resources": "Ressurser"
+  },
+  "hero": {
+    "badge": "ISO/IEC 42001 Sertifisert Hovedrevisor",
+    "title": "Strategisk SHEQ Hovedrevisor Autoritet",
+    "subtitle": "Ekspert AI-styring og ISO-styringssystemer rådgivning over hele Europa. Vi hjelper organisasjoner med å oppnå sertifiseringseksellens med velprøvde metoder.",
+    "cta": {
+      "primary": "Bestill Strategisk Konsultasjon",
+      "secondary": "Utforsk Tjenester"
+    }
+  },
+  "stats": {
+    "audits": "Vellykkede Revisjoner",
+    "certificationRate": "Sertifiseringsgrad",
+    "countries": "Land",
+    "yearsExcellence": "År med Eksellens"
+  },
+  "services": {
+    "title": "Våre Tjenester",
+    "subtitle": "Omfattende compliance- og styringsløsninger",
+    "aiGovernance": {
+      "title": "AI-revisjoner & Styring",
+      "subtitle": "ISO/IEC 42001 Compliance",
+      "description": "Omfattende revisjon av AI-systemer for compliance, etikk, sikkerhet og algoritmisk transparens. Sørg for at AI-implementeringene dine oppfyller internasjonale standarder."
+    },
+    "picms": {
+      "title": "PICMS Plattform",
+      "subtitle": "ISO Compliance for SMB",
+      "description": "Vår flaggskip SaaS-plattform på picms.com – bygget spesielt for små og mellomstore bedrifter for å administrere ISO-compliance rimelig og effektivt."
+    },
+    "iso9001": {
+      "title": "ISO 9001",
+      "subtitle": "Kvalitetsstyringssystemer",
+      "description": "Ekspertveiledning for implementering og vedlikehold av ISO 9001 kvalitetsstyringssystemer. Oppnå sertifisering og driv kontinuerlig forbedring."
+    },
+    "iso45001": {
+      "title": "ISO 45001",
+      "subtitle": "Arbeidsmiljø & Sikkerhet",
+      "description": "Omfattende implementering av arbeidsmiljøstyringssystemer med ekspertveiledning for sertifiseringssuksess."
+    },
+    "iso14001": {
+      "title": "ISO 14001",
+      "subtitle": "Miljøstyring",
+      "description": "Utvikle robuste miljøstyringssystemer som reduserer fotavtrykket ditt, sikrer compliance og viser bærekraftig lederskap."
+    },
+    "iso27001": {
+      "title": "ISO 27001",
+      "subtitle": "Informasjonssikkerhet",
+      "description": "Beskytt informasjonsaktivene dine med et omfattende ISMS. Kritisk for organisasjoner som håndterer sensitive data og forfølger digital transformasjon."
+    }
+  },
+  "contact": {
+    "title": "Ta Kontakt",
+    "subtitle": "Klar til å diskutere dine compliance-krav? La oss starte en samtale.",
+    "form": {
+      "name": "Fullt Navn",
+      "email": "E-postadresse",
+      "company": "Bedriftsnavn",
+      "phone": "Telefonnummer",
+      "message": "Din Melding",
+      "submit": "Send Melding",
+      "sending": "Sender..."
+    },
+    "info": {
+      "email": "E-post",
+      "phone": "Telefon",
+      "location": "Sted"
+    }
+  },
+  "footer": {
+    "copyright": "Alle rettigheter reservert.",
+    "privacy": "Personvernregler",
+    "terms": "Vilkår for bruk"
+  },
+  "chat": {
+    "title": "Strategisk Rådgiver",
+    "subtitle": "AI-styring & ISO Eksperter",
+    "welcome": "Hei! Jeg er TAC strategisk rådgiver. Jeg kan hjelpe deg med spørsmål om våre AI-styringsrevisjoner, ISO-sertifiseringer og PICMS-plattformen. Hvordan kan jeg hjelpe deg i dag?",
+    "placeholder": "Skriv meldingen din...",
+    "leadForm": {
+      "title": "Ta kontakt med teamet vårt",
+      "description": "Legg igjen detaljene dine, så tar vi kontakt for å diskutere dine behov.",
+      "name": "Ditt navn",
+      "email": "E-postadresse",
+      "company": "Bedriftsnavn",
+      "phone": "Telefonnummer",
+      "submit": "Send",
+      "later": "Senere"
+    }
+  },
+  "cta": {
+    "bookConsultation": "Bestill Strategisk Konsultasjon",
+    "exploreServices": "Utforsk Tjenester",
+    "getInTouch": "Ta Kontakt",
+    "viewServices": "Se Tjenester",
+    "learnMore": "Les mer",
+    "showLess": "Vis mindre"
+  }
+}

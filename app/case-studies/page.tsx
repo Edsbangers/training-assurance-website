@@ -178,19 +178,19 @@ export default function CaseStudies() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
               <div className="text-4xl font-bold text-cyan-400">500+</div>
-              <div className="text-slate-400 mt-1">Audits Completed</div>
+              <div className="text-slate-500 mt-1">Audits Completed</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-emerald-400">100%</div>
-              <div className="text-slate-400 mt-1">Certification Success</div>
+              <div className="text-4xl font-bold text-slate-300">100%</div>
+              <div className="text-slate-500 mt-1">Certification Success</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-purple-400">5</div>
-              <div className="text-slate-400 mt-1">Countries Served</div>
+              <div className="text-4xl font-bold text-blue-400">5</div>
+              <div className="text-slate-500 mt-1">Countries Served</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-orange-400">3+</div>
-              <div className="text-slate-400 mt-1">Years Excellence</div>
+              <div className="text-4xl font-bold text-emerald-400">3+</div>
+              <div className="text-slate-500 mt-1">Years Excellence</div>
             </div>
           </div>
         </div>
@@ -203,7 +203,7 @@ export default function CaseStudies() {
             {caseStudies.map((study, index) => (
               <article
                 key={study.id}
-                className="bg-slate-900/50 border border-slate-800 rounded-2xl overflow-hidden"
+                className="bg-slate-800/50 border border-slate-700 rounded-2xl overflow-hidden"
               >
                 <div className="p-8">
                   {/* Header */}
@@ -222,7 +222,7 @@ export default function CaseStudies() {
                       <h2 className="text-2xl font-bold text-white mb-2">
                         {study.title}
                       </h2>
-                      <p className="text-slate-400">
+                      <p className="text-slate-500">
                         {study.client} &bull; {study.industry}
                       </p>
                     </div>
@@ -236,10 +236,10 @@ export default function CaseStudies() {
                   {/* Content Grid */}
                   <div className="grid md:grid-cols-3 gap-6">
                     {/* Challenge */}
-                    <div className="bg-slate-800/50 rounded-xl p-5">
+                    <div className="bg-slate-950/50 rounded-xl p-5">
                       <h3 className="font-semibold text-white mb-2 flex items-center gap-2">
                         <svg
-                          className="w-5 h-5 text-red-400"
+                          className="w-5 h-5 text-amber-500"
                           fill="none"
                           viewBox="0 0 24 24"
                           stroke="currentColor"
@@ -257,10 +257,10 @@ export default function CaseStudies() {
                     </div>
 
                     {/* Solution */}
-                    <div className="bg-slate-800/50 rounded-xl p-5">
+                    <div className="bg-slate-950/50 rounded-xl p-5">
                       <h3 className="font-semibold text-white mb-2 flex items-center gap-2">
                         <svg
-                          className="w-5 h-5 text-cyan-400"
+                          className="w-5 h-5 text-slate-400"
                           fill="none"
                           viewBox="0 0 24 24"
                           stroke="currentColor"
@@ -278,10 +278,10 @@ export default function CaseStudies() {
                     </div>
 
                     {/* Results */}
-                    <div className="bg-slate-800/50 rounded-xl p-5">
+                    <div className="bg-slate-950/50 rounded-xl p-5">
                       <h3 className="font-semibold text-white mb-2 flex items-center gap-2">
                         <svg
-                          className="w-5 h-5 text-emerald-400"
+                          className="w-5 h-5 text-emerald-500"
                           fill="none"
                           viewBox="0 0 24 24"
                           stroke="currentColor"
@@ -298,7 +298,7 @@ export default function CaseStudies() {
                       <ul className="text-slate-400 text-sm space-y-1">
                         {study.results.map((result, i) => (
                           <li key={i} className="flex items-start gap-2">
-                            <span className="text-emerald-400 mt-1">•</span>
+                            <span className="text-emerald-500 mt-1">•</span>
                             {result}
                           </li>
                         ))}
@@ -313,7 +313,7 @@ export default function CaseStudies() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-cyan-900/20 to-emerald-900/20">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-slate-800/20 to-cyan-500/10">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-4">
             Ready to Become Our Next Success Story?
@@ -325,13 +325,13 @@ export default function CaseStudies() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/#contact"
-              className="px-8 py-3 bg-gradient-to-r from-cyan-500 to-emerald-500 text-white font-semibold rounded-lg hover:opacity-90 transition-opacity"
+              className="px-8 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-lg hover:opacity-90 transition-opacity"
             >
               Start Your Project
             </Link>
             <Link
               href="/#services"
-              className="px-8 py-3 border border-slate-600 text-white font-semibold rounded-lg hover:bg-slate-800 transition-colors"
+              className="px-8 py-3 border border-slate-700 text-white font-semibold rounded-lg hover:bg-slate-800 transition-colors"
             >
               Explore Services
             </Link>
