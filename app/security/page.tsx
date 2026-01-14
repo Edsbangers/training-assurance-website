@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import Image from 'next/image';
+import Navigation from '@/components/Navigation';
+import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
   title: 'Security | Training Assurance Consultancy',
@@ -79,39 +80,7 @@ export default function SecurityPage() {
 
   return (
     <div className="min-h-screen bg-slate-950 text-white">
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-900/80 backdrop-blur-md border-b border-slate-800">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <Link href="/">
-              <Image
-                src="/logo.png"
-                alt="TAC - Training Assurance Consultancy"
-                width={160}
-                height={40}
-                className="h-8 w-auto"
-              />
-            </Link>
-            <div className="flex items-center gap-6">
-              <Link href="/" className="text-slate-400 hover:text-white transition-colors">
-                Home
-              </Link>
-              <Link href="/blog" className="text-slate-400 hover:text-white transition-colors">
-                Insights
-              </Link>
-              <Link href="/security/certifications" className="text-slate-400 hover:text-white transition-colors">
-                Certifications
-              </Link>
-              <Link
-                href="/#contact"
-                className="px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-lg hover:opacity-90 transition-opacity"
-              >
-                Contact Us
-              </Link>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <Navigation />
 
       {/* Hero Section */}
       <section className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
@@ -197,24 +166,7 @@ export default function SecurityPage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-slate-900 border-t border-slate-800 py-8">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-slate-500 text-sm">
-              &copy; {new Date().getFullYear()} Training Assurance Consultancy. All rights reserved.
-            </p>
-            <div className="flex items-center gap-6 text-sm text-slate-500">
-              <Link href="/privacy-policy" className="hover:text-cyan-400 transition-colors">
-                Privacy Policy
-              </Link>
-              <Link href="/terms-of-service" className="hover:text-cyan-400 transition-colors">
-                Terms of Service
-              </Link>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

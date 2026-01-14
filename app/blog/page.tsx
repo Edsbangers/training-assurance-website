@@ -1,7 +1,8 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import Image from 'next/image';
 import { supabaseAdmin } from '@/lib/supabase';
+import Navigation from '@/components/Navigation';
+import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
   title: 'Strategic Insights | Training Assurance Consultancy',
@@ -16,16 +17,14 @@ interface BlogPost {
   slug: string;
   excerpt: string;
   category: string;
-  keywords: string[];
   published_at: string;
-  og_image_url: string | null;
 }
 
 async function getBlogPosts(): Promise<BlogPost[]> {
   try {
     const { data, error } = await supabaseAdmin
       .from('blog_posts')
-      .select('id, title, slug, excerpt, category, keywords, published_at, og_image_url')
+      .select('id, title, slug, excerpt, category, published_at')
       .eq('status', 'published')
       .order('published_at', { ascending: false });
 
@@ -63,42 +62,7 @@ export default async function BlogPage() {
 
   return (
     <div className="min-h-screen bg-slate-950 text-white">
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-900/80 backdrop-blur-md border-b border-slate-800">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <Link href="/">
-              <Image
-                src="/logo.png"
-                alt="TAC - Training Assurance Consultancy"
-                width={160}
-                height={40}
-                className="h-8 w-auto"
-              />
-            </Link>
-            <div className="flex items-center gap-6">
-              <Link href="/" className="text-slate-400 hover:text-white transition-colors">
-                Home
-              </Link>
-              <Link href="/#services" className="text-slate-400 hover:text-white transition-colors">
-                Services
-              </Link>
-              <Link href="/about" className="text-slate-400 hover:text-white transition-colors">
-                About
-              </Link>
-              <Link href="/resources" className="text-slate-400 hover:text-white transition-colors">
-                Resources
-              </Link>
-              <Link
-                href="/#contact"
-                className="px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-lg hover:opacity-90 transition-opacity"
-              >
-                Contact Us
-              </Link>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <Navigation />
 
       {/* Hero Section */}
       <section className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
@@ -147,22 +111,13 @@ export default async function BlogPage() {
                   href={`/blog/${post.slug}`}
                   className="group bg-slate-800/50 border border-slate-700 rounded-2xl overflow-hidden hover:border-cyan-500/50 transition-all hover:-translate-y-1"
                 >
-                  {/* OG Image */}
+                  {/* Header */}
                   <div className="aspect-[1200/630] bg-gradient-to-br from-slate-800 to-slate-700 relative">
-                    {post.og_image_url ? (
-                      <Image
-                        src={post.og_image_url}
-                        alt={post.title}
-                        fill
-                        className="object-cover"
-                      />
-                    ) : (
-                      <div className="absolute inset-0 flex items-center justify-center p-6">
-                        <h3 className="text-lg font-bold text-center text-white/80 line-clamp-3">
-                          {post.title}
-                        </h3>
-                      </div>
-                    )}
+                    <div className="absolute inset-0 flex items-center justify-center p-6">
+                      <h3 className="text-lg font-bold text-center text-white/80 line-clamp-3">
+                        {post.title}
+                      </h3>
+                    </div>
                     <div className="absolute top-4 left-4">
                       <span className="px-3 py-1 bg-cyan-500/90 text-white text-xs font-medium rounded-full">
                         {post.category || 'Industry Insights'}
@@ -227,27 +182,7 @@ export default async function BlogPage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-slate-900 border-t border-slate-800 py-8">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-slate-500 text-sm">
-              &copy; {new Date().getFullYear()} Training Assurance Consultancy. All rights reserved.
-            </p>
-            <div className="flex items-center gap-6 text-sm text-slate-500">
-              <Link href="/privacy-policy" className="hover:text-cyan-400 transition-colors">
-                Privacy Policy
-              </Link>
-              <Link href="/terms-of-service" className="hover:text-cyan-400 transition-colors">
-                Terms of Service
-              </Link>
-              <Link href="/security" className="hover:text-cyan-400 transition-colors">
-                Security
-              </Link>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

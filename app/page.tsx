@@ -2,6 +2,8 @@
 
 import { useState, lazy, Suspense } from 'react';
 import Image from 'next/image';
+import Navigation from '@/components/Navigation';
+import Footer from '@/components/Footer';
 
 // Lazy load components that aren't immediately visible
 const ServicesGrid = lazy(() => import('@/components/ServicesGrid'));
@@ -16,7 +18,6 @@ export default function Home() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -68,70 +69,7 @@ export default function Home() {
         Skip to main content
       </a>
 
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-950/80 backdrop-blur-xl border-b border-slate-800/50" aria-label="Main navigation">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <a href="/" className="flex items-center" aria-label="Training Assurance Consultancy - Home">
-            <Image
-              src="/logo.png"
-              alt="TAC - Training Assurance Consultancy"
-              width={200}
-              height={50}
-              className="h-10 w-auto"
-              priority
-            />
-          </a>
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center gap-8 text-sm">
-            <a href="#services" className="text-slate-400 hover:text-cyan-400 transition-colors">Services</a>
-            <a href="#ai-audit" className="text-slate-400 hover:text-cyan-400 transition-colors">AI Governance</a>
-            <a href="#picms" className="text-slate-400 hover:text-emerald-400 transition-colors">PICMS</a>
-            <a href="#global" className="text-slate-400 hover:text-cyan-400 transition-colors">Global Reach</a>
-            <a href="/about" className="text-slate-400 hover:text-cyan-400 transition-colors">About</a>
-            <a href="/blog" className="text-slate-400 hover:text-cyan-400 transition-colors">Insights</a>
-            <a href="/resources" className="text-slate-400 hover:text-cyan-400 transition-colors">Resources</a>
-            <a href="#contact" className="px-5 py-2.5 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-lg font-medium hover:shadow-lg hover:shadow-cyan-500/25 transition-all">
-              Book Consultation
-            </a>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden p-2 text-slate-400 hover:text-white transition-colors"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
-            aria-expanded={mobileMenuOpen}
-          >
-            {mobileMenuOpen ? (
-              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            ) : (
-              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            )}
-          </button>
-        </div>
-
-        {/* Mobile Menu */}
-        {mobileMenuOpen && (
-          <div className="md:hidden bg-slate-950/95 backdrop-blur-xl border-t border-slate-800/50">
-            <div className="px-6 py-4 space-y-4">
-              <a href="#services" onClick={() => setMobileMenuOpen(false)} className="block text-slate-400 hover:text-cyan-400 transition-colors py-2">Services</a>
-              <a href="#ai-audit" onClick={() => setMobileMenuOpen(false)} className="block text-slate-400 hover:text-cyan-400 transition-colors py-2">AI Governance</a>
-              <a href="#picms" onClick={() => setMobileMenuOpen(false)} className="block text-slate-400 hover:text-emerald-400 transition-colors py-2">PICMS</a>
-              <a href="#global" onClick={() => setMobileMenuOpen(false)} className="block text-slate-400 hover:text-cyan-400 transition-colors py-2">Global Reach</a>
-              <a href="/about" onClick={() => setMobileMenuOpen(false)} className="block text-slate-400 hover:text-cyan-400 transition-colors py-2">About</a>
-              <a href="/blog" onClick={() => setMobileMenuOpen(false)} className="block text-slate-400 hover:text-cyan-400 transition-colors py-2">Insights</a>
-              <a href="/resources" onClick={() => setMobileMenuOpen(false)} className="block text-slate-400 hover:text-cyan-400 transition-colors py-2">Resources</a>
-              <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="block w-full text-center px-5 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-lg font-medium hover:shadow-lg hover:shadow-cyan-500/25 transition-all">
-                Book Consultation
-              </a>
-            </div>
-          </div>
-        )}
-      </nav>
+      <Navigation variant="home" />
 
       {/* Hero Section */}
       <section id="main-content" className="relative min-h-screen flex items-center justify-center pt-20" aria-label="Hero">
@@ -687,62 +625,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="py-12 border-t border-slate-800/50" role="contentinfo">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid md:grid-cols-4 gap-8 mb-12">
-            <div className="md:col-span-2">
-              <div className="mb-4">
-                <Image
-                  src="/logo.png"
-                  alt="TAC - Training Assurance Consultancy"
-                  width={180}
-                  height={45}
-                  className="h-10 w-auto"
-                />
-              </div>
-              <p className="text-slate-500 max-w-md">
-                Strategic SHEQ consultancy and AI governance solutions for forward-thinking organisations.
-                IRCA Registered Principal Auditor. 100% Certification Success Rate.
-              </p>
-            </div>
-
-            <div>
-              <h4 className="font-semibold mb-4">Company</h4>
-              <ul className="space-y-2 text-slate-500">
-                <li><a href="/about" className="hover:text-cyan-400 transition-colors">About Us</a></li>
-                <li><a href="/blog" className="hover:text-cyan-400 transition-colors">Insights</a></li>
-                <li><a href="/resources" className="hover:text-cyan-400 transition-colors">Resources</a></li>
-                <li><a href="#services" className="hover:text-cyan-400 transition-colors">Services</a></li>
-                <li><a href="https://www.picms.com" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-400 transition-colors flex items-center gap-1">PICMS Platform <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg></a></li>
-                <li><a href="#contact" className="hover:text-cyan-400 transition-colors">Contact</a></li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-semibold mb-4">Standards</h4>
-              <ul className="space-y-2 text-slate-500">
-                <li>ISO/IEC 42001</li>
-                <li>ISO 9001</li>
-                <li>ISO 14001</li>
-                <li>ISO 45001</li>
-                <li>ISO 27001</li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="pt-8 border-t border-slate-800/50 flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-slate-500 text-sm">
-              © {new Date().getFullYear()} Training Assurance Consultancy. All rights reserved.
-            </p>
-            <div className="flex items-center gap-6 text-sm text-slate-500">
-              <a href="/privacy-policy" className="hover:text-cyan-400 transition-colors">Privacy Policy</a>
-              <a href="/terms-of-service" className="hover:text-cyan-400 transition-colors">Terms of Service</a>
-              <a href="#contact" className="hover:text-cyan-400 transition-colors">Contact</a>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer variant="full" />
     </main>
   );
 }

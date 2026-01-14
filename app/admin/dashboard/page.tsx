@@ -148,7 +148,7 @@ export default function AdminDashboard() {
     }
   };
 
-  const publishPost = async (postId: string) => {
+  const publishPost = async (postId: string, alsoPublishToSocials: boolean = true) => {
     setPublishingPost(postId);
     try {
       const res = await fetch(`/api/admin/blog/${postId}`, {
@@ -161,6 +161,34 @@ export default function AdminDashboard() {
         setBlogPosts(blogPosts.map((p) =>
           p.id === postId ? { ...p, status: "published", published_at: new Date().toISOString() } : p
         ));
+
+        // Automatically push to socials after publishing
+        if (alsoPublishToSocials) {
+          setPushingToSocials(postId);
+          try {
+            const socialRes = await fetch(`/api/admin/blog/${postId}/push-social`, {
+              method: "POST",
+            });
+            const socialData = await socialRes.json();
+
+            if (socialRes.ok) {
+              // Refresh blog posts to update caption statuses
+              const refreshRes = await fetch("/api/admin/blog");
+              if (refreshRes.ok) {
+                const refreshData = await refreshRes.json();
+                setBlogPosts(refreshData.posts || []);
+              }
+              alert("Successfully published to website and pushed to socials!");
+            } else {
+              alert(`Published to website. Social push failed: ${socialData.error || "Unknown error"}`);
+            }
+          } catch (socialError) {
+            console.error("Push to socials error:", socialError);
+            alert("Published to website. Social push failed - please try Push to Socials button manually.");
+          } finally {
+            setPushingToSocials(null);
+          }
+        }
       }
     } finally {
       setPublishingPost(null);
@@ -612,31 +640,35 @@ export default function AdminDashboard() {
                     )}
 
                     {/* Action Buttons */}
-                    <div className="flex gap-2 pt-4 border-t border-slate-800">
+                    <div className="flex flex-col gap-2 pt-4 border-t border-slate-800">
                       {selectedPost.status === "draft" ? (
                         <button
                           onClick={() => publishPost(selectedPost.id)}
-                          disabled={publishingPost === selectedPost.id}
-                          className="flex-1 px-4 py-2 bg-emerald-500 hover:bg-emerald-600 disabled:bg-emerald-500/50 text-white rounded-lg text-sm font-medium transition-colors"
+                          disabled={publishingPost === selectedPost.id || pushingToSocials === selectedPost.id}
+                          className="w-full px-4 py-2 bg-emerald-500 hover:bg-emerald-600 disabled:bg-emerald-500/50 text-white rounded-lg text-sm font-medium transition-colors"
                         >
-                          {publishingPost === selectedPost.id ? "Publishing..." : "Publish to Website"}
+                          {publishingPost === selectedPost.id || pushingToSocials === selectedPost.id
+                            ? "Publishing & Pushing to Socials..."
+                            : "Publish & Push to Socials"}
                         </button>
                       ) : (
-                        <button
-                          onClick={() => unpublishPost(selectedPost.id)}
-                          disabled={publishingPost === selectedPost.id}
-                          className="flex-1 px-4 py-2 bg-yellow-500 hover:bg-yellow-600 disabled:bg-yellow-500/50 text-white rounded-lg text-sm font-medium transition-colors"
-                        >
-                          {publishingPost === selectedPost.id ? "Updating..." : "Unpublish"}
-                        </button>
+                        <div className="flex gap-2">
+                          <button
+                            onClick={() => unpublishPost(selectedPost.id)}
+                            disabled={publishingPost === selectedPost.id}
+                            className="flex-1 px-4 py-2 bg-yellow-500 hover:bg-yellow-600 disabled:bg-yellow-500/50 text-white rounded-lg text-sm font-medium transition-colors"
+                          >
+                            {publishingPost === selectedPost.id ? "Updating..." : "Unpublish"}
+                          </button>
+                          <button
+                            onClick={() => pushToSocials(selectedPost.id)}
+                            disabled={pushingToSocials === selectedPost.id}
+                            className="flex-1 px-4 py-2 bg-cyan-500 hover:bg-cyan-600 disabled:bg-cyan-500/50 text-white rounded-lg text-sm font-medium transition-colors"
+                          >
+                            {pushingToSocials === selectedPost.id ? "Pushing..." : "Re-push to Socials"}
+                          </button>
+                        </div>
                       )}
-                      <button
-                        onClick={() => pushToSocials(selectedPost.id)}
-                        disabled={pushingToSocials === selectedPost.id}
-                        className="flex-1 px-4 py-2 bg-cyan-500 hover:bg-cyan-600 disabled:bg-cyan-500/50 text-white rounded-lg text-sm font-medium transition-colors"
-                      >
-                        {pushingToSocials === selectedPost.id ? "Pushing..." : "Push to Socials"}
-                      </button>
                     </div>
 
                     {/* Social Captions */}
