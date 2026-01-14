@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import { BLOG_CATEGORIES } from '@/lib/blogAgent';
@@ -20,7 +21,15 @@ interface SocialCaptions {
   instagram?: { caption: string; hashtags: string[] };
 }
 
+interface User {
+  id: string;
+  email: string;
+  name: string;
+}
+
 export default function AuditAgentPage() {
+  const [user, setUser] = useState<User | null>(null);
+  const [loading, setLoading] = useState(true);
   const [topic, setTopic] = useState('');
   const [category, setCategory] = useState('Industry Insights');
   const [keywords, setKeywords] = useState('');
@@ -31,6 +40,39 @@ export default function AuditAgentPage() {
   const [activeTab, setActiveTab] = useState<'editor' | 'preview' | 'social'>('editor');
   const [isSaving, setIsSaving] = useState(false);
   const [savedPostId, setSavedPostId] = useState<string | null>(null);
+  const router = useRouter();
+
+  useEffect(() => {
+    checkAuth();
+  }, []);
+
+  const checkAuth = async () => {
+    try {
+      const res = await fetch('/api/admin/auth');
+      if (res.ok) {
+        const data = await res.json();
+        setUser(data.user);
+      } else {
+        router.push('/admin');
+      }
+    } catch {
+      router.push('/admin');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-[#001233] flex items-center justify-center">
+        <div className="animate-spin w-8 h-8 border-2 border-[#FF8C00] border-t-transparent rounded-full" />
+      </div>
+    );
+  }
+
+  if (!user) {
+    return null;
+  }
 
   const handleGenerate = async () => {
     if (!topic.trim()) return;
