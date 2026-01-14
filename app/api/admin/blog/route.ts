@@ -20,13 +20,20 @@ export async function GET() {
 
     if (error) {
       console.error('Error fetching posts:', error);
-      return NextResponse.json({ error: 'Failed to fetch posts' }, { status: 500 });
+      // Check if it's a table not found error
+      if (error.code === '42P01' || error.message?.includes('does not exist')) {
+        return NextResponse.json({
+          error: 'Blog tables not set up. Please run the database migrations.',
+          details: 'Run the SQL migrations in Supabase SQL Editor: supabase/migrations/001_add_blog_tables.sql'
+        }, { status: 500 });
+      }
+      return NextResponse.json({ error: 'Failed to fetch posts', details: error.message }, { status: 500 });
     }
 
-    return NextResponse.json({ posts });
+    return NextResponse.json({ posts: posts || [] });
   } catch (error) {
     console.error('Blog API error:', error);
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
+    return NextResponse.json({ error: 'Internal server error', details: String(error) }, { status: 500 });
   }
 }
 
