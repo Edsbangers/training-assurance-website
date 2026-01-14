@@ -1,6 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { supabaseAdmin } from '@/lib/supabase';
+import { createClient } from '@supabase/supabase-js';
 import { getAuthUser } from '@/lib/auth';
+
+function getSupabase() {
+  return createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY!,
+    { auth: { autoRefreshToken: false, persistSession: false } }
+  );
+}
 
 // GET - List all blog posts with their social captions
 export async function GET() {
@@ -19,7 +27,8 @@ export async function GET() {
       }, { status: 500 });
     }
 
-    const { data: posts, error } = await supabaseAdmin
+    const supabase = getSupabase();
+    const { data: posts, error } = await supabase
       .from('blog_posts')
       .select(`
         *,
@@ -48,12 +57,16 @@ export async function GET() {
 
 // POST - Create a new blog post
 export async function POST(request: NextRequest) {
-  const user = await getAuthUser();
-  if (!user) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-  }
-
   try {
+    const user = await getAuthUser();
+    if (!user) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    }
+
+    if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY) {
+      return NextResponse.json({ error: 'Server configuration error' }, { status: 500 });
+    }
+
     const body = await request.json();
     const { title, content, excerpt, category, keywords, status } = body;
 
@@ -63,7 +76,8 @@ export async function POST(request: NextRequest) {
       .replace(/[^a-z0-9]+/g, '-')
       .replace(/(^-|-$)/g, '');
 
-    const { data: post, error } = await supabaseAdmin
+    const supabase = getSupabase();
+    const { data: post, error } = await supabase
       .from('blog_posts')
       .insert({
         title,
