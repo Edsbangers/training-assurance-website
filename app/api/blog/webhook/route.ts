@@ -33,7 +33,7 @@ export async function POST(request: NextRequest) {
     // Get the blog post and its social captions
     const { data: blogPost } = await supabaseAdmin
       .from('blog_posts')
-      .select('*')
+      .select('id, title, slug, excerpt, featured_image')
       .eq('id', blogPostId)
       .single();
 
@@ -60,7 +60,7 @@ export async function POST(request: NextRequest) {
         title: blogPost.title,
         url: `${baseUrl}/blog/${blogPost.slug}`,
         excerpt: blogPost.excerpt,
-        ogImageUrl: blogPost.og_image_url || `${baseUrl}/api/og?title=${encodeURIComponent(blogPost.title)}`,
+        ogImageUrl: blogPost.featured_image || `${baseUrl}/api/og?title=${encodeURIComponent(blogPost.title)}`,
       },
       captions: captions.map((c: { platform: string; caption: string; hashtags: string[] }) => ({
         platform: c.platform,

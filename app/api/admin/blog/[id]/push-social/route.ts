@@ -18,7 +18,7 @@ export async function POST(
     // Get the blog post
     const { data: blogPost, error: postError } = await supabaseAdmin
       .from('blog_posts')
-      .select('*')
+      .select('id, title, slug, excerpt, content, featured_image')
       .eq('id', id)
       .single();
 
@@ -59,7 +59,7 @@ export async function POST(
         url: `${baseUrl}/blog/${blogPost.slug}`,
         excerpt: blogPost.excerpt,
         content: blogPost.content,
-        ogImageUrl: blogPost.og_image_url || `${baseUrl}/api/og?title=${encodeURIComponent(blogPost.title)}`,
+        ogImageUrl: blogPost.featured_image || `${baseUrl}/api/og?title=${encodeURIComponent(blogPost.title)}`,
       },
       captions: captions?.map((c: { platform: string; caption: string; hashtags: string[] }) => ({
         platform: c.platform,

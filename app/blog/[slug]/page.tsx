@@ -14,9 +14,9 @@ interface BlogPost {
   excerpt: string;
   author: string;
   category: string;
-  keywords: string[];
+  tags: string[];
   published_at: string;
-  og_image_url: string | null;
+  featured_image: string | null;
 }
 
 interface RelatedPost {
@@ -32,7 +32,7 @@ async function getBlogPost(slug: string): Promise<BlogPost | null> {
   try {
     const { data, error } = await supabaseAdmin
       .from('blog_posts')
-      .select('*')
+      .select('id, title, slug, content, excerpt, author, category, tags, published_at, featured_image')
       .eq('slug', slug)
       .eq('status', 'published')
       .single();
@@ -83,12 +83,12 @@ export async function generateMetadata({
     };
   }
 
-  const ogImageUrl = post.og_image_url || `https://www.trainingassuranceconsultancy.com/api/og?title=${encodeURIComponent(post.title)}&category=${encodeURIComponent(post.category || 'Industry Insights')}`;
+  const ogImageUrl = post.featured_image || `https://www.trainingassuranceconsultancy.com/api/og?title=${encodeURIComponent(post.title)}&category=${encodeURIComponent(post.category || 'Industry Insights')}`;
 
   return {
     title: `${post.title} | TAC Strategic Insights`,
     description: post.excerpt,
-    keywords: post.keywords?.join(', '),
+    keywords: post.tags?.join(', '),
     openGraph: {
       title: post.title,
       description: post.excerpt,
@@ -156,7 +156,7 @@ export default async function BlogPostPage({
       },
     },
     datePublished: post.published_at,
-    keywords: post.keywords?.join(', '),
+    keywords: post.tags?.join(', '),
     articleSection: post.category,
   };
 
@@ -239,17 +239,17 @@ export default async function BlogPostPage({
             dangerouslySetInnerHTML={{ __html: formatContent(post.content) }}
           />
 
-          {/* Keywords */}
-          {post.keywords && post.keywords.length > 0 && (
+          {/* Tags */}
+          {post.tags && post.tags.length > 0 && (
             <div className="mt-12 pt-8 border-t border-slate-700">
               <h3 className="text-sm font-semibold text-slate-500 mb-4">Related Topics</h3>
               <div className="flex flex-wrap gap-2">
-                {post.keywords.map((keyword: string) => (
+                {post.tags.map((tag: string) => (
                   <span
-                    key={keyword}
+                    key={tag}
                     className="px-3 py-1 bg-slate-800 border border-slate-700 rounded-full text-sm text-slate-400"
                   >
-                    {keyword}
+                    {tag}
                   </span>
                 ))}
               </div>

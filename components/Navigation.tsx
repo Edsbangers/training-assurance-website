@@ -21,6 +21,7 @@ export default function Navigation({ variant = 'default' }: NavigationProps) {
   const navLinks: NavLink[] = [
     { href: variant === 'home' ? '#services' : '/#services', label: 'Services' },
     { href: '/about', label: 'About' },
+    { href: '/case-studies', label: 'Case Studies' },
     { href: '/blog', label: 'Insights' },
     { href: '/resources', label: 'Resources' },
   ];
