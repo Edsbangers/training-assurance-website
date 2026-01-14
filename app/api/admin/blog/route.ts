@@ -4,12 +4,21 @@ import { getAuthUser } from '@/lib/auth';
 
 // GET - List all blog posts with their social captions
 export async function GET() {
-  const user = await getAuthUser();
-  if (!user) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-  }
-
   try {
+    const user = await getAuthUser();
+    if (!user) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    }
+
+    // Check env vars are set
+    if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY) {
+      console.error('Missing Supabase env vars');
+      return NextResponse.json({
+        error: 'Server configuration error',
+        details: 'Supabase environment variables not configured'
+      }, { status: 500 });
+    }
+
     const { data: posts, error } = await supabaseAdmin
       .from('blog_posts')
       .select(`
