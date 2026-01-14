@@ -1,33 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { supabaseAdmin } from '@/lib/supabase';
-import { cookies } from 'next/headers';
-
-// Verify admin session
-async function verifyAdmin() {
-  const cookieStore = await cookies();
-  const sessionId = cookieStore.get('admin_session')?.value;
-
-  if (!sessionId) {
-    return null;
-  }
-
-  const { data: session } = await supabaseAdmin
-    .from('admin_sessions')
-    .select('*, admin_users(*)')
-    .eq('session_id', sessionId)
-    .gt('expires_at', new Date().toISOString())
-    .single();
-
-  return session?.admin_users || null;
-}
+import { getAuthUser } from '@/lib/auth';
 
 // GET - Get a single blog post
 export async function GET(
   request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
 ) {
-  const admin = await verifyAdmin();
-  if (!admin) {
+  const user = await getAuthUser();
+  if (!user) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
@@ -59,8 +40,8 @@ export async function PATCH(
   request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
 ) {
-  const admin = await verifyAdmin();
-  if (!admin) {
+  const user = await getAuthUser();
+  if (!user) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
@@ -99,8 +80,8 @@ export async function DELETE(
   request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
 ) {
-  const admin = await verifyAdmin();
-  if (!admin) {
+  const user = await getAuthUser();
+  if (!user) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
