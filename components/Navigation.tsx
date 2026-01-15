@@ -20,6 +20,7 @@ export default function Navigation({ variant = 'default' }: NavigationProps) {
   // Same navigation items for ALL pages - consistent experience
   const navLinks: NavLink[] = [
     { href: variant === 'home' ? '#services' : '/#services', label: 'Services' },
+    { href: '/software-solutions', label: 'Software' },
     { href: '/about', label: 'About' },
     { href: '/case-studies', label: 'Case Studies' },
     { href: '/blog', label: 'Insights' },

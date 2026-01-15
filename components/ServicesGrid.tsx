@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 
 interface Service {
   id: string;
@@ -11,6 +12,7 @@ interface Service {
   features: string[];
   gradient: string;
   borderColor: string;
+  link?: string;
 }
 
 const services: Service[] = [
@@ -52,7 +54,29 @@ const services: Service[] = [
       'Real-time compliance dashboards'
     ],
     gradient: 'from-cyan-500 to-blue-600',
-    borderColor: 'hover:border-cyan-500/50'
+    borderColor: 'hover:border-cyan-500/50',
+    link: '/picms'
+  },
+  {
+    id: 'bespoke-software',
+    icon: (
+      <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+      </svg>
+    ),
+    title: 'Bespoke Software',
+    subtitle: 'Custom SaaS Solutions',
+    description: 'Tailored software solutions designed to address your specific business challenges. Our bespoke systems have helped businesses increase productivity by 60%.',
+    features: [
+      'Custom compliance management systems',
+      'Workflow automation & integration',
+      'AI-powered business tools',
+      'Training & learning platforms',
+      'Ongoing support & evolution'
+    ],
+    gradient: 'from-purple-500 to-cyan-500',
+    borderColor: 'hover:border-purple-500/50',
+    link: '/software-solutions'
   },
   {
     id: 'iso-9001',
@@ -180,18 +204,31 @@ export default function ServicesGrid() {
             </div>
           </div>
 
-          {/* Expand Indicator */}
-          <div className="flex items-center gap-2 mt-4 text-sm text-cyan-500">
-            <span>{expandedId === service.id ? 'Show less' : 'Learn more'}</span>
-            <svg
-              className={`w-4 h-4 transition-transform duration-300 ${expandedId === service.id ? 'rotate-180' : ''}`}
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
+          {/* Expand Indicator or Link */}
+          {service.link ? (
+            <Link
+              href={service.link}
+              className="flex items-center gap-2 mt-4 text-sm text-cyan-500 hover:text-cyan-400"
+              onClick={(e) => e.stopPropagation()}
             >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-            </svg>
-          </div>
+              <span>View details</span>
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </Link>
+          ) : (
+            <div className="flex items-center gap-2 mt-4 text-sm text-cyan-500">
+              <span>{expandedId === service.id ? 'Show less' : 'Learn more'}</span>
+              <svg
+                className={`w-4 h-4 transition-transform duration-300 ${expandedId === service.id ? 'rotate-180' : ''}`}
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </div>
+          )}
 
           {/* Gradient Border Effect on Hover */}
           <div className={`absolute inset-0 rounded-2xl bg-gradient-to-r ${service.gradient} opacity-0 group-hover:opacity-10 transition-opacity pointer-events-none`} />
