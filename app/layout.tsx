@@ -31,11 +31,20 @@ export const metadata: Metadata = {
     siteName: "Training Assurance Consultancy",
     title: "Training Assurance Consultancy | Strategic SHEQ Lead Auditor Authority",
     description: "Strategic SHEQ Lead Auditor Authority. Expert consultancy in AI Governance, Quality, Environmental, Health & Safety, and Information Security management systems.",
+    images: [
+      {
+        url: "https://www.trainingassuranceconsultancy.com/api/og?title=Training%20Assurance%20Consultancy&category=Strategic%20SHEQ%20Lead%20Auditor%20Authority",
+        width: 1200,
+        height: 630,
+        alt: "Training Assurance Consultancy - ISO Compliance & AI Governance Experts",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Training Assurance Consultancy | Strategic SHEQ Lead Auditor Authority",
     description: "Strategic SHEQ Lead Auditor Authority. Expert consultancy in AI Governance and ISO management systems across Europe.",
+    images: ["https://www.trainingassuranceconsultancy.com/api/og?title=Training%20Assurance%20Consultancy&category=Strategic%20SHEQ%20Lead%20Auditor%20Authority"],
   },
 };
 
