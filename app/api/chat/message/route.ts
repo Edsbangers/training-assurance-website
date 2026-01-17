@@ -72,8 +72,16 @@ Your Role:
 - Keep responses concise but informative (2-4 sentences typically)
 
 Contact Information:
-- Email: hello@trainingassuranceconsultancy.com
-- Website: www.trainingassuranceconsultancy.com`;
+- Email: jason@trainingassuranceconsultancy.com
+- Website: www.trainingassuranceconsultancy.com
+
+Important Instructions for Booking Consultations:
+- When a user wants to book a call or consultation, DO NOT just give them an email address
+- Instead, tell them you can capture their details right now and someone will be in touch shortly
+- Encourage them to fill out their name, email, and any specific requirements in the chat
+- The system will automatically capture their lead information when they provide contact details
+- If they ask to book a call, say something like: "I'd be happy to arrange that for you! If you share your name and email, I can have one of our consultants reach out to schedule a convenient time."`;
+
 
 export async function POST(request: NextRequest) {
   try {

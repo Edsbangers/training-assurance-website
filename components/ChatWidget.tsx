@@ -31,7 +31,7 @@ const followUpPrompts: QuickAction[] = [
   { label: "Tell me more", message: "Can you tell me more about this?" },
   { label: "How does it work?", message: "How does this process work in practice?" },
   { label: "Get started", message: "I'm interested - how do I get started?" },
-  { label: "Book a call", message: "I'd like to book a consultation to discuss my needs" },
+  { label: "Book a call", message: "__BOOK_CALL__" }, // Special marker to trigger lead form
 ];
 
 export default function ChatWidget() {
@@ -135,6 +135,22 @@ export default function ChatWidget() {
       await initConversation();
     }
     setShowQuickActions(false);
+
+    // Special handling for "Book a call" - show lead form directly
+    if (action.message === "__BOOK_CALL__") {
+      setMessages((prev) => [
+        ...prev,
+        { id: crypto.randomUUID(), role: "user", content: "I'd like to book a consultation" },
+        {
+          id: crypto.randomUUID(),
+          role: "assistant",
+          content: "I'd be happy to arrange a consultation for you. Please fill in your details below and one of our consultants will reach out to schedule a convenient time."
+        },
+      ]);
+      setShowLeadForm(true);
+      return;
+    }
+
     // Simulate sending the message
     setInputValue(action.message);
     // Small delay to let state update, then submit
@@ -179,7 +195,7 @@ export default function ChatWidget() {
           {
             id: crypto.randomUUID(),
             role: "assistant",
-            content: "I apologise, but I'm having trouble responding right now. Please try again or contact us directly at hello@trainingassuranceconsultancy.com",
+            content: "I apologise, but I'm having trouble responding right now. Please try again or contact us directly at jason@trainingassuranceconsultancy.com",
           },
         ]);
       }
