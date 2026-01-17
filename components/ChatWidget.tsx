@@ -27,6 +27,13 @@ const quickActions: QuickAction[] = [
   { label: "Bespoke Software", message: "Tell me about your bespoke software solutions, including AI-powered agentic tools and website hosting optimisation" },
 ];
 
+const followUpPrompts: QuickAction[] = [
+  { label: "Tell me more", message: "Can you tell me more about this?" },
+  { label: "How does it work?", message: "How does this process work in practice?" },
+  { label: "Get started", message: "I'm interested - how do I get started?" },
+  { label: "Book a call", message: "I'd like to book a consultation to discuss my needs" },
+];
+
 export default function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
@@ -336,10 +343,26 @@ export default function ChatWidget() {
               </div>
             ))}
 
-            {/* Quick Action Buttons */}
+            {/* Quick Action Buttons - Initial */}
             {showQuickActions && messages.length > 0 && !isLoading && (
               <div className="flex flex-wrap gap-2">
                 {quickActions.map((action) => (
+                  <button
+                    key={action.label}
+                    type="button"
+                    onClick={() => handleQuickAction(action)}
+                    className="text-xs bg-slate-800 hover:bg-slate-700 border border-slate-600 hover:border-cyan-500/50 text-slate-300 hover:text-white px-3 py-1.5 rounded-full transition-all"
+                  >
+                    {action.label}
+                  </button>
+                ))}
+              </div>
+            )}
+
+            {/* Follow-up Prompts - After first interaction */}
+            {!showQuickActions && messages.length > 2 && !isLoading && !showLeadForm && (
+              <div className="flex flex-wrap gap-2">
+                {followUpPrompts.map((action) => (
                   <button
                     key={action.label}
                     type="button"
