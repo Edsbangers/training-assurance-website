@@ -22,14 +22,22 @@ Our Services:
    - Ethical AI implementation
    - AI audit services for organisations using AI systems
 
-2. ISO Certifications:
+2. AI Business Process Audits
+   - Comprehensive analysis of your existing business processes
+   - Identify inefficiencies and bottlenecks holding your business back
+   - Discover opportunities for automation and AI integration
+   - Recommendations to increase outputs and productivity
+   - Roadmap for implementing efficiency improvements
+   - Help businesses understand where AI and automation can add the most value
+
+3. ISO Certifications:
    - ISO 9001 (Quality Management)
    - ISO 14001 (Environmental Management)
    - ISO 45001 (Occupational Health & Safety)
    - ISO 27001 (Information Security)
    - Integrated Management Systems (IMS)
 
-3. Bespoke Software Solutions
+4. Bespoke Software Solutions
    - Custom-built software tailored to your specific business challenges
    - AI-powered agentic solutions that automate workflows and increase productivity
    - Website hosting and optimisation services
@@ -39,7 +47,7 @@ Our Services:
    - Training and learning management platforms
    - Ongoing support and continuous evolution of your systems
 
-4. PICMS Platform (Coming Soon)
+5. PICMS Platform (Coming Soon)
    - Our SaaS compliance management platform currently in development
    - Designed specifically for UK SMEs
    - Will manage multiple ISO standards in one platform

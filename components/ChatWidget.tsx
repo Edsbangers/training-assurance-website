@@ -23,8 +23,8 @@ interface QuickAction {
 const quickActions: QuickAction[] = [
   { label: "ISO Certification", message: "I'd like to learn about ISO certification for my business" },
   { label: "AI Governance", message: "Tell me about AI governance and ISO 42001" },
+  { label: "AI Audits", message: "Tell me about your AI audits service - I want to understand how you can analyse my business processes to find efficiencies and increase outputs" },
   { label: "Bespoke Software", message: "Tell me about your bespoke software solutions, including AI-powered agentic tools and website hosting optimisation" },
-  { label: "Get a Quote", message: "I'd like to get a quote for your services" },
 ];
 
 export default function ChatWidget() {
