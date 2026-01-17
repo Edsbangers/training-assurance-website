@@ -74,7 +74,7 @@ export async function POST(request: NextRequest) {
             .update({ last_activity: new Date().toISOString() })
             .eq("session_id", sessionId);
 
-          // Update total visitors only
+          // Update total visitors - create row if it doesn't exist
           const { data: analytics } = await supabaseAdmin
             .from("analytics_daily")
             .select("total_visitors")
@@ -86,6 +86,16 @@ export async function POST(request: NextRequest) {
               .from("analytics_daily")
               .update({ total_visitors: (analytics.total_visitors || 0) + 1 })
               .eq("date", today);
+          } else {
+            // Create today's row if first activity is from a returning visitor
+            await supabaseAdmin.from("analytics_daily").insert({
+              date: today,
+              total_visitors: 1,
+              unique_visitors: 0,
+              page_views: 0,
+              chat_sessions: 0,
+              leads_captured: 0,
+            });
           }
         }
         break;
