@@ -13,6 +13,7 @@ interface Service {
   gradient: string;
   borderColor: string;
   link?: string;
+  comingSoon?: boolean;
 }
 
 const services: Service[] = [
@@ -45,7 +46,7 @@ const services: Service[] = [
     ),
     title: 'PICMS Platform',
     subtitle: 'ISO Compliance for UK SMEs',
-    description: 'Our flagship SaaS platform at picms.com – built specifically for UK small and medium enterprises to manage ISO compliance affordably and efficiently.',
+    description: 'Our flagship SaaS platform – built specifically for UK small and medium enterprises to manage ISO compliance affordably and efficiently.',
     features: [
       'Purpose-built for UK SMEs',
       'Multi-standard management (9001, 14001, 45001, 27001)',
@@ -55,7 +56,7 @@ const services: Service[] = [
     ],
     gradient: 'from-cyan-500 to-blue-600',
     borderColor: 'hover:border-cyan-500/50',
-    link: '/picms'
+    comingSoon: true
   },
   {
     id: 'bespoke-software',
@@ -171,6 +172,13 @@ export default function ServicesGrid() {
           className={`group relative p-6 rounded-2xl bg-gradient-to-br from-slate-800/80 to-slate-950/80 border border-slate-700/50 ${service.borderColor} transition-all duration-300 hover:-translate-y-1 cursor-pointer`}
           onClick={() => setExpandedId(expandedId === service.id ? null : service.id)}
         >
+          {/* Coming Soon Badge */}
+          {service.comingSoon && (
+            <div className="absolute top-4 right-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
+              Coming Soon
+            </div>
+          )}
+
           {/* Icon */}
           <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${service.gradient} flex items-center justify-center text-white mb-5 shadow-lg`}>
             {service.icon}
@@ -205,7 +213,14 @@ export default function ServicesGrid() {
           </div>
 
           {/* Expand Indicator or Link */}
-          {service.link ? (
+          {service.comingSoon ? (
+            <div className="flex items-center gap-2 mt-4 text-sm text-amber-500">
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span>In Development</span>
+            </div>
+          ) : service.link ? (
             <Link
               href={service.link}
               className="flex items-center gap-2 mt-4 text-sm text-cyan-500 hover:text-cyan-400"
