@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 
 interface Message {
   id: string;
@@ -15,6 +15,18 @@ interface LeadForm {
   phone: string;
 }
 
+interface QuickAction {
+  label: string;
+  message: string;
+}
+
+const quickActions: QuickAction[] = [
+  { label: "ISO Certification", message: "I'd like to learn about ISO certification for my business" },
+  { label: "AI Governance", message: "Tell me about AI governance and ISO 42001" },
+  { label: "PICMS Platform", message: "What is the PICMS platform and how can it help us?" },
+  { label: "Get a Quote", message: "I'd like to get a quote for your services" },
+];
+
 export default function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
@@ -24,6 +36,9 @@ export default function ChatWidget() {
   const [messageCount, setMessageCount] = useState(0);
   const [showLeadForm, setShowLeadForm] = useState(false);
   const [leadCaptured, setLeadCaptured] = useState(false);
+  const [showQuickActions, setShowQuickActions] = useState(true);
+  const [showGreetingBubble, setShowGreetingBubble] = useState(false);
+  const [greetingDismissed, setGreetingDismissed] = useState(false);
   const [leadForm, setLeadForm] = useState<LeadForm>({
     name: "",
     email: "",
@@ -41,9 +56,31 @@ export default function ChatWidget() {
     scrollToBottom();
   }, [messages]);
 
-  // Check if we should show lead form after 3 user messages
+  // Auto-show greeting bubble after 5 seconds for new visitors
   useEffect(() => {
-    if (messageCount >= 3 && !leadCaptured && !showLeadForm) {
+    const hasSeenGreeting = sessionStorage.getItem("tac_greeting_shown");
+    if (hasSeenGreeting || greetingDismissed) return;
+
+    const timer = setTimeout(() => {
+      if (!isOpen) {
+        setShowGreetingBubble(true);
+        sessionStorage.setItem("tac_greeting_shown", "true");
+      }
+    }, 5000);
+
+    return () => clearTimeout(timer);
+  }, [isOpen, greetingDismissed]);
+
+  // Hide quick actions after first message
+  useEffect(() => {
+    if (messageCount > 0) {
+      setShowQuickActions(false);
+    }
+  }, [messageCount]);
+
+  // Check if we should show lead form after 2 user messages (reduced from 3)
+  useEffect(() => {
+    if (messageCount >= 2 && !leadCaptured && !showLeadForm) {
       setShowLeadForm(true);
     }
   }, [messageCount, leadCaptured, showLeadForm]);
@@ -68,7 +105,7 @@ export default function ChatWidget() {
             id: "welcome",
             role: "assistant",
             content:
-              "Hello! I'm the TAC assistant. I can help you with questions about our AI governance audits, ISO certifications, and PICMS platform. How can I assist you today?",
+              "Hi there! What are you looking to achieve today? Whether it's ISO certification, AI governance, or streamlining your compliance processes - I'm here to help you find the right solution.",
           },
         ]);
       }
@@ -79,9 +116,25 @@ export default function ChatWidget() {
 
   const handleOpen = () => {
     setIsOpen(true);
+    setShowGreetingBubble(false);
+    setGreetingDismissed(true);
     if (!conversationId) {
       initConversation();
     }
+  };
+
+  const handleQuickAction = async (action: QuickAction) => {
+    if (!conversationId) {
+      await initConversation();
+    }
+    setShowQuickActions(false);
+    // Simulate sending the message
+    setInputValue(action.message);
+    // Small delay to let state update, then submit
+    setTimeout(() => {
+      const form = document.getElementById("chat-form") as HTMLFormElement;
+      if (form) form.requestSubmit();
+    }, 100);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -176,11 +229,43 @@ export default function ChatWidget() {
 
   return (
     <>
+      {/* Greeting Bubble */}
+      {showGreetingBubble && !isOpen && (
+        <div className="fixed bottom-24 right-6 z-50 animate-fade-in-up">
+          <div className="relative bg-slate-900 border border-cyan-500/30 rounded-2xl rounded-br-md p-4 shadow-xl max-w-[280px]">
+            <button
+              type="button"
+              onClick={() => {
+                setShowGreetingBubble(false);
+                setGreetingDismissed(true);
+              }}
+              className="absolute -top-2 -right-2 w-6 h-6 bg-slate-800 border border-slate-600 rounded-full flex items-center justify-center text-slate-400 hover:text-white transition-colors"
+              aria-label="Dismiss"
+            >
+              <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            <p className="text-white text-sm mb-3">
+              Looking for help with ISO certification or AI governance?
+            </p>
+            <button
+              onClick={handleOpen}
+              className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-sm font-medium py-2 px-4 rounded-lg hover:opacity-90 transition-opacity"
+            >
+              Chat with us
+            </button>
+          </div>
+          {/* Arrow pointing to chat button */}
+          <div className="absolute -bottom-2 right-6 w-4 h-4 bg-slate-900 border-r border-b border-cyan-500/30 transform rotate-45" />
+        </div>
+      )}
+
       {/* Chat Button */}
       <button
         onClick={handleOpen}
         className={`fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center ${
-          !isOpen ? "animate-pulse" : ""
+          showGreetingBubble ? "animate-bounce" : !isOpen ? "animate-pulse" : ""
         }`}
         aria-label="Open chat"
       >
@@ -250,6 +335,22 @@ export default function ChatWidget() {
                 </div>
               </div>
             ))}
+
+            {/* Quick Action Buttons */}
+            {showQuickActions && messages.length > 0 && !isLoading && (
+              <div className="flex flex-wrap gap-2">
+                {quickActions.map((action) => (
+                  <button
+                    key={action.label}
+                    type="button"
+                    onClick={() => handleQuickAction(action)}
+                    className="text-xs bg-slate-800 hover:bg-slate-700 border border-slate-600 hover:border-cyan-500/50 text-slate-300 hover:text-white px-3 py-1.5 rounded-full transition-all"
+                  >
+                    {action.label}
+                  </button>
+                ))}
+              </div>
+            )}
 
             {/* Loading indicator */}
             {isLoading && (
@@ -326,7 +427,7 @@ export default function ChatWidget() {
           </div>
 
           {/* Input */}
-          <form onSubmit={handleSubmit} className="p-3 border-t border-slate-700">
+          <form id="chat-form" onSubmit={handleSubmit} className="p-3 border-t border-slate-700">
             <div className="flex gap-2">
               <input
                 type="text"
