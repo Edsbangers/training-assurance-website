@@ -53,6 +53,7 @@ export default function ChatWidget() {
     phone: "",
   });
   const [leadSubmitting, setLeadSubmitting] = useState(false);
+  const [leadSource, setLeadSource] = useState<string>("chat");
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {
@@ -147,6 +148,7 @@ export default function ChatWidget() {
           content: "I'd be happy to arrange a consultation for you. Please fill in your details below and one of our consultants will reach out to schedule a convenient time."
         },
       ]);
+      setLeadSource("book_a_call");
       setShowLeadForm(true);
       return;
     }
@@ -228,6 +230,7 @@ export default function ChatWidget() {
           ...leadForm,
           conversationId,
           sessionId: localStorage.getItem("tac_session_id"),
+          source: leadSource,
         }),
       });
 

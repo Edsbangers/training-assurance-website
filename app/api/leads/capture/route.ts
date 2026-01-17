@@ -3,7 +3,7 @@ import { supabaseAdmin } from "@/lib/supabase";
 
 export async function POST(request: NextRequest) {
   try {
-    const { name, email, company, phone, conversationId, sessionId } = await request.json();
+    const { name, email, company, phone, conversationId, sessionId, source } = await request.json();
 
     if (!name || !email) {
       return NextResponse.json({ error: "Name and email are required" }, { status: 400 });
@@ -20,6 +20,9 @@ export async function POST(request: NextRequest) {
       visitorId = visitor?.id;
     }
 
+    // Determine lead source label
+    const leadSourceLabel = source === "book_a_call" ? "Book a Call" : "Chat Widget";
+
     // Create lead
     const { data: lead, error: leadError } = await supabaseAdmin
       .from("leads")
@@ -30,7 +33,7 @@ export async function POST(request: NextRequest) {
         phone: phone || null,
         conversation_id: conversationId || null,
         visitor_id: visitorId,
-        lead_source: "chat",
+        lead_source: source || "chat",
         status: "new",
       })
       .select("id")
@@ -62,8 +65,9 @@ export async function POST(request: NextRequest) {
           email,
           company: company || "Not provided",
           phone: phone || "Not provided",
-          source: "Chat Widget Lead Capture",
-          message: `New lead captured from chat widget.\n\nName: ${name}\nEmail: ${email}\nCompany: ${company || "Not provided"}\nPhone: ${phone || "Not provided"}`,
+          source: leadSourceLabel,
+          _subject: `New Lead: ${leadSourceLabel} - ${name}`,
+          message: `New lead captured from ${leadSourceLabel}.\n\nName: ${name}\nEmail: ${email}\nCompany: ${company || "Not provided"}\nPhone: ${phone || "Not provided"}\nSource: ${leadSourceLabel}`,
         }),
       });
 
