@@ -23,7 +23,7 @@ interface QuickAction {
 const quickActions: QuickAction[] = [
   { label: "ISO Certification", message: "I'd like to learn about ISO certification for my business" },
   { label: "AI Governance", message: "Tell me about AI governance and ISO 42001" },
-  { label: "Custom Software", message: "Tell me about your bespoke software solutions" },
+  { label: "Bespoke Software", message: "Tell me about your bespoke software solutions, including AI-powered agentic tools and website hosting optimisation" },
   { label: "Get a Quote", message: "I'd like to get a quote for your services" },
 ];
 
