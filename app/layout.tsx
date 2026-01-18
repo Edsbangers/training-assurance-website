@@ -59,6 +59,7 @@ export default function RootLayout({
       <head>
         <SchemaMarkup type="organization" />
         <SchemaMarkup type="professionalService" />
+        <SchemaMarkup type="faqPage" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}

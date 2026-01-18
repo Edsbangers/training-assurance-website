@@ -225,6 +225,38 @@ export default function SchemaMarkup({ type, data }: SchemaMarkupProps) {
             text: 'We provide consultancy services across the UK, Ireland, Netherlands, Norway, and Italy. Our team can support organisations throughout Europe with both on-site and remote engagements.',
           },
         },
+        {
+          '@type': 'Question',
+          name: 'What is PICMS?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'PICMS (Proactive Intelligent Compliance Management System) is our ISO compliance management platform built specifically for UK SMEs. It helps businesses manage ISO 9001, 14001, 45001, and 27001 certifications with AI-powered insights, real-time dashboards, and automated audit scheduling.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'How much does ISO consultancy cost?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Our consultancy services are tailored to your specific needs, so costs vary based on scope, complexity, and the standards you\'re pursuing. We offer free initial consultations to understand your requirements and provide a detailed quote. Contact us to discuss your project.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'What is an AI audit?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'An AI audit is a comprehensive assessment of your artificial intelligence systems to ensure they meet ethical, legal, and operational standards. Our AI audits cover algorithmic transparency, bias detection, risk management, and ISO/IEC 42001 compliance.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Do you provide bespoke software solutions?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Yes, we develop custom software solutions tailored to your business challenges. Our bespoke systems include AI-powered agentic tools, compliance management platforms, training systems, and workflow automation. Our solutions have helped clients achieve 60% productivity improvements.',
+          },
+        },
       ],
       ...data,
     },
