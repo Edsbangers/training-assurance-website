@@ -185,6 +185,56 @@ export default function Home() {
           }>
             <ServicesGrid />
           </Suspense>
+
+          {/* Additional Standards Section */}
+          <div className="mt-16 p-8 rounded-2xl bg-gradient-to-br from-slate-800/50 to-slate-900/50 border border-slate-700/50">
+            <div className="text-center mb-8">
+              <h3 className="text-2xl font-bold mb-2">We Also Support These Standards</h3>
+              <p className="text-slate-400">Comprehensive expertise across the full ISO ecosystem</p>
+            </div>
+
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+              {[
+                { code: 'ISO 50001', name: 'Energy Management', icon: '⚡', certifiable: true },
+                { code: 'ISO 42001', name: 'AI Management', icon: '🤖', certifiable: true },
+                { code: 'ISO 22000', name: 'Food Safety', icon: '🍽️', certifiable: true },
+                { code: 'ISO 13485', name: 'Medical Devices', icon: '🏥', certifiable: true },
+                { code: 'ISO 22301', name: 'Business Continuity', icon: '🔄', certifiable: true },
+                { code: 'ISO 14064', name: 'Carbon Footprint', icon: '🌍', certifiable: true },
+                { code: 'ISO 26000', name: 'Social Responsibility', icon: '🤝', certifiable: false },
+                { code: 'ISO 31000', name: 'Risk Management', icon: '⚖️', certifiable: false },
+                { code: 'ISO 20400', name: 'Sustainable Procurement', icon: '♻️', certifiable: false },
+              ].map((standard) => (
+                <div
+                  key={standard.code}
+                  className="group p-4 rounded-xl bg-slate-800/50 border border-slate-700/50 hover:border-cyan-500/30 transition-all text-center"
+                >
+                  <div className="text-3xl mb-2">{standard.icon}</div>
+                  <div className="font-semibold text-sm text-white">{standard.code}</div>
+                  <div className="text-xs text-slate-400 mt-1">{standard.name}</div>
+                  <div className={`text-xs mt-2 px-2 py-0.5 rounded-full inline-block ${
+                    standard.certifiable
+                      ? 'bg-emerald-500/20 text-emerald-400'
+                      : 'bg-slate-600/50 text-slate-400'
+                  }`}>
+                    {standard.certifiable ? 'Certifiable' : 'Guidance'}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="text-center mt-8">
+              <a
+                href="#contact"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-slate-700/50 border border-slate-600 rounded-xl text-sm font-medium hover:bg-slate-700 hover:border-cyan-500/50 transition-all"
+              >
+                <span>Need help with a specific standard?</span>
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </a>
+            </div>
+          </div>
         </div>
       </section>
 
