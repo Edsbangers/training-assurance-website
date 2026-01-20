@@ -249,12 +249,15 @@ export default function Home() {
             <div>
               <span className="text-cyan-400 font-medium tracking-widest text-sm uppercase">AI Governance</span>
               <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6">
-                De-risking AI Implementation
+                De-risk Your AI Investment
               </h2>
-              <p className="text-slate-400 text-lg mb-8 leading-relaxed">
-                As AI systems become integral to business operations, ensuring their safety,
-                fairness, and compliance is paramount. Our AI auditing services help you
-                navigate this complex landscape with confidence.
+              <p className="text-slate-400 text-lg mb-4 leading-relaxed">
+                AI adoption without proper governance exposes your business to reputational damage,
+                regulatory penalties, and operational failures. We help you deploy AI with confidence.
+              </p>
+              <p className="text-slate-500 text-base mb-8 leading-relaxed">
+                Aligned with UK AI Safety Institute guidelines and ISO/IEC 42001, our audits ensure
+                your AI systems are ethical, transparent, and compliant—protecting your brand and bottom line.
               </p>
 
               <div className="space-y-6">
@@ -265,21 +268,20 @@ export default function Home() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-lg mb-1">ISO/IEC 42001 Compliance</h3>
-                    <p className="text-slate-500">Achieve certification for your AI management systems with expert guidance aligned to international standards.</p>
+                    <h3 className="font-semibold text-lg mb-1">Protect Your Reputation</h3>
+                    <p className="text-slate-500">Avoid PR crises from biased algorithms or unexplainable AI decisions that damage customer trust.</p>
                   </div>
                 </div>
 
                 <div className="flex gap-4">
                   <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500/20 to-blue-600/20 border border-cyan-500/30 flex items-center justify-center">
                     <svg className="w-6 h-6 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                     </svg>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-lg mb-1">Algorithmic Transparency</h3>
-                    <p className="text-slate-500">Ensure your AI decisions are explainable, fair, and free from harmful bias with comprehensive auditing.</p>
+                    <h3 className="font-semibold text-lg mb-1">Reduce Regulatory Risk</h3>
+                    <p className="text-slate-500">Stay ahead of evolving AI regulations with proactive compliance aligned to UK and EU frameworks.</p>
                   </div>
                 </div>
 
@@ -290,8 +292,8 @@ export default function Home() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-lg mb-1">Risk &amp; Ethics Assessment</h3>
-                    <p className="text-slate-500">Identify and mitigate potential risks before they impact your business or stakeholders.</p>
+                    <h3 className="font-semibold text-lg mb-1">Board-Ready Assurance</h3>
+                    <p className="text-slate-500">Provide stakeholders and investors with documented evidence that your AI is responsibly governed.</p>
                   </div>
                 </div>
               </div>
@@ -571,6 +573,28 @@ export default function Home() {
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto px-6">
+          {/* Free Resource Banner */}
+          <div className="mb-12 p-6 bg-gradient-to-r from-cyan-500/10 to-blue-600/10 border border-cyan-500/30 rounded-2xl">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center text-2xl">
+                  📋
+                </div>
+                <div>
+                  <h3 className="font-semibold text-white">Free: AI Readiness Checklist</h3>
+                  <p className="text-sm text-slate-400">Is your AI compliant? Get our ISO 42001 readiness assessment.</p>
+                </div>
+              </div>
+              <a
+                href="#contact"
+                onClick={() => setFormData({...formData, interest: 'free-checklist'})}
+                className="px-5 py-2 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-medium rounded-lg text-sm hover:opacity-90 transition-opacity whitespace-nowrap"
+              >
+                Get Free Checklist
+              </a>
+            </div>
+          </div>
+
           <div className="text-center mb-12">
             <span className="text-cyan-400 font-medium tracking-widest text-sm uppercase">Get Started</span>
             <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6">
@@ -633,6 +657,7 @@ export default function Home() {
                   className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-xl focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-colors text-white"
                 >
                   <option value="ai-audit">AI Audit &amp; Governance</option>
+                  <option value="free-checklist">Free AI Readiness Checklist</option>
                   <option value="saas-demo">SaaS Platform Demo</option>
                   <option value="iso-consultancy">ISO Consultancy</option>
                   <option value="combined">Combined Services</option>
