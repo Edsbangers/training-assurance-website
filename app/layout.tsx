@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Analytics from "@/components/Analytics";
@@ -68,6 +69,7 @@ export default function RootLayout({
         <SpeedInsights />
         <VisitorTracker />
         {children}
+        <SpeedInsights />
         <ChatWidget />
       </body>
     </html>
