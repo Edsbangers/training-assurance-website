@@ -6,6 +6,7 @@ import Analytics from "@/components/Analytics";
 import ChatWidget from "@/components/ChatWidget";
 import VisitorTracker from "@/components/VisitorTracker";
 import SchemaMarkup from "@/components/SchemaMarkup";
+import Script from "next/script";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -60,6 +61,18 @@ export default function RootLayout({
         <SchemaMarkup type="organization" />
         <SchemaMarkup type="professionalService" />
         <SchemaMarkup type="faqPage" />
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-JS7XRZKEEZ"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-JS7XRZKEEZ');
+          `}
+        </Script>
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
