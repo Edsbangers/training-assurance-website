@@ -21,7 +21,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Training Assurance Consultancy | Strategic SHEQ Lead Auditor Authority",
-  description: "Strategic SHEQ Lead Auditor Authority. Expert consultancy in AI Governance (ISO/IEC 42001), Quality (ISO 9001), Environmental (ISO 14001), Health & Safety (ISO 45001), and Information Security (ISO 27001). Operating across UK, Ireland, Netherlands, Norway, and Italy.",
+  description: "Strategic SHEQ Lead Auditor Authority specialising in AI Governance & ISO compliance across UK, Ireland, Netherlands, Norway and Italy.",
   keywords: ["Strategic SHEQ Lead Auditor", "AI Governance", "ISO 42001", "ISO compliance", "SHEQ consultancy", "ISO 9001", "ISO 14001", "ISO 45001", "ISO 27001", "UK compliance consultancy", "Lead Auditor", "IRCA auditor", "Construction Safety"],
   authors: [{ name: "Training Assurance Consultancy" }],
   creator: "Training Assurance Consultancy",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     url: "https://www.trainingassuranceconsultancy.com",
     siteName: "Training Assurance Consultancy",
     title: "Training Assurance Consultancy | Strategic SHEQ Lead Auditor Authority",
-    description: "Strategic SHEQ Lead Auditor Authority. Expert consultancy in AI Governance, Quality, Environmental, Health & Safety, and Information Security management systems.",
+    description: "Strategic SHEQ Lead Auditor Authority. Expert consultancy in AI Governance, Quality, Environmental, Health & Safety and Information Security.",
     images: [
       {
         url: "https://www.trainingassuranceconsultancy.com/api/og?title=Training%20Assurance%20Consultancy&category=Strategic%20SHEQ%20Lead%20Auditor%20Authority",

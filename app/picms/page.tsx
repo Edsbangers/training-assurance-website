@@ -5,7 +5,7 @@ import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
   title: 'PICMS Platform | ISO Compliance Management Reimagined',
-  description: 'The complete platform for UK businesses managing ISO 9001, 14001, 45001 & 27001. AI-powered insights, real-time dashboards, and 16+ audit templates. Start your free trial.',
+  description: 'ISO compliance platform for UK businesses. AI-powered insights, real-time dashboards and 16+ audit templates for ISO 9001, 14001, 45001 & 27001.',
   keywords: ['ISO compliance software', 'ISO management system', 'UK SME compliance', 'ISO 9001 software', 'ISO 14001 software', 'compliance management platform', 'ISO 42001', 'AI compliance'],
 };
 

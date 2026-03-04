@@ -5,7 +5,7 @@ import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
   title: 'Bespoke Software Solutions | Training Assurance Consultancy',
-  description: 'Custom SaaS and software solutions tailored to your business needs. Streamline operations, increase productivity, and achieve compliance with our bespoke development services.',
+  description: 'Custom SaaS and software solutions tailored to your business. Streamline operations, boost productivity and achieve compliance with bespoke development.',
   keywords: ['bespoke software', 'custom SaaS', 'business software', 'productivity solutions', 'compliance software', 'workflow automation'],
 };
 
