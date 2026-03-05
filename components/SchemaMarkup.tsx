@@ -39,21 +39,27 @@ export default function SchemaMarkup({ type, data }: SchemaMarkupProps) {
       ),
     },
 
-    webpage: {
-      '@context': 'https://schema.org',
-      '@type': data?.pageType ?? 'WebPage',
-      name: data?.name,
-      description: data?.description,
-      url: data?.url,
-      isPartOf: { '@type': 'WebSite', url: baseUrl },
-      speakable: data?.speakable
-        ? {
-            '@type': 'SpeakableSpecification',
-            cssSelector: data.speakable,
-          }
-        : undefined,
-      ...data,
-    },
+    webpage: (() => {
+      // Destructure known custom fields so they don't leak into the schema output
+      const { pageType, speakable, name, description, url, ...rest } = data ?? {};
+      return {
+        '@context': 'https://schema.org',
+        '@type': pageType ?? 'WebPage',
+        name,
+        description,
+        url,
+        isPartOf: { '@type': 'WebSite', url: baseUrl },
+        ...(speakable
+          ? {
+              speakable: {
+                '@type': 'SpeakableSpecification',
+                cssSelector: Array.isArray(speakable) ? speakable : [speakable],
+              },
+            }
+          : {}),
+        ...rest,
+      };
+    })(),
 
     organization: {
       '@context': 'https://schema.org',
