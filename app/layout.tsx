@@ -70,7 +70,7 @@ export default function RootLayout({
             name: 'Training Assurance Consultancy | Strategic SHEQ Lead Auditor Authority',
             description: 'Strategic SHEQ Lead Auditor Authority specialising in AI Governance & ISO compliance across UK, Ireland, Netherlands, Norway and Italy.',
             url: 'https://www.trainingassuranceconsultancy.com',
-            speakable: ['h1', '.hero-description', '.key-services'],
+            speakable: ['h1', '#main-content p', '#services h2'],
           }}
         />
       </head>
