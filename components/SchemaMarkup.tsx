@@ -1,7 +1,7 @@
 import Script from 'next/script';
 
 interface SchemaMarkupProps {
-  type: 'organization' | 'professionalService' | 'softwareApplication' | 'person' | 'faqPage';
+  type: 'organization' | 'professionalService' | 'softwareApplication' | 'person' | 'faqPage' | 'website' | 'breadcrumb' | 'webpage';
   data?: Record<string, unknown>;
 }
 
@@ -9,6 +9,52 @@ export default function SchemaMarkup({ type, data }: SchemaMarkupProps) {
   const baseUrl = 'https://www.trainingassuranceconsultancy.com';
 
   const schemas: Record<string, object> = {
+    website: {
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: 'Training Assurance Consultancy',
+      url: baseUrl,
+      description: 'Strategic SHEQ Lead Auditor Authority specialising in AI Governance & ISO compliance across UK, Ireland, Netherlands, Norway and Italy.',
+      potentialAction: {
+        '@type': 'SearchAction',
+        target: {
+          '@type': 'EntryPoint',
+          urlTemplate: `${baseUrl}/blog?q={search_term_string}`,
+        },
+        'query-input': 'required name=search_term_string',
+      },
+      ...data,
+    },
+
+    breadcrumb: {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: ((data?.items as Array<{ name: string; url: string }>) ?? []).map(
+        (item, index) => ({
+          '@type': 'ListItem',
+          position: index + 1,
+          name: item.name,
+          item: item.url,
+        })
+      ),
+    },
+
+    webpage: {
+      '@context': 'https://schema.org',
+      '@type': data?.pageType ?? 'WebPage',
+      name: data?.name,
+      description: data?.description,
+      url: data?.url,
+      isPartOf: { '@type': 'WebSite', url: baseUrl },
+      speakable: data?.speakable
+        ? {
+            '@type': 'SpeakableSpecification',
+            cssSelector: data.speakable,
+          }
+        : undefined,
+      ...data,
+    },
+
     organization: {
       '@context': 'https://schema.org',
       '@type': 'Organization',

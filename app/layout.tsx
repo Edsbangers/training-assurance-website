@@ -59,9 +59,20 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <SchemaMarkup type="website" />
         <SchemaMarkup type="organization" />
         <SchemaMarkup type="professionalService" />
         <SchemaMarkup type="faqPage" />
+        <SchemaMarkup
+          type="webpage"
+          data={{
+            pageType: 'WebPage',
+            name: 'Training Assurance Consultancy | Strategic SHEQ Lead Auditor Authority',
+            description: 'Strategic SHEQ Lead Auditor Authority specialising in AI Governance & ISO compliance across UK, Ireland, Netherlands, Norway and Italy.',
+            url: 'https://www.trainingassuranceconsultancy.com',
+            speakable: ['h1', '.hero-description', '.key-services'],
+          }}
+        />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}

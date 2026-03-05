@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import SchemaMarkup from '@/components/SchemaMarkup';
 
 export const metadata: Metadata = {
   title: 'Resources & Guides | Training Assurance Consultancy',
@@ -11,10 +12,25 @@ export const metadata: Metadata = {
   },
 };
 
-export default function ResourcesLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return children;
+const BASE = 'https://www.trainingassuranceconsultancy.com';
+
+export default function ResourcesLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <>
+      <SchemaMarkup
+        type="breadcrumb"
+        data={{ items: [{ name: 'Home', url: BASE }, { name: 'Resources', url: `${BASE}/resources` }] }}
+      />
+      <SchemaMarkup
+        type="webpage"
+        data={{
+          pageType: 'CollectionPage',
+          name: 'Resources & Guides | Training Assurance Consultancy',
+          description: 'Free ISO compliance guides, AI governance frameworks and SHEQ best practices.',
+          url: `${BASE}/resources`,
+        }}
+      />
+      {children}
+    </>
+  );
 }

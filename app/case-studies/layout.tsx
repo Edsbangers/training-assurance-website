@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import SchemaMarkup from '@/components/SchemaMarkup';
 
 export const metadata: Metadata = {
   title: 'Case Studies | Training Assurance Consultancy',
@@ -11,10 +12,25 @@ export const metadata: Metadata = {
   },
 };
 
-export default function CaseStudiesLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return children;
+const BASE = 'https://www.trainingassuranceconsultancy.com';
+
+export default function CaseStudiesLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <>
+      <SchemaMarkup
+        type="breadcrumb"
+        data={{ items: [{ name: 'Home', url: BASE }, { name: 'Case Studies', url: `${BASE}/case-studies` }] }}
+      />
+      <SchemaMarkup
+        type="webpage"
+        data={{
+          pageType: 'CollectionPage',
+          name: 'Case Studies | Training Assurance Consultancy',
+          description: 'Real results from real clients. Explore how we helped organisations achieve ISO certification and transform their compliance operations.',
+          url: `${BASE}/case-studies`,
+        }}
+      />
+      {children}
+    </>
+  );
 }

@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import SchemaMarkup from '@/components/SchemaMarkup';
 
 export const metadata: Metadata = {
   title: 'Terms of Service | Training Assurance Consultancy',
@@ -6,10 +7,16 @@ export const metadata: Metadata = {
   robots: 'noindex, follow',
 };
 
-export default function TermsOfServiceLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return children;
+const BASE = 'https://www.trainingassuranceconsultancy.com';
+
+export default function TermsOfServiceLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <>
+      <SchemaMarkup
+        type="breadcrumb"
+        data={{ items: [{ name: 'Home', url: BASE }, { name: 'Terms of Service', url: `${BASE}/terms-of-service` }] }}
+      />
+      {children}
+    </>
+  );
 }
