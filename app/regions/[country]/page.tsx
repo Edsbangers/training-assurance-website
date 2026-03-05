@@ -129,7 +129,7 @@ export default function RegionHome() {
 
           <div className="bg-slate-800/50 border border-slate-700 rounded-2xl p-8">
             <form
-              action="https://formspree.io/f/xwpkgqgj"
+              action="https://formspree.io/f/xykkgnrk"
               method="POST"
               className="space-y-6"
             >

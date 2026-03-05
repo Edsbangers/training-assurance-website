@@ -1,10 +1,30 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
 export default function Resources() {
+  const [newsletterEmail, setNewsletterEmail] = useState('');
+  const [newsletterStatus, setNewsletterStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!newsletterEmail) return;
+    setNewsletterStatus('submitting');
+    try {
+      const res = await fetch('https://formspree.io/f/xykkgnrk', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: newsletterEmail, _subject: 'Newsletter signup', source: 'resources-page' }),
+      });
+      setNewsletterStatus(res.ok ? 'success' : 'error');
+    } catch {
+      setNewsletterStatus('error');
+    }
+  };
+
   const articles = [
     {
       id: "understanding-iso-42001",
@@ -300,17 +320,31 @@ export default function Resources() {
             Get the latest insights on AI governance and ISO compliance delivered
             to your inbox.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="flex-1 px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-lg focus:outline-none focus:border-cyan-500 text-white placeholder-slate-500"
-              aria-label="Email address for newsletter"
-            />
-            <button className="px-6 py-3 bg-gradient-to-r from-cyan-500 to-emerald-500 text-white font-semibold rounded-lg hover:opacity-90 transition-opacity">
-              Subscribe
-            </button>
-          </div>
+          {newsletterStatus === 'success' ? (
+            <p className="text-emerald-400 font-medium">Thanks! You&apos;re on the list.</p>
+          ) : (
+            <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
+              <input
+                type="email"
+                value={newsletterEmail}
+                onChange={(e) => setNewsletterEmail(e.target.value)}
+                placeholder="Enter your email"
+                required
+                className="flex-1 px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-lg focus:outline-none focus:border-cyan-500 text-white placeholder-slate-500"
+                aria-label="Email address for newsletter"
+              />
+              <button
+                type="submit"
+                disabled={newsletterStatus === 'submitting'}
+                className="px-6 py-3 bg-gradient-to-r from-cyan-500 to-emerald-500 text-white font-semibold rounded-lg hover:opacity-90 transition-opacity disabled:opacity-60"
+              >
+                {newsletterStatus === 'submitting' ? 'Sending…' : 'Subscribe'}
+              </button>
+            </form>
+          )}
+          {newsletterStatus === 'error' && (
+            <p className="text-red-400 text-sm mt-2">Something went wrong. Please try again.</p>
+          )}
           <p className="text-xs text-slate-500 mt-4">
             No spam. Unsubscribe at any time.
           </p>
