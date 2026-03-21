@@ -1,12 +1,44 @@
 import { NextRequest, NextResponse } from "next/server";
 import { supabaseAdmin } from "@/lib/supabase";
 
+// Simple in-memory rate limiter (per IP, 5 requests per hour)
+const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
+
+function isRateLimited(ip: string): boolean {
+  const now = Date.now();
+  const entry = rateLimitMap.get(ip);
+  if (!entry || now > entry.resetAt) {
+    rateLimitMap.set(ip, { count: 1, resetAt: now + 3600000 });
+    return false;
+  }
+  entry.count++;
+  if (entry.count > 5) return true;
+  return false;
+}
+
 export async function POST(request: NextRequest) {
   try {
+    // Rate limiting
+    const ip = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown";
+    if (isRateLimited(ip)) {
+      return NextResponse.json({ error: "Too many requests" }, { status: 429 });
+    }
+
     const { name, email, company, phone, conversationId, sessionId, source } = await request.json();
 
     if (!name || !email) {
       return NextResponse.json({ error: "Name and email are required" }, { status: 400 });
+    }
+
+    // Basic email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return NextResponse.json({ error: "Invalid email address" }, { status: 400 });
+    }
+
+    // Block obvious spam/test submissions
+    if (name.toLowerCase() === "test" || email.includes("test@test")) {
+      return NextResponse.json({ error: "Invalid submission" }, { status: 400 });
     }
 
     // Get visitor ID if exists

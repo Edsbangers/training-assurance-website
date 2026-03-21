@@ -2,6 +2,21 @@ import { NextRequest, NextResponse } from "next/server";
 import Anthropic from "@anthropic-ai/sdk";
 import { supabaseAdmin } from "@/lib/supabase";
 
+// Rate limiter: 20 messages per IP per hour (protects Anthropic API spend)
+const chatRateMap = new Map<string, { count: number; resetAt: number }>();
+
+function isChatRateLimited(ip: string): boolean {
+  const now = Date.now();
+  const entry = chatRateMap.get(ip);
+  if (!entry || now > entry.resetAt) {
+    chatRateMap.set(ip, { count: 1, resetAt: now + 3600000 });
+    return false;
+  }
+  entry.count++;
+  if (entry.count > 20) return true;
+  return false;
+}
+
 const anthropic = new Anthropic({
   apiKey: process.env.ANTHROPIC_API_KEY!,
 });
@@ -85,6 +100,12 @@ Important Instructions for Booking Consultations:
 
 export async function POST(request: NextRequest) {
   try {
+    // Rate limiting
+    const ip = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown";
+    if (isChatRateLimited(ip)) {
+      return NextResponse.json({ error: "Too many messages. Please try again later." }, { status: 429 });
+    }
+
     const { conversationId, message } = await request.json();
 
     if (!conversationId || !message) {

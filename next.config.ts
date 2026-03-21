@@ -4,7 +4,17 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
-        // Apply to all public pages — excludes API routes, admin, and Next.js internals
+        // Security headers for all routes
+        source: "/(.*)",
+        headers: [
+          { key: "X-Frame-Options", value: "DENY" },
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+          { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
+        ],
+      },
+      {
+        // Cache public pages
         source: "/((?!api|admin|_next/static|_next/image|favicon.ico).*)",
         headers: [
           {

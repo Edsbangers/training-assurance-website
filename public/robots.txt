@@ -3,18 +3,43 @@
 
 User-agent: *
 Allow: /
-
-# Block admin and API routes
 Disallow: /admin
 Disallow: /admin/
 Disallow: /api/
 Disallow: /_next/
 
-# Allow specific API routes for crawlers
+# Allow OG image generation for social previews
 Allow: /api/og
 
-# Sitemap location
+# Block known bad bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+User-agent: YandexBot
+Disallow: /
+
+User-agent: PetalBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: MegaIndex
+Disallow: /
+
+# Sitemap
 Sitemap: https://www.trainingassuranceconsultancy.com/sitemap.xml
 
-# Crawl delay (optional, be friendly to server)
-Crawl-delay: 1
+Crawl-delay: 2
