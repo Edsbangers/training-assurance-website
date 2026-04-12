@@ -1,7 +1,7 @@
 import Script from 'next/script';
 
 interface SchemaMarkupProps {
-  type: 'organization' | 'professionalService' | 'softwareApplication' | 'person' | 'faqPage' | 'website' | 'breadcrumb' | 'webpage';
+  type: 'organization' | 'professionalService' | 'softwareApplication' | 'person' | 'faqPage' | 'website' | 'breadcrumb' | 'webpage' | 'localBusiness';
   data?: Record<string, unknown>;
 }
 
@@ -89,7 +89,7 @@ export default function SchemaMarkup({ type, data }: SchemaMarkupProps) {
         { '@type': 'Country', name: 'Italy' },
       ],
       sameAs: [
-        'https://linkedin.com/company/training-assurance-consultancy',
+        'https://www.linkedin.com/company/110750107',
         'https://facebook.com/trainingassuranceconsultancy',
         'https://instagram.com/trainingassuranceconsultancy',
       ],
@@ -229,14 +229,58 @@ export default function SchemaMarkup({ type, data }: SchemaMarkupProps) {
       hasCredential: [
         {
           '@type': 'EducationalOccupationalCredential',
-          credentialCategory: 'Professional Certification',
-          name: 'IRCA Principal Auditor',
+          credentialCategory: 'IRCA Registered Principal Auditor',
+          name: 'IRCA Registered Principal Auditor',
         },
         {
           '@type': 'EducationalOccupationalCredential',
           credentialCategory: 'Professional Certification',
           name: 'ISO/IEC 42001 Lead Auditor',
         },
+      ],
+      sameAs: [
+        'https://www.linkedin.com/company/110750107',
+        'https://www.linkedin.com/company/110750107',
+      ],
+      ...data,
+    },
+
+    localBusiness: {
+      '@context': 'https://schema.org',
+      '@type': 'LocalBusiness',
+      '@id': `${baseUrl}/#localbusiness`,
+      name: 'Training Assurance Consultancy',
+      alternateName: 'TAC',
+      url: baseUrl,
+      logo: `${baseUrl}/logo.png`,
+      image: `${baseUrl}/logo.png`,
+      description: 'Strategic SHEQ Lead Auditor Authority providing expert consultancy in AI Governance (ISO/IEC 42001), ISO 9001, 14001, 45001, and 27001 management systems.',
+      priceRange: '££',
+      telephone: '+44-7956-139772',
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: '13 Chitty Road',
+        addressLocality: 'Southsea',
+        addressRegion: 'Hampshire',
+        postalCode: 'PO4 9NX',
+        addressCountry: 'GB',
+      },
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: '50.7887',
+        longitude: '-1.0685',
+      },
+      areaServed: [
+        { '@type': 'Country', name: 'United Kingdom' },
+        { '@type': 'Country', name: 'Ireland' },
+        { '@type': 'Country', name: 'Netherlands' },
+        { '@type': 'Country', name: 'Norway' },
+        { '@type': 'Country', name: 'Italy' },
+      ],
+      sameAs: [
+        'https://www.linkedin.com/company/110750107',
+        'https://www.facebook.com/trainingassuranceconsultancy',
+        'https://www.instagram.com/trainingassuranceconsultancy',
       ],
       ...data,
     },

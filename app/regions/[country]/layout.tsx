@@ -48,6 +48,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       siteName: 'Training Assurance Consultancy',
       title: t.meta.title,
       description: t.meta.description,
+      images: [
+        {
+          url: `https://www.trainingassuranceconsultancy.com/api/og?title=${encodeURIComponent(t.meta.title)}&category=Strategic%20SHEQ%20Lead%20Auditor%20Authority`,
+          width: 1200,
+          height: 630,
+          alt: t.meta.title,
+        },
+      ],
     },
   };
 }

@@ -85,8 +85,14 @@ export async function generateMetadata({
 
   const ogImageUrl = post.featured_image || `https://www.trainingassuranceconsultancy.com/api/og?title=${encodeURIComponent(post.title)}&category=${encodeURIComponent(post.category || 'Industry Insights')}`;
 
+  const MAX_TITLE = 60;
+  const truncatedTitle =
+    post.title.length > MAX_TITLE
+      ? `${post.title.slice(0, MAX_TITLE - 3).trimEnd()}...`
+      : post.title;
+
   return {
-    title: `${post.title} | TAC Strategic Insights`,
+    title: { absolute: truncatedTitle },
     description: post.excerpt,
     keywords: post.tags?.join(', '),
     openGraph: {

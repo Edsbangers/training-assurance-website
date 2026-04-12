@@ -9,6 +9,14 @@ export const metadata: Metadata = {
     title: 'Client Success Stories | Training Assurance Consultancy',
     description: 'Discover how UK businesses achieved compliance excellence with 100% certification success rate.',
     type: 'website',
+    images: [
+      {
+        url: 'https://www.trainingassuranceconsultancy.com/api/og?title=Case%20Studies&category=Client%20Success%20Stories',
+        width: 1200,
+        height: 630,
+        alt: 'Training Assurance Consultancy Case Studies',
+      },
+    ],
   },
 };
 

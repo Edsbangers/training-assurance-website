@@ -3,11 +3,13 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics as VercelAnalytics } from "@vercel/analytics/next";
+import dynamic from "next/dynamic";
 import Analytics from "@/components/Analytics";
-import ChatWidget from "@/components/ChatWidget";
-import VisitorTracker from "@/components/VisitorTracker";
 import SchemaMarkup from "@/components/SchemaMarkup";
-import CookieConsent from "@/components/CookieConsent";
+
+const ChatWidget = dynamic(() => import("@/components/ChatWidget"), { ssr: false });
+const VisitorTracker = dynamic(() => import("@/components/VisitorTracker"), { ssr: false });
+const CookieConsent = dynamic(() => import("@/components/CookieConsent"), { ssr: false });
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,7 +22,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Training Assurance Consultancy | Strategic SHEQ Lead Auditor Authority",
+  title: "Training Assurance Consultancy | SHEQ Lead Auditor",
   description: "Strategic SHEQ Lead Auditor Authority specialising in AI Governance & ISO compliance across UK, Ireland, Netherlands, Norway and Italy.",
   keywords: ["Strategic SHEQ Lead Auditor", "AI Governance", "ISO 42001", "ISO compliance", "SHEQ consultancy", "ISO 9001", "ISO 14001", "ISO 45001", "ISO 27001", "UK compliance consultancy", "Lead Auditor", "IRCA auditor", "Construction Safety"],
   authors: [{ name: "Training Assurance Consultancy" }],
@@ -32,7 +34,7 @@ export const metadata: Metadata = {
     locale: "en_GB",
     url: "https://www.trainingassuranceconsultancy.com",
     siteName: "Training Assurance Consultancy",
-    title: "Training Assurance Consultancy | Strategic SHEQ Lead Auditor Authority",
+    title: "Training Assurance Consultancy | SHEQ Lead Auditor",
     description: "Strategic SHEQ Lead Auditor Authority. Expert consultancy in AI Governance, Quality, Environmental, Health & Safety and Information Security.",
     images: [
       {
@@ -45,7 +47,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Training Assurance Consultancy | Strategic SHEQ Lead Auditor Authority",
+    title: "Training Assurance Consultancy | SHEQ Lead Auditor",
     description: "Strategic SHEQ Lead Auditor Authority. Expert consultancy in AI Governance and ISO management systems across Europe.",
     images: ["https://www.trainingassuranceconsultancy.com/api/og?title=Training%20Assurance%20Consultancy&category=Strategic%20SHEQ%20Lead%20Auditor%20Authority"],
   },
@@ -61,6 +63,8 @@ export default function RootLayout({
       <head>
         <SchemaMarkup type="website" />
         <SchemaMarkup type="organization" />
+        <SchemaMarkup type="localBusiness" />
+        <SchemaMarkup type="person" />
         <SchemaMarkup type="professionalService" />
         <SchemaMarkup type="faqPage" />
         <SchemaMarkup

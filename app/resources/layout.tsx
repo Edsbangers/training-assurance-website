@@ -9,6 +9,14 @@ export const metadata: Metadata = {
     title: 'Free ISO & Compliance Resources | Training Assurance Consultancy',
     description: 'Download free guides, templates, and frameworks for ISO compliance and AI governance.',
     type: 'website',
+    images: [
+      {
+        url: 'https://www.trainingassuranceconsultancy.com/api/og?title=Resources%20%26%20Guides&category=ISO%20%26%20AI%20Governance',
+        width: 1200,
+        height: 630,
+        alt: 'Training Assurance Consultancy Resources',
+      },
+    ],
   },
 };
 
