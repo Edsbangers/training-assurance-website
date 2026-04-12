@@ -75,12 +75,30 @@ export default function SchemaMarkup({ type, data }: SchemaMarkupProps) {
           '@type': 'Person',
           name: 'Lead Auditor',
           jobTitle: 'Principal Consultant & Lead Auditor',
+          hasCredential: [
+            {
+              '@type': 'EducationalOccupationalCredential',
+              credentialCategory: 'IRCA Registered Principal Auditor',
+              name: 'IRCA Registered Principal Auditor',
+            },
+            {
+              '@type': 'EducationalOccupationalCredential',
+              credentialCategory: 'Professional Certification',
+              name: 'ISO/IEC 42001 Lead Auditor',
+            },
+          ],
+          sameAs: ['https://www.linkedin.com/company/110750107'],
         },
       ],
       address: {
         '@type': 'PostalAddress',
+        streetAddress: '13 Chitty Road',
+        addressLocality: 'Southsea',
+        addressRegion: 'Hampshire',
+        postalCode: 'PO4 9NX',
         addressCountry: 'GB',
       },
+      telephone: '+44-7956-139772',
       areaServed: [
         { '@type': 'Country', name: 'United Kingdom' },
         { '@type': 'Country', name: 'Ireland' },
@@ -107,12 +125,17 @@ export default function SchemaMarkup({ type, data }: SchemaMarkupProps) {
       priceRange: '££',
       address: {
         '@type': 'PostalAddress',
+        streetAddress: '13 Chitty Road',
+        addressLocality: 'Southsea',
+        addressRegion: 'Hampshire',
+        postalCode: 'PO4 9NX',
         addressCountry: 'GB',
       },
+      telephone: '+44-7956-139772',
       geo: {
         '@type': 'GeoCoordinates',
-        latitude: '51.5074',
-        longitude: '-0.1278',
+        latitude: '50.7887',
+        longitude: '-1.0685',
       },
       areaServed: [
         { '@type': 'Country', name: 'United Kingdom' },
