@@ -4,118 +4,157 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
-  title: 'PICMS Platform | ISO Compliance Management Reimagined',
-  description: 'ISO compliance platform for UK businesses. AI-powered insights, real-time dashboards and 16+ audit templates for ISO 9001, 14001, 45001 & 27001.',
-  keywords: ['ISO compliance software', 'ISO management system', 'UK SME compliance', 'ISO 9001 software', 'ISO 14001 software', 'compliance management platform', 'ISO 42001', 'AI compliance'],
+  title: 'PICMS Platform | The UK Compliance Platform Built by an IRCA Auditor',
+  description: 'The only UK compliance platform designed by an IRCA Registered Principal Auditor. 14 ISO standards, 37 modules, 3 industry packs and AI agents that think like auditors. Industry starter packs from £69/month.',
+  keywords: ['ISO compliance software', 'ISO management system', 'UK SME compliance', 'ISO 9001 software', 'ISO 14001 software', 'ISO 45001 software', 'ISO 27001 software', 'ISO 42001', 'AI compliance', 'IRCA auditor', 'PICMS', 'agentic compliance', 'quantum ready compliance', 'IMCA diving compliance', 'CHAS', 'SafeContractor', 'Constructionline'],
 };
 
 export default function PICMSPage() {
   const heroStats = [
-    { value: '16+', label: 'ISO Standards Supported' },
-    { value: '16', label: 'Audit Form Templates' },
-    { value: 'AI', label: 'Powered Insights' },
-    { value: '99.9%', label: 'Uptime SLA' },
+    { value: '14', label: 'ISO Standards Supported' },
+    { value: '37', label: 'Compliance Modules' },
+    { value: '3', label: 'UK Accreditations' },
+    { value: 'AI', label: 'Agentic Compliance' },
   ];
 
-  const v2Features = [
-    { icon: '⚡', title: 'Lightning Fast', description: 'Modern interface with real-time updates' },
-    { icon: '🤖', title: 'AI-Powered', description: 'Intelligent compliance assistance' },
-    { icon: '📊', title: 'Live Dashboards', description: 'Real-time compliance visibility' },
-    { icon: '📋', title: '16 Modules', description: 'Comprehensive ISO coverage' },
-    { icon: '📄', title: 'Document Control', description: 'Version management & approvals' },
-    { icon: '🏗️', title: 'Construction Ready', description: 'CDM & contractor modules' },
+  const v3Features = [
+    { icon: '🧠', title: 'Master Agent', description: 'Autonomous orchestration across all 14 ISO standards in one conversation' },
+    { icon: '✨', title: 'Smart Fill', description: 'AI auto-populates evidence, RAMS, audit findings and policy sections across every module' },
+    { icon: '🛡️', title: 'Guardian AI v2', description: 'Agentic weekly digest, proactive gap escalation, learns from your corrections' },
+    { icon: '🧵', title: 'Golden Thread', description: 'Cross-module auto-linking via vector search — documents to risks, audits, incidents' },
+    { icon: '⚡', title: 'Neural Link', description: 'Real-time activity feed, entity history and health snapshot dashboard' },
+    { icon: '🔐', title: 'Quantum Ready', description: 'Crypto-agile architecture · NIST FIPS 203/204 roadmap · HNDL-mitigated' },
   ];
 
   const powerfulFeatures = [
-    { title: 'Multi-Standard Support', description: 'ISO 9001, 14001, 45001, 27001 and more' },
-    { title: 'Incident Management', description: 'Capture, investigate, and resolve' },
-    { title: 'Document Control', description: 'Version tracking & approvals' },
-    { title: 'Audit Management', description: 'Schedule, conduct, and track' },
-    { title: 'Risk Register', description: 'Identify, assess, and mitigate' },
-    { title: 'Training Records', description: 'Competency & certification tracking' },
-    { title: 'CAPA Management', description: 'Corrective action tracking' },
-    { title: 'UK Data Residency', description: 'Secure & GDPR compliant' },
+    { title: 'Document Management', description: 'Version control, approvals, RAG-indexed retrieval' },
+    { title: 'Audit Management', description: 'Schedule, conduct, evidence-link findings' },
+    { title: 'Incident & CAPA', description: 'Capture, investigate, corrective action tracking' },
+    { title: 'Risk & Hazard Register', description: 'Identify, assess, mitigate, link to controls' },
+    { title: 'Asset Register', description: 'ISO 27001 Annex A asset inventory' },
+    { title: 'Training Matrix', description: 'Competency, certification, expiry tracking' },
+    { title: 'Legal Register', description: 'UK legislation, auto-updated requirements' },
+    { title: 'Management Review', description: 'ISO 9001 9.3 five-section workflow' },
+    { title: 'Suppliers & Contractors', description: 'Evaluations, audits, risk tracking' },
+    { title: 'Business Continuity', description: 'BCP planning, scenarios, recovery' },
+    { title: 'Annex A Controls', description: 'ISO 27001:2022 + ISO 42001:2023 controls' },
+    { title: 'UK Data Residency', description: 'AES-256 encryption, GDPR compliant' },
   ];
 
   const accreditations = [
     {
       name: 'CHAS',
-      subtitle: 'Health & Safety',
+      subtitle: 'Contractor H&S',
       features: ['Requirements tracking', 'Document mapping', 'Expiry alerts'],
       color: 'from-blue-500 to-blue-600',
     },
     {
       name: 'SafeContractor',
-      subtitle: 'Prequalification',
+      subtitle: 'H&S Compliance',
       features: ['Compliance tracking', 'Insurance management', 'Subcontractor records'],
       color: 'from-emerald-500 to-emerald-600',
     },
     {
       name: 'Constructionline',
-      subtitle: 'PAS 91',
-      features: ['Tier tracking', 'Evidence management', 'Statistics reporting'],
+      subtitle: 'UK Gov Procurement',
+      features: ['Tier tracking', 'Evidence management', 'PAS 91 reporting'],
       color: 'from-purple-500 to-purple-600',
+    },
+  ];
+
+  const industryPacks = [
+    {
+      name: 'Construction',
+      price: 89,
+      tagline: 'CDM-ready compliance',
+      features: ['CHAS, SafeContractor, Constructionline', 'CDM 2015 framework', 'Hazard Register & COSHH', 'Contractor Management'],
+      color: 'from-amber-500 to-orange-600',
+    },
+    {
+      name: 'Healthcare',
+      price: 89,
+      tagline: 'CQC fundamentals',
+      features: ['CQC Regs 9-20A', 'NHS DSPT compliance', 'Safeguarding & DoLS', 'Medicines Management & IPC'],
+      color: 'from-pink-500 to-rose-600',
+    },
+    {
+      name: 'Security',
+      price: 69,
+      tagline: 'Cyber Essentials & GDPR',
+      features: ['Cyber Essentials 5 Controls', 'ISO 27701 Privacy', 'GDPR ROPA, DPIA, SAR', 'Pen Test Management'],
+      color: 'from-violet-500 to-purple-600',
+    },
+    {
+      name: 'Diving',
+      price: 279,
+      tagline: 'IMCA & DWR 1997',
+      features: ['IMCA D018, D023, D040', 'DWR 1997 / L103 / L104', 'Plant & Equipment Register', 'Dive Operations Logbook'],
+      color: 'from-cyan-500 to-blue-600',
     },
   ];
 
   const pricing = [
     {
-      name: 'Starter',
-      price: 89,
+      name: 'Essentials',
+      price: 199,
       description: 'For small teams getting started',
       features: [
-        '2 modules included',
-        '1 user included',
-        '50 AI queries/month',
-        'Core compliance tools',
-        '48hr email support',
+        '1 ISO standard',
+        '5 users',
+        '100 AI queries/month',
+        'Manual evidence mapping',
+        'Dashboard, Documents, Risk & Asset Register',
+        'Training Records & Legal Register (view)',
       ],
-      addons: ['+£39/module', '+£15/user'],
+      addons: ['+£10/mo unlimited users', '+£20/mo AI Assistant pack'],
       cta: 'Start Free Trial',
       featured: false,
     },
     {
       name: 'Professional',
-      price: 179,
-      description: 'For growing organisations',
+      price: 449,
+      description: 'AI-powered compliance for growing teams',
       features: [
-        '4 modules included',
-        '5 users included',
-        '250 AI queries/month',
-        'IRCA auditor AI training',
-        '24hr priority support',
+        '3 ISO standards (9001, 14001, 45001)',
+        '15 users',
+        '500 AI queries/month',
+        'Autonomous AI Agents map evidence',
+        'Golden Thread & Neural Link',
+        'Gap Analysis · 1 Industry Pack included',
       ],
-      addons: ['+£39/module', '+£12/user'],
+      addons: ['+£15/mo UK Legal Register', '+£49–£250/mo Industry Packs'],
       cta: 'Start Free Trial',
       featured: true,
     },
     {
       name: 'Certification',
-      price: 299,
-      description: 'For certification-ready teams',
+      price: 699,
+      description: 'For certification-ready organisations',
       features: [
-        '8 modules included',
-        '15 users included',
-        '500 AI queries/month',
-        'AI gap analysis',
-        '12hr priority support',
+        '5 ISO standards',
+        '30 users',
+        'Unlimited AI queries',
+        'Certification Readiness module',
+        'Template Library + BCP',
+        '2 Industry Packs included · Priority support',
       ],
-      addons: ['+£39/module'],
+      addons: ['+£250/mo Diving Pack add-on'],
       cta: 'Start Free Trial',
       featured: false,
     },
     {
       name: 'Enterprise',
-      price: 449,
-      description: 'Complete platform access',
+      price: 1199,
+      description: 'All standards, all packs, full API',
       features: [
-        'All 16 modules',
+        'All 14 ISO standards',
         'Unlimited users',
-        '2,000 AI queries/month',
-        'Quarterly auditor calls',
-        '4hr priority support',
+        'Unlimited AI queries',
+        'All Industry Packs included',
+        'Full API access + webhooks',
+        'Dedicated CSM',
       ],
-      addons: [],
+      addons: ['+£350/mo White-label add-on'],
       cta: 'Contact Sales',
       featured: false,
     },
@@ -151,21 +190,21 @@ export default function PICMSPage() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center max-w-4xl mx-auto mb-16">
             <div className="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full bg-gradient-to-r from-cyan-500/10 to-blue-500/10 border border-cyan-500/30">
-              <span className="text-cyan-400 text-sm font-medium">Platform v2.0 — Completely Redesigned for 2025</span>
+              <span className="text-cyan-400 text-sm font-medium">v3 Live · Agentic Compliance · April 2026</span>
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
               <span className="bg-gradient-to-r from-white via-slate-300 to-white bg-clip-text text-transparent">
-                Compliance Management,
+                ISO Compliance,
               </span>
               <br />
               <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-                Reimagined.
+                Built by an Auditor.
               </span>
             </h1>
             <p className="text-lg md:text-xl text-slate-400 mb-10">
-              The complete platform for UK businesses managing ISO 9001, 14001, 45001 & 27001.
-              Now powered by a completely modernised React-based interface with AI-powered insights,
-              real-time dashboards, and blazing-fast performance.
+              The only UK compliance platform designed by an IRCA Registered Principal Auditor.
+              Every ISO standard, every UK regulation, every audit — managed by AI that thinks like an auditor
+              because it was built by one. Industry starter packs from <span className="text-white font-semibold">£69/month</span>.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
               <a
@@ -182,7 +221,7 @@ export default function PICMSPage() {
                 rel="noopener noreferrer"
                 className="px-8 py-4 border border-slate-700 text-white font-semibold rounded-xl hover:bg-slate-800 transition-colors"
               >
-                Watch Demo
+                Visit PICMS.com
               </a>
             </div>
 
@@ -199,20 +238,20 @@ export default function PICMSPage() {
         </div>
       </section>
 
-      {/* Platform v2.0 Features */}
+      {/* v3 Agentic Features */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-900/30">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              What's New in v2.0
+              Agentic Compliance AI
             </h2>
             <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-              Built from the ground up with React 18, TypeScript, and Tailwind CSS for a modern, responsive experience.
+              Six intelligent systems working together — orchestrating, mapping, auditing, learning. Your compliance team's force multiplier.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {v2Features.map((feature) => (
+            {v3Features.map((feature) => (
               <div
                 key={feature.title}
                 className="bg-slate-800/50 border border-slate-700 rounded-xl p-6 hover:border-cyan-500/50 transition-colors"
@@ -231,10 +270,10 @@ export default function PICMSPage() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Built for How You Actually Work
+              37 Modules. One Platform.
             </h2>
             <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-              Everything you need to manage compliance, from document control to audit management.
+              Every module you need to manage compliance — from document control to dive operations logbooks.
             </p>
           </div>
 
@@ -254,50 +293,53 @@ export default function PICMSPage() {
               </div>
             ))}
           </div>
+
+          <p className="text-center text-slate-500 text-sm mt-8">
+            Plus 25 more modules — see the full list at <a href="https://picms.com" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:underline">picms.com</a>
+          </p>
         </div>
       </section>
 
-      {/* Golden Thread & Gap Analysis */}
+      {/* Quantum Readiness */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-900/30">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full bg-gradient-to-r from-pink-500/10 to-rose-500/10 border border-pink-500/30">
+              <span className="text-pink-400 text-sm font-medium">🔐 Post-Quantum Ready</span>
+            </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Intelligent Compliance Tools
+              Crypto-Agile by Design
             </h2>
-            <p className="text-slate-400 text-lg">
-              Advanced features for Enterprise and Principal plans
+            <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+              The only UK ISO compliance platform built from the ground up to be ready for the post-quantum era.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-gradient-to-br from-cyan-500/10 to-blue-600/10 border border-cyan-500/30 rounded-2xl p-8">
-              <div className="inline-flex items-center gap-2 px-3 py-1 mb-4 rounded-full bg-cyan-500/20 text-cyan-400 text-sm font-medium">
-                Enterprise Feature
-              </div>
-              <h3 className="text-2xl font-bold mb-2">The Golden Thread</h3>
-              <p className="text-slate-400 mb-6">Intelligent Compliance Traceability</p>
-              <ul className="space-y-3">
-                {['End-to-end traceability', 'Automatic gap detection', 'System health monitoring', 'Audit-ready documentation'].map((item) => (
-                  <li key={item} className="flex items-center gap-3 text-slate-300">
-                    <svg className="w-5 h-5 text-cyan-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    {item}
-                  </li>
-                ))}
-              </ul>
+            <div className="bg-gradient-to-br from-pink-500/10 to-rose-600/10 border border-pink-500/30 rounded-2xl p-8">
+              <h3 className="text-2xl font-bold mb-2">The Threat</h3>
+              <p className="text-slate-400 mb-6">Harvest now, decrypt later</p>
+              <p className="text-slate-300 mb-4">
+                By 2030, current encryption methods will be vulnerable to quantum attacks. The UK ICO and NCSC are already urging organisations to prepare.
+              </p>
+              <p className="text-slate-300">
+                PICMS has completed a full cryptographic audit, published a CBOM, added HMAC-SHA-256 integrity to export bundles, and built a crypto-agility wrapper so we can swap in NIST ML-KEM and ML-DSA the moment they ship.
+              </p>
             </div>
 
-            <div className="bg-gradient-to-br from-purple-500/10 to-pink-600/10 border border-purple-500/30 rounded-2xl p-8">
-              <div className="inline-flex items-center gap-2 px-3 py-1 mb-4 rounded-full bg-purple-500/20 text-purple-400 text-sm font-medium">
-                Enterprise Feature
-              </div>
-              <h3 className="text-2xl font-bold mb-2">Intelligent Gap Analysis</h3>
-              <p className="text-slate-400 mb-6">Pre-Audit Readiness Assessment</p>
+            <div className="bg-gradient-to-br from-cyan-500/10 to-blue-600/10 border border-cyan-500/30 rounded-2xl p-8">
+              <h3 className="text-2xl font-bold mb-2">Standards Aligned</h3>
+              <p className="text-slate-400 mb-6">Auditor-ready evidence</p>
               <ul className="space-y-3">
-                {['Document compliance scoring', 'Gap identification & prioritisation', 'Actionable recommendations', 'All ISO standards supported'].map((item) => (
-                  <li key={item} className="flex items-center gap-3 text-slate-300">
-                    <svg className="w-5 h-5 text-purple-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                {[
+                  'ISO 27001:2022 Annex A 8.24 — Use of cryptography',
+                  'ISO 42001:2023 A.6.2.8 + A.8.3 — AI resource & data',
+                  'NIST FIPS 203 (ML-KEM) — Roadmap tracked',
+                  'NIST FIPS 204 (ML-DSA) — Roadmap tracked',
+                  'UK NCSC Cyber Security & Resilience Bill — HNDL mitigated',
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-slate-300 text-sm">
+                    <svg className="w-5 h-5 text-cyan-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                     {item}
@@ -309,65 +351,42 @@ export default function PICMSPage() {
         </div>
       </section>
 
-      {/* ISO 2026 Readiness */}
+      {/* Industry Starter Packs */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full bg-amber-500/10 border border-amber-500/30">
-              <span className="text-amber-400 text-sm font-medium">Future Ready</span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full bg-gradient-to-r from-amber-500/10 to-orange-500/10 border border-amber-500/30">
+              <span className="text-amber-400 text-sm font-medium">Don't need ISO yet? Start here.</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Get Ready for ISO 2026 Revisions
+              Industry Starter Packs
             </h2>
             <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-              Transition periods are typically 3 years. Organisations who start preparing now will have a smoother transition.
+              Industry-specific compliance from <span className="text-white font-semibold">£69/month</span>.
+              Upgrade to ISO standards when you're ready.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 mb-8">
-            <div className="bg-slate-800/50 border border-slate-700 rounded-xl p-6">
-              <h3 className="text-xl font-bold text-cyan-400 mb-4">ISO 9001:2026</h3>
-              <p className="text-slate-400 mb-4">Expected updates include:</p>
-              <ul className="space-y-2 text-slate-300">
-                <li className="flex items-center gap-2">
-                  <span className="text-cyan-500">•</span>
-                  Enhanced organisational knowledge
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-cyan-500">•</span>
-                  Climate action requirements
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-cyan-500">•</span>
-                  Digital transformation focus
-                </li>
-              </ul>
-            </div>
-
-            <div className="bg-slate-800/50 border border-slate-700 rounded-xl p-6">
-              <h3 className="text-xl font-bold text-emerald-400 mb-4">ISO 14001:2026</h3>
-              <p className="text-slate-400 mb-4">Expected changes include:</p>
-              <ul className="space-y-2 text-slate-300">
-                <li className="flex items-center gap-2">
-                  <span className="text-emerald-500">•</span>
-                  Climate change integration
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-emerald-500">•</span>
-                  Biodiversity requirements
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-emerald-500">•</span>
-                  Circular economy principles
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="bg-gradient-to-r from-cyan-500/10 to-blue-600/10 border border-cyan-500/30 rounded-xl p-6 text-center">
-            <p className="text-slate-300">
-              <strong className="text-white">PICMS customers</strong> will receive automatic updates and migration guidance for new ISO requirements.
-            </p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {industryPacks.map((pack) => (
+              <div key={pack.name} className="bg-slate-800/50 border border-slate-700 rounded-xl p-6 hover:border-slate-600 transition-colors">
+                <div className={`inline-flex items-center gap-2 px-3 py-1 mb-4 rounded-full bg-gradient-to-r ${pack.color} text-white text-sm font-bold`}>
+                  {pack.name}
+                </div>
+                <div className="text-3xl font-bold mb-1">£{pack.price}<span className="text-slate-500 text-base font-normal">/mo</span></div>
+                <p className="text-slate-400 text-sm mb-4">{pack.tagline}</p>
+                <ul className="space-y-2">
+                  {pack.features.map((feature) => (
+                    <li key={feature} className="flex items-start gap-2 text-sm text-slate-300">
+                      <svg className="w-4 h-4 text-cyan-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -438,10 +457,13 @@ export default function PICMSPage() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Choose Your Plan
+              ISO Plans
             </h2>
             <p className="text-slate-400 text-lg">
               Start with a 14-day free trial. No credit card required. Cancel anytime.
+            </p>
+            <p className="text-slate-500 text-sm mt-3">
+              Need industry-specific compliance instead? See <a href="#industry-packs" className="text-cyan-400 hover:underline">Industry Starter Packs from £69/month</a>.
             </p>
           </div>
 
@@ -502,6 +524,10 @@ export default function PICMSPage() {
               </div>
             ))}
           </div>
+
+          <div className="text-center mt-10 text-slate-400 text-sm">
+            Running a consultancy? <a href="https://picms.com/partners" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:underline">Consultant Starter from £599/month</a> — white-label + 3 client workspaces included.
+          </div>
         </div>
       </section>
 
@@ -512,14 +538,14 @@ export default function PICMSPage() {
             Ready for ISO 2026?
           </h2>
           <p className="text-slate-400 text-lg mb-8">
-            Join UK businesses preparing for the future of compliance. With intelligent guidance,
-            mobile audits, and automatic updates for new ISO requirements—PICMS keeps you ahead.
-            Start your 14-day free trial today—no credit card required.
+            Join UK businesses preparing for the future of compliance. PICMS helps you future-proof against
+            emerging threats — including post-quantum cryptography, ISO 27001:2022 cryptographic controls and
+            the upcoming NCSC Cyber Security &amp; Resilience Bill. Start your 14-day free trial today — no credit card required.
           </p>
 
           {/* Trust Indicators */}
           <div className="flex flex-wrap justify-center gap-4 mb-8">
-            {['UK Data Residency', 'GDPR Compliant', 'AES-256 Encryption', '2026 Ready'].map((indicator) => (
+            {['UK Data Residency', 'AES-256 + HMAC Integrity', 'Crypto-Agile · FIPS 203/204', 'GDPR Compliant'].map((indicator) => (
               <div key={indicator} className="flex items-center gap-2 px-4 py-2 bg-slate-800/50 border border-slate-700 rounded-full text-sm text-slate-300">
                 <svg className="w-4 h-4 text-cyan-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />

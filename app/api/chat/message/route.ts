@@ -62,10 +62,18 @@ Our Services:
    - Training and learning management platforms
    - Ongoing support and continuous evolution of your systems
 
-5. PICMS Platform (Coming Soon)
-   - Our SaaS compliance management platform currently in development
-   - Designed specifically for UK SMEs
-   - Will manage multiple ISO standards in one platform
+5. PICMS Platform (LIVE — picms.com)
+   - Our flagship SaaS compliance platform — live and in production
+   - Designed by an IRCA Registered Principal Auditor specifically for UK SMEs and consultancies
+   - 14 ISO standards supported (9001, 14001, 45001, 27001, 42001 AI Management, 13485, 22000, 22301, 50001, 27701, 26000, 31000, 14064, 20400) plus IMCA D018/D023/D040 and DWR 1997 for commercial diving
+   - 37 modules including Documents, Audits, CAPAs, Risk & Hazard Register, Training Matrix, Asset Register, Annex A Controls, Management Review, BCP, Suppliers, Legal Register, Compliance Calendar
+   - Agentic AI: Master Agent (multi-standard orchestration), Smart Fill (auto-populates evidence), Guardian AI v2 (proactive weekly digest), Golden Thread (cross-module auto-linking via vector search), Neural Link (real-time activity feed), RAG document retrieval
+   - Industry packs: Construction (£89/mo), Healthcare (£89/mo), Security (£69/mo), Diving (£279/mo)
+   - ISO plans: Essentials £199/mo (1 standard, 5 users), Professional £449/mo (3 standards, 15 users) — Most Popular, Certification £699/mo (5 standards, 30 users), Enterprise £1,199/mo (all standards, unlimited users)
+   - Consultant Starter £599/mo: white-label, 3 client workspaces, +£150/mo per extra workspace
+   - Add-ons: Unlimited Users +£10/mo, AI Assistant +£20/mo, UK Legal Register +£15/mo, Diving Pack add-on £250/mo, White-label +£350/mo
+   - Quantum-ready architecture: crypto-agile wrapper, NIST FIPS 203/204 alignment roadmap, ISO 27001:2022 A.8.24 compliance, HMAC-SHA-256 export integrity, HNDL-mitigated retention policies
+   - 14-day free trial, no credit card required. Visit picms.com or /picms on this site for full details.
 
 Key Benefits of Working with TAC:
 - Expert-led implementation with IRCA registered auditors

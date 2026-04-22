@@ -13,8 +13,8 @@ export default function PICMSLayout({ children }: { children: React.ReactNode })
         type="webpage"
         data={{
           pageType: 'WebPage',
-          name: 'PICMS Platform | ISO Compliance Management Reimagined',
-          description: 'ISO compliance platform for UK businesses. AI-powered insights, real-time dashboards and 16+ audit templates for ISO 9001, 14001, 45001 & 27001.',
+          name: 'PICMS Platform | The UK Compliance Platform Built by an IRCA Auditor',
+          description: 'The only UK compliance platform designed by an IRCA Registered Principal Auditor. 14 ISO standards, 37 modules, 3 industry packs and agentic AI (Master Agent, Smart Fill, Guardian AI v2, Golden Thread, Neural Link). Quantum-ready · NIST FIPS 203/204. Industry starter packs from £69/month.',
           url: `${BASE}/picms`,
         }}
       />

@@ -4,38 +4,38 @@ import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'PICMS Demo | Interactive Platform Preview',
-  description: 'Experience the PICMS v2.0 platform with our interactive demo. See how PICMS can transform your ISO compliance management.',
+  description: 'Experience PICMS v3 with our interactive demo. 14 ISO standards, 37 modules, agentic AI compliance — see how PICMS transforms your ISO journey.',
 };
 
 export default function PICMSDemoPage() {
   const dashboardFeatures = [
     {
-      title: 'Compliance Dashboard',
-      description: 'Real-time visibility into your compliance status across all ISO standards with AI-powered insights and actionable recommendations.',
-      highlights: ['Compliance scores per standard', 'Trend analysis and reporting', 'Action item prioritisation', 'AI gap detection'],
+      title: 'Master Agent Orchestration',
+      description: 'One conversation, all 14 ISO standards. Master Agent autonomously coordinates evidence-gathering, gap analysis and audit prep across every standard you subscribe to.',
+      highlights: ['Multi-standard reasoning', 'Smart Fill auto-population', 'RAG document retrieval', 'Agent memory & feedback loop'],
     },
     {
-      title: 'Document Control',
-      description: 'Manage all your QMS documentation with automatic version control, approval workflows, and intelligent reminders.',
-      highlights: ['QMS numbering system', 'Version history tracking', 'Approval workflows', 'Expiry alerts'],
+      title: 'Document Control + Golden Thread',
+      description: 'Version-controlled documentation that auto-links to risks, audits, incidents and controls via vector search. The Golden Thread shows what touches what — instantly.',
+      highlights: ['QMS numbering system', 'Vector-search auto-linking', 'Approval workflows', 'Expiry alerts'],
     },
     {
-      title: 'Audit Management',
-      description: 'Plan, schedule, and execute audits with 16 pre-built templates. Track findings, assign actions, and monitor closure.',
-      highlights: ['16 audit form templates', 'Mobile audit capability', 'Photo and signature capture', 'Real-time submission'],
+      title: 'Audit & CAPA Management',
+      description: 'Plan, schedule and execute audits with built-in templates. Findings auto-create CAPAs, and Guardian AI v2 escalates anything slipping toward your audit window.',
+      highlights: ['Pre-built audit templates', 'Mobile audit capability', 'Auto CAPA from findings', 'Guardian AI escalation'],
     },
     {
-      title: 'Risk Management',
-      description: 'Comprehensive risk register with ISO clause linking, severity tracking, and mitigation monitoring.',
-      highlights: ['Risk assessment matrix', 'ISO clause linking', 'Mitigation tracking', 'Automatic escalation'],
+      title: 'Risk, Hazard & Asset Registers',
+      description: 'Comprehensive registers with ISO clause linking, severity tracking and mitigation monitoring — wired into ISO 27001 Annex A and ISO 42001 controls.',
+      highlights: ['Risk assessment matrix', 'ISO clause linking', 'Mitigation tracking', 'Annex A controls coverage'],
     },
   ];
 
   const v2Highlights = [
-    { icon: '⚡', label: 'Lightning Fast', description: 'React 18 with optimised rendering' },
-    { icon: '🤖', label: 'AI-Powered', description: 'Gap analysis and policy generation' },
-    { icon: '📱', label: 'Mobile Ready', description: 'Field audits on any device' },
-    { icon: '🔒', label: 'Enterprise Security', description: 'AES-256 encryption, UK data residency' },
+    { icon: '🧠', label: 'Agentic AI', description: 'Master Agent + Smart Fill + Guardian v2' },
+    { icon: '🧵', label: 'Golden Thread', description: 'Cross-module auto-linking via vector search' },
+    { icon: '🔐', label: 'Quantum Ready', description: 'Crypto-agile · NIST FIPS 203/204' },
+    { icon: '🔒', label: 'UK Data Residency', description: 'AES-256 + HMAC integrity, GDPR compliant' },
   ];
 
   return (
@@ -75,7 +75,7 @@ export default function PICMSDemoPage() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full bg-gradient-to-r from-cyan-500/10 to-blue-500/10 border border-cyan-500/30">
-              <span className="text-cyan-400 text-sm font-medium">Platform v2.0 Demo</span>
+              <span className="text-cyan-400 text-sm font-medium">Platform v3 Demo · Agentic Compliance</span>
             </div>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
               <span className="bg-gradient-to-r from-white via-slate-300 to-white bg-clip-text text-transparent">
@@ -83,8 +83,7 @@ export default function PICMSDemoPage() {
               </span>
             </h1>
             <p className="text-lg text-slate-400 max-w-2xl mx-auto">
-              Explore the key features of our completely redesigned compliance management platform.
-              See how PICMS v2.0 can transform your ISO journey.
+              Explore PICMS v3 — 14 ISO standards, 37 modules and agentic AI working together to manage your compliance.
             </p>
           </div>
 

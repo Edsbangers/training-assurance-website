@@ -3,13 +3,9 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics as VercelAnalytics } from "@vercel/analytics/next";
-import dynamic from "next/dynamic";
 import Analytics from "@/components/Analytics";
 import SchemaMarkup from "@/components/SchemaMarkup";
-
-const ChatWidget = dynamic(() => import("@/components/ChatWidget"), { ssr: false });
-const VisitorTracker = dynamic(() => import("@/components/VisitorTracker"), { ssr: false });
-const CookieConsent = dynamic(() => import("@/components/CookieConsent"), { ssr: false });
+import ClientOnlyWidgets from "@/components/ClientOnlyWidgets";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -84,10 +80,10 @@ export default function RootLayout({
         <Analytics />
         <VercelAnalytics />
         <SpeedInsights />
-        <VisitorTracker />
+        <ClientOnlyWidgets slot="tracker" />
         {children}
-        <ChatWidget />
-        <CookieConsent />
+        <ClientOnlyWidgets slot="chat" />
+        <ClientOnlyWidgets slot="consent" />
       </body>
     </html>
   );

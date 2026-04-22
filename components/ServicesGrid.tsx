@@ -45,18 +45,18 @@ const services: Service[] = [
       </svg>
     ),
     title: 'PICMS Platform',
-    subtitle: 'ISO Compliance for UK SMEs',
-    description: 'Our flagship SaaS platform – built specifically for UK small and medium enterprises to manage ISO compliance affordably and efficiently.',
+    subtitle: 'ISO Compliance, Built by an Auditor',
+    description: 'Our flagship SaaS platform — designed by an IRCA Registered Principal Auditor. 14 ISO standards, 37 modules, and agentic AI for UK SMEs and consultancies. Live now from £69/month.',
     features: [
-      'Purpose-built for UK SMEs',
-      'Multi-standard management (9001, 14001, 45001, 27001)',
-      'Automated audit scheduling & reminders',
-      'Document control with version history',
-      'Real-time compliance dashboards'
+      '14 ISO standards (9001, 14001, 45001, 27001, 42001 and more)',
+      'Agentic AI: Master Agent, Smart Fill, Guardian v2, Golden Thread',
+      'Industry packs: Construction, Healthcare, Security, Diving',
+      'CHAS, SafeContractor, Constructionline accreditation tracking',
+      'Quantum-ready · NIST FIPS 203/204 · ISO 27001 A.8.24'
     ],
     gradient: 'from-cyan-500 to-blue-600',
     borderColor: 'hover:border-cyan-500/50',
-    comingSoon: true
+    comingSoon: false
   },
   {
     id: 'bespoke-software',

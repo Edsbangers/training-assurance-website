@@ -283,8 +283,9 @@ export default function SoftwareSolutionsPage() {
               <div className="flex-1 text-center md:text-left">
                 <h3 className="text-2xl font-bold mb-3">Looking for Ready-Made ISO Compliance?</h3>
                 <p className="text-slate-400 mb-6">
-                  Our flagship PICMS platform provides comprehensive ISO compliance management
-                  out of the box, designed specifically for UK SMEs.
+                  Our flagship <strong className="text-white">PICMS v3</strong> platform delivers 14 ISO standards,
+                  37 modules and agentic AI compliance — designed by an IRCA Registered Principal Auditor.
+                  Industry starter packs from £69/month.
                 </p>
                 <Link
                   href="/picms"

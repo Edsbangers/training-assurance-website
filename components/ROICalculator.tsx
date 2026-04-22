@@ -18,7 +18,7 @@ interface ROIResults {
   paybackMonths: number;
 }
 
-const PICMS_MONTHLY_COST = 299; // Professional plan
+const PICMS_MONTHLY_COST = 449; // Professional plan (3 ISO standards, 15 users, 500 AI queries)
 const TIME_SAVINGS_PERCENTAGE = 0.70; // 70% time savings
 
 export default function ROICalculator() {

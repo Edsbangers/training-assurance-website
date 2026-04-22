@@ -366,8 +366,8 @@ export default function Home() {
               </span>
             </h2>
             <p className="text-xl text-slate-400 max-w-3xl mx-auto">
-              The game-changing ISO compliance management platform built specifically for UK SMEs.
-              Enterprise-grade compliance made affordable and accessible.
+              The only UK compliance platform built by an IRCA Registered Principal Auditor.
+              14 ISO standards, 37 modules, agentic AI — and industry starter packs from £69/month.
             </p>
           </div>
 
@@ -463,29 +463,30 @@ export default function Home() {
             </div>
 
             <div className="order-1 lg:order-2">
-              <span className="text-emerald-400 font-medium tracking-widest text-sm uppercase">Introducing PICMS</span>
+              <span className="text-emerald-400 font-medium tracking-widest text-sm uppercase">Introducing PICMS v3</span>
               <h3 className="text-3xl md:text-4xl font-bold mt-4 mb-6">
-                ISO Compliance, Simplified for SMEs
+                ISO Compliance, Built by an Auditor
               </h3>
               <p className="text-slate-400 text-lg mb-6 leading-relaxed">
-                We built <strong className="text-white">PICMS</strong> because we saw UK small and medium enterprises
-                struggling with expensive, overcomplicated compliance software designed for enterprises.
-                PICMS changes everything.
+                We built <strong className="text-white">PICMS</strong> because UK SMEs were stuck choosing between
+                expensive enterprise compliance suites and spreadsheets. PICMS gives you the depth of an
+                IRCA-auditor-designed platform with the simplicity SMEs actually need.
               </p>
               <p className="text-slate-400 text-lg mb-8 leading-relaxed">
-                Our platform delivers enterprise-grade ISO management at a fraction of the cost –
-                helping UK businesses achieve and maintain certification without the consultancy fees
-                or the complexity.
+                Now with <strong className="text-white">agentic AI</strong> — Master Agent, Smart Fill, Guardian AI v2,
+                Golden Thread and Neural Link — working across <strong className="text-white">37 modules</strong> and
+                <strong className="text-white"> 14 ISO standards</strong>. From £69/month industry packs to
+                full-suite enterprise.
               </p>
 
               <ul className="space-y-4 mb-8">
                 {[
-                  'Purpose-built for UK SMEs – affordable monthly pricing',
-                  'Manage ISO 9001, 14001, 45001 & 27001 in one place',
-                  'Automated audit scheduling & compliance reminders',
-                  'Document control with version history & approvals',
-                  'Gap analysis tools to identify non-conformances fast',
-                  'Certification-ready reports at the click of a button',
+                  'Designed by an IRCA Registered Principal Auditor',
+                  '14 ISO standards including 9001, 14001, 45001, 27001, 42001 (AI)',
+                  'Master Agent + Smart Fill — AI agents that map evidence for you',
+                  'Industry packs: Construction, Healthcare, Security, Diving (IMCA + DWR)',
+                  'Quantum-ready architecture · NIST FIPS 203/204 · ISO 27001 A.8.24',
+                  'CHAS, SafeContractor & Constructionline accreditation tracking',
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
                     <svg className="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -529,10 +530,10 @@ export default function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h4 className="text-xl font-bold mb-3">70% Cost Reduction</h4>
+              <h4 className="text-xl font-bold mb-3">From £69/month</h4>
               <p className="text-slate-400">
-                Compared to traditional consultancy-led compliance management.
-                SME-friendly pricing that scales with your business.
+                Industry starter packs (Construction, Healthcare, Security) start at £69/mo.
+                Full ISO Essentials from £199 — enterprise from £1,199.
               </p>
             </div>
 
@@ -542,10 +543,10 @@ export default function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h4 className="text-xl font-bold mb-3">50% Time Saved</h4>
+              <h4 className="text-xl font-bold mb-3">Agentic AI Saves Hours</h4>
               <p className="text-slate-400">
-                Automated workflows, smart reminders, and one-click reporting
-                cut your admin time in half.
+                Master Agent orchestrates, Smart Fill auto-populates evidence,
+                Guardian AI v2 escalates risks before audit day.
               </p>
             </div>
 
@@ -555,10 +556,10 @@ export default function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
                 </svg>
               </div>
-              <h4 className="text-xl font-bold mb-3">100% Audit Ready</h4>
+              <h4 className="text-xl font-bold mb-3">Quantum-Ready by 2030</h4>
               <p className="text-slate-400">
-                Always be certification-ready with real-time compliance tracking
-                and instant gap identification.
+                Crypto-agile architecture aligned to NIST FIPS 203/204 and ISO 27001 A.8.24.
+                Future-proof your ISMS today.
               </p>
             </div>
           </div>
