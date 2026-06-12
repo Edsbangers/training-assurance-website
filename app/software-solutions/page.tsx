@@ -6,6 +6,9 @@ import Footer from '@/components/Footer';
 export const metadata: Metadata = {
   title: 'ISO Compliance Technology and PICMS Support | TAC',
   description: 'TAC is an ISO consultancy first. We recommend PICMS for ongoing ISO management and selectively support compliance-focused technology. Not a general software development agency.',
+  alternates: {
+    canonical: '/software-solutions',
+  },
   keywords: ['ISO compliance technology', 'PICMS support', 'ISO management software', 'compliance workflow technology'],
 };
 

@@ -1,3 +1,5 @@
+import { FAQS } from '@/lib/faqs';
+
 interface SchemaMarkupProps {
   type: 'organization' | 'professionalService' | 'softwareApplication' | 'person' | 'faqPage' | 'website' | 'breadcrumb' | 'webpage' | 'localBusiness' | 'serviceList' | 'service';
   data?: Record<string, unknown>;
@@ -341,88 +343,16 @@ export default function SchemaMarkup({ type, data }: SchemaMarkupProps) {
     faqPage: {
       '@context': 'https://schema.org',
       '@type': 'FAQPage',
-      mainEntity: [
-        {
-          '@type': 'Question',
-          name: 'What does an ISO consultant do?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'An ISO consultant helps your organisation implement, maintain and improve an ISO management system — from gap analysis and documentation through to internal audits and certification readiness. TAC is led by an IRCA Registered Principal Auditor with 500+ audits completed, providing practical consultancy for ISO 27001, ISO 9001, ISO 14001 and ISO 45001.',
-          },
+      // Built from lib/faqs.ts — the same array rendered as the visible FAQ
+      // section, so the structured data always matches the on-page content.
+      mainEntity: FAQS.map((faq) => ({
+        '@type': 'Question',
+        name: faq.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: faq.answer,
         },
-        {
-          '@type': 'Question',
-          name: 'Do you provide ISO 27001 consultancy?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'Yes. ISO 27001 information security is our lead standard. We support gap analysis, ISMS implementation, risk assessment, Statement of Applicability, internal audit preparation, certification readiness and ongoing ISMS maintenance.',
-          },
-        },
-        {
-          '@type': 'Question',
-          name: 'What is ISO/IEC 42001?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'ISO/IEC 42001 is the international standard for Artificial Intelligence Management Systems (AIMS). It provides a framework for organisations to manage AI-related risks and ensure responsible AI development and deployment. TAC offers ISO/IEC 42001 as a specialist service under its ISO consultancy umbrella.',
-          },
-        },
-        {
-          '@type': 'Question',
-          name: 'How long does ISO certification take?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'The timeline varies based on your organisation\'s size and readiness. Typically, first-time certification takes 6-12 months with proper support. Our clients often achieve certification faster with PICMS and our expert guidance.',
-          },
-        },
-        {
-          '@type': 'Question',
-          name: 'Do you offer integrated management system consultancy?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'Yes, we specialise in integrated management systems (IMS) that combine multiple ISO standards such as 9001, 14001, and 45001 into a single, efficient system. This reduces documentation and audit overhead.',
-          },
-        },
-        {
-          '@type': 'Question',
-          name: 'What countries do you operate in?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'We provide consultancy services across the UK, Ireland, Netherlands, Norway, and Italy. Our team can support organisations throughout Europe with both on-site and remote engagements.',
-          },
-        },
-        {
-          '@type': 'Question',
-          name: 'What is PICMS?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'PICMS is a separate UK-built ISO compliance software platform, designed by an IRCA Registered Principal Auditor, available at PICMS.com. TAC recommends PICMS to clients who want to maintain evidence, audits, actions and documentation after their consultancy engagement. TAC is an independent ISO consultancy; PICMS is the software product.',
-          },
-        },
-        {
-          '@type': 'Question',
-          name: 'How much does ISO consultancy cost?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'Our consultancy services are tailored to your specific needs, so costs vary based on scope, complexity, and the standards you\'re pursuing. We offer free initial consultations to understand your requirements and provide a detailed quote. Contact us to discuss your project.',
-          },
-        },
-        {
-          '@type': 'Question',
-          name: 'What is an AI audit?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'An AI audit is a comprehensive assessment of your artificial intelligence systems to ensure they meet ethical, legal, and operational standards. Our AI audits cover algorithmic transparency, bias detection, risk management, and ISO/IEC 42001 compliance.',
-          },
-        },
-        {
-          '@type': 'Question',
-          name: 'Is TAC a consultancy or a software company?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'TAC is primarily an ISO consultancy and audit support business, led by an IRCA Registered Principal Auditor. We are not a general software development agency. Where clients need ongoing ISO management software after consultancy, we recommend PICMS — a separate platform at PICMS.com.',
-          },
-        },
-      ],
+      })),
       ...data,
     },
 

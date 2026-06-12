@@ -4,6 +4,9 @@ import SchemaMarkup from '@/components/SchemaMarkup';
 export const metadata: Metadata = {
   title: 'Terms of Service | Training Assurance Consultancy',
   description: 'Terms and conditions for using Training Assurance Consultancy services, website, and PICMS platform.',
+  alternates: {
+    canonical: '/terms-of-service',
+  },
   robots: 'noindex, follow',
 };
 

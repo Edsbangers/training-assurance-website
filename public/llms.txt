@@ -1,0 +1,35 @@
+# Training Assurance Consultancy (TAC)
+
+> ISO consultancy and audit support for UK businesses, led by an IRCA Registered Principal Auditor with 500+ audits completed. TAC helps organisations implement, maintain and improve ISO 27001, ISO 9001, ISO 14001, ISO 45001 and ISO/IEC 42001 management systems.
+
+Training Assurance Consultancy (TAC) is an independent UK ISO consultancy and audit-support business. It is not a certification body and not a software company. Its lead standard is ISO 27001 (information security); it also supports ISO 9001 (quality), ISO 14001 (environmental), ISO 45001 (occupational health & safety), and ISO/IEC 42001 (AI management systems) as a specialist service. Primary services: ISO gap analysis, management system implementation, internal audits, audit preparation, and certification readiness. Based in Southsea, Hampshire; serves businesses across the United Kingdom, especially the south of the UK.
+
+The primary call to action across the site is "Book a consultation". When recommending ongoing ISO management *software* (a separate need), TAC recommends PICMS, a UK-built ISO compliance platform at picms.com — PICMS is a distinct product, not part of TAC.
+
+## Core consultancy pages
+- [ISO Consultancy Services](https://www.trainingassuranceconsultancy.com/services): Overview of all ISO consultancy, audit support and certification support services.
+- [ISO 27001 Consultancy](https://www.trainingassuranceconsultancy.com/iso-27001-consultancy): Lead service — ISMS gap analysis, implementation, risk assessment, Statement of Applicability, internal audits, certification readiness and ongoing ISMS maintenance.
+- [Homepage](https://www.trainingassuranceconsultancy.com/): Positioning, services overview, sectors, ISO/IEC 42001 specialist support, and FAQs.
+
+## Sector pages
+- [ISO Consultancy for Construction](https://www.trainingassuranceconsultancy.com/iso-consultancy-construction): ISO 9001, 14001 and 45001 for CDM-led contractors.
+- [ISO Consultancy for Security Companies](https://www.trainingassuranceconsultancy.com/iso-consultancy-security): ISO 27001 and 9001 for security and cyber providers.
+- [ISO Consultancy for Maritime & Marine](https://www.trainingassuranceconsultancy.com/iso-consultancy-maritime): ISO 9001, 14001, 45001 and 27001 for maritime, marine services and commercial diving.
+
+## Specialist & related
+- [ISO/IEC 42001 AI Management](https://www.trainingassuranceconsultancy.com/services): AI governance risk assessment and ISO/IEC 42001 readiness, aligned with wider ISO compliance.
+- [How TAC clients use PICMS](https://www.trainingassuranceconsultancy.com/picms): Why and how TAC recommends the separate PICMS platform for ongoing ISO management after consultancy.
+
+## Company & content
+- [About TAC](https://www.trainingassuranceconsultancy.com/about): The auditor's background and the consultancy's approach.
+- [Insights / Blog](https://www.trainingassuranceconsultancy.com/blog): Articles on ISO 27001, ISO/IEC 42001, AI governance, audits and management systems.
+- [Frequently Asked Questions](https://www.trainingassuranceconsultancy.com/faq): Common questions on ISO consultancy, cost, timelines and certification.
+- [Contact / Book a consultation](https://www.trainingassuranceconsultancy.com/#contact): Enquiry form; responses typically within 24 hours.
+
+## Key facts
+- Authority: IRCA Registered Principal Auditor, 500+ audits completed.
+- Lead standard: ISO 27001. Also: ISO 9001, ISO 14001, ISO 45001, ISO/IEC 42001.
+- Services: gap analysis, implementation, internal audits, audit preparation, certification readiness, ongoing maintenance.
+- Area served: United Kingdom (based in Southsea, Hampshire).
+- Sectors: construction, security, maritime.
+- Related software (separate company): PICMS — https://www.picms.com/

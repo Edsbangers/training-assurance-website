@@ -6,6 +6,9 @@ import Footer from '@/components/Footer';
 export const metadata: Metadata = {
   title: 'How TAC Clients Use PICMS for Ongoing ISO Management',
   description: 'PICMS is the UK-built ISO compliance platform TAC recommends for ongoing compliance after consultancy. TAC implements your ISO management system; PICMS helps you maintain evidence, audits, actions and documentation. PICMS is a separate SaaS product at PICMS.com.',
+  alternates: {
+    canonical: '/picms',
+  },
   keywords: ['PICMS', 'ongoing ISO management', 'ISO compliance platform', 'TAC PICMS', 'ISO evidence management', 'ISO consultancy software'],
 };
 

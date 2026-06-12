@@ -5,6 +5,9 @@ import Image from 'next/image';
 export const metadata: Metadata = {
   title: 'Certifications | Training Assurance Consultancy',
   description: 'View our professional certifications and accreditations. IRCA registered Principal Auditor with expertise across multiple ISO standards.',
+  alternates: {
+    canonical: '/security/certifications',
+  },
 };
 
 export default function CertificationsPage() {

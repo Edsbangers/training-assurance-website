@@ -36,6 +36,7 @@ export default function Footer({ variant = 'default' }: FooterProps) {
                 <li><Link href="/iso-27001-consultancy" className="hover:text-cyan-400 transition-colors">ISO 27001 Consultancy</Link></li>
                 <li><Link href="/about" className="hover:text-cyan-400 transition-colors">About Us</Link></li>
                 <li><Link href="/blog" className="hover:text-cyan-400 transition-colors">Insights</Link></li>
+                <li><Link href="/faq" className="hover:text-cyan-400 transition-colors">FAQ</Link></li>
                 <li><Link href="/resources" className="hover:text-cyan-400 transition-colors">Resources</Link></li>
                 <li><Link href="/#contact" className="hover:text-cyan-400 transition-colors">Book a consultation</Link></li>
               </ul>

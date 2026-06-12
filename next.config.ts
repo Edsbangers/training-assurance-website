@@ -1,6 +1,20 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  async redirects() {
+    return [
+      {
+        // Permanent (308) canonical-host redirect: non-www → www.
+        // Vercel performs a platform-level redirect too; this is belt-and-braces
+        // so the apex/non-www host always consolidates to the www canonical that
+        // every canonical tag, sitemap entry and schema URL points at.
+        source: "/:path*",
+        has: [{ type: "host", value: "trainingassuranceconsultancy.com" }],
+        destination: "https://www.trainingassuranceconsultancy.com/:path*",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {

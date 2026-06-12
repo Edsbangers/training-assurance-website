@@ -6,6 +6,9 @@ import Footer from '@/components/Footer';
 export const metadata: Metadata = {
   title: 'ISO Consultancy for Security Companies UK | ISO 27001 & 9001 | TAC',
   description: 'ISO consultancy for UK security companies — covering ISO 27001 (information security), ISO 9001 (quality) and ISO 14001 (environmental), led by an IRCA Registered Principal Auditor.',
+  alternates: {
+    canonical: '/iso-consultancy-security',
+  },
   keywords: ['ISO consultancy security', 'ISO 27001 security companies', 'ISO 9001 security', 'ISO consultancy manned guarding', 'ISO 14001 security', 'ACS SIA management system', 'BS 7499', 'BS 7858', 'cyber security ISO consultancy', 'security company ISO certification'],
 };
 

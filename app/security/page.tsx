@@ -6,6 +6,9 @@ import Footer from '@/components/Footer';
 export const metadata: Metadata = {
   title: 'Security | Training Assurance Consultancy',
   description: 'Our commitment to information security and data protection. Learn about our security practices aligned with ISO 27001 standards.',
+  alternates: {
+    canonical: '/security',
+  },
 };
 
 export default function SecurityPage() {
