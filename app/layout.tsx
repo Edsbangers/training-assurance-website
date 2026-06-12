@@ -18,9 +18,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Training Assurance Consultancy | SHEQ Lead Auditor",
-  description: "Strategic SHEQ Lead Auditor Authority specialising in AI Governance & ISO compliance across UK, Ireland, Netherlands, Norway and Italy.",
-  keywords: ["Strategic SHEQ Lead Auditor", "AI Governance", "ISO 42001", "ISO compliance", "SHEQ consultancy", "ISO 9001", "ISO 14001", "ISO 45001", "ISO 27001", "UK compliance consultancy", "Lead Auditor", "IRCA auditor", "Construction Safety"],
+  metadataBase: new URL("https://www.trainingassuranceconsultancy.com"),
+  title: "ISO Consultancy UK | IRCA Registered Principal Auditor | TAC",
+  description: "ISO consultancy and audit support for UK businesses. TAC helps organisations implement, maintain and improve ISO 27001, ISO 9001, ISO 14001 and ISO 45001 management systems.",
+  keywords: ["ISO consultancy", "ISO consultant UK", "IRCA Registered Principal Auditor", "ISO 27001 consultancy", "ISO 9001 consultancy", "ISO 14001 consultancy", "ISO 45001 consultancy", "ISO audit support", "ISO certification support", "ISO gap analysis", "internal audits", "ISO/IEC 42001", "AI management systems"],
   authors: [{ name: "Training Assurance Consultancy" }],
   creator: "Training Assurance Consultancy",
   publisher: "Training Assurance Consultancy",
@@ -30,22 +31,22 @@ export const metadata: Metadata = {
     locale: "en_GB",
     url: "https://www.trainingassuranceconsultancy.com",
     siteName: "Training Assurance Consultancy",
-    title: "Training Assurance Consultancy | SHEQ Lead Auditor",
-    description: "Strategic SHEQ Lead Auditor Authority. Expert consultancy in AI Governance, Quality, Environmental, Health & Safety and Information Security.",
+    title: "ISO Consultancy UK | IRCA Registered Principal Auditor | TAC",
+    description: "ISO consultancy and audit support for UK businesses, led by an IRCA Registered Principal Auditor. Support for ISO 27001, 9001, 14001, 45001 and ISO/IEC 42001.",
     images: [
       {
-        url: "https://www.trainingassuranceconsultancy.com/api/og?title=Training%20Assurance%20Consultancy&category=Strategic%20SHEQ%20Lead%20Auditor%20Authority",
+        url: "https://www.trainingassuranceconsultancy.com/api/og?title=ISO%20Consultancy%20UK&category=IRCA%20Registered%20Principal%20Auditor",
         width: 1200,
         height: 630,
-        alt: "Training Assurance Consultancy - ISO Compliance & AI Governance Experts",
+        alt: "Training Assurance Consultancy - ISO Consultancy & Audit Support",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Training Assurance Consultancy | SHEQ Lead Auditor",
-    description: "Strategic SHEQ Lead Auditor Authority. Expert consultancy in AI Governance and ISO management systems across Europe.",
-    images: ["https://www.trainingassuranceconsultancy.com/api/og?title=Training%20Assurance%20Consultancy&category=Strategic%20SHEQ%20Lead%20Auditor%20Authority"],
+    title: "ISO Consultancy UK | IRCA Registered Principal Auditor | TAC",
+    description: "ISO consultancy and audit support for UK businesses, led by an IRCA Registered Principal Auditor.",
+    images: ["https://www.trainingassuranceconsultancy.com/api/og?title=ISO%20Consultancy%20UK&category=IRCA%20Registered%20Principal%20Auditor"],
   },
 };
 
@@ -63,12 +64,13 @@ export default function RootLayout({
         <SchemaMarkup type="person" />
         <SchemaMarkup type="professionalService" />
         <SchemaMarkup type="faqPage" />
+        <SchemaMarkup type="serviceList" />
         <SchemaMarkup
           type="webpage"
           data={{
             pageType: 'WebPage',
-            name: 'Training Assurance Consultancy | Strategic SHEQ Lead Auditor Authority',
-            description: 'Strategic SHEQ Lead Auditor Authority specialising in AI Governance & ISO compliance across UK, Ireland, Netherlands, Norway and Italy.',
+            name: 'ISO Consultancy UK | IRCA Registered Principal Auditor | TAC',
+            description: 'ISO consultancy and audit support for UK businesses. TAC helps organisations implement, maintain and improve ISO 27001, ISO 9001, ISO 14001 and ISO 45001 management systems.',
             url: 'https://www.trainingassuranceconsultancy.com',
             speakable: ['h1', '#main-content p', '#services h2'],
           }}

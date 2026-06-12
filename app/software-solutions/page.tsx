@@ -4,9 +4,9 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
-  title: 'Bespoke Software Solutions | Training Assurance Consultancy',
-  description: 'Custom SaaS and software solutions tailored to your business. Streamline operations, boost productivity and achieve compliance with bespoke development.',
-  keywords: ['bespoke software', 'custom SaaS', 'business software', 'productivity solutions', 'compliance software', 'workflow automation'],
+  title: 'ISO Compliance Technology and PICMS Support | TAC',
+  description: 'TAC is an ISO consultancy first. We recommend PICMS for ongoing ISO management and selectively support compliance-focused technology. Not a general software development agency.',
+  keywords: ['ISO compliance technology', 'PICMS support', 'ISO management software', 'compliance workflow technology'],
 };
 
 export default function SoftwareSolutionsPage() {
@@ -73,29 +73,6 @@ export default function SoftwareSolutionsPage() {
     },
   ];
 
-  const successStories = [
-    {
-      stat: '60%',
-      label: 'Productivity Increase',
-      description: 'Average improvement in operational efficiency across our implementations',
-    },
-    {
-      stat: '40%',
-      label: 'Time Saved',
-      description: 'Reduction in manual administrative tasks through automation',
-    },
-    {
-      stat: '100%',
-      label: 'Client Satisfaction',
-      description: 'Our bespoke solutions are tailored to meet exact requirements',
-    },
-    {
-      stat: '24/7',
-      label: 'System Availability',
-      description: 'Enterprise-grade reliability with continuous monitoring',
-    },
-  ];
-
   const process = [
     {
       step: '01',
@@ -139,58 +116,54 @@ export default function SoftwareSolutionsPage() {
           <div className="text-center max-w-4xl mx-auto">
             <div className="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full bg-purple-500/10 border border-purple-500/30">
               <span className="w-2 h-2 rounded-full bg-purple-400 animate-pulse" />
-              <span className="text-purple-400 text-sm font-medium">Bespoke Development</span>
+              <span className="text-purple-400 text-sm font-medium">Secondary to our ISO consultancy</span>
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
               <span className="bg-gradient-to-r from-white via-purple-200 to-white bg-clip-text text-transparent">
-                Software Solutions Built for Your Business
+                Technology Support for ISO Compliance
               </span>
             </h1>
             <p className="text-lg md:text-xl text-slate-400 mb-10 max-w-3xl mx-auto">
-              Every business is unique. Our bespoke software solutions are designed to address your specific
-              challenges, streamline your operations, and drive measurable improvements in productivity.
+              TAC is an ISO consultancy first. For ongoing ISO management we recommend{' '}
+              <Link href="/picms" className="text-cyan-400 hover:underline">PICMS</Link>, and we selectively
+              support compliance-focused technology for existing clients. We are not a general software
+              development agency.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/#contact"
-                className="px-8 py-4 bg-gradient-to-r from-purple-500 to-cyan-500 text-white font-semibold rounded-xl hover:opacity-90 transition-all shadow-lg shadow-purple-500/20"
+                className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-xl hover:opacity-90 transition-all shadow-lg shadow-cyan-500/20"
               >
-                Discuss Your Project
+                Book a consultation
               </Link>
               <Link
-                href="/case-studies"
+                href="/picms"
                 className="px-8 py-4 border border-slate-700 text-white font-semibold rounded-xl hover:bg-slate-800 transition-colors"
               >
-                View Case Studies
+                Explore PICMS for ongoing ISO management
               </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Success Stats */}
+      {/* Positioning clarification */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-slate-900/50">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold mb-4">
-              Proven Results for Our Clients
-            </h2>
-            <p className="text-slate-400 max-w-2xl mx-auto">
-              Our solutions have already helped businesses across the UK streamline their services
-              and achieve significant improvements in efficiency.
-            </p>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {successStories.map((story, index) => (
-              <div key={index} className="text-center">
-                <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent mb-2">
-                  {story.stat}
-                </div>
-                <div className="font-semibold text-white mb-1">{story.label}</div>
-                <p className="text-sm text-slate-500">{story.description}</p>
-              </div>
-            ))}
-          </div>
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-2xl md:text-3xl font-bold mb-4">
+            Consultancy First, Technology Second
+          </h2>
+          <p className="text-slate-400 mb-4">
+            Our core business is ISO consultancy and audit support, led by an IRCA Registered Principal
+            Auditor. Where technology helps an ISO management system run more smoothly, our default
+            recommendation is{' '}
+            <Link href="/picms" className="text-cyan-400 hover:underline">PICMS</Link> — a UK-built ISO
+            compliance platform designed by an auditor.
+          </p>
+          <p className="text-slate-500 text-sm">
+            We take on bespoke or legacy compliance-technology work selectively, for existing clients,
+            where it supports their ISO objectives — not as a general software agency offering.
+          </p>
         </div>
       </section>
 
