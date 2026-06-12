@@ -19,16 +19,16 @@ export default function Navigation({ variant = 'default' }: NavigationProps) {
 
   // Same navigation items for ALL pages - consistent experience
   const navLinks: NavLink[] = [
-    { href: variant === 'home' ? '#services' : '/#services', label: 'Services' },
-    { href: '/software-solutions', label: 'Software' },
+    { href: '/services', label: 'Services' },
+    { href: '/iso-27001-consultancy', label: 'ISO 27001' },
     { href: '/about', label: 'About' },
     { href: '/case-studies', label: 'Case Studies' },
     { href: '/blog', label: 'Insights' },
-    { href: '/resources', label: 'Resources' },
+    { href: '/picms', label: 'PICMS' },
   ];
 
   const ctaLink = variant === 'home' ? '#contact' : '/#contact';
-  const ctaText = 'Contact';
+  const ctaText = 'Book a consultation';
 
   return (
     <nav

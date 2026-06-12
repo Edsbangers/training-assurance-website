@@ -24,38 +24,30 @@ export default function Footer({ variant = 'default' }: FooterProps) {
                 />
               </div>
               <p className="text-slate-500 max-w-md">
-                Strategic SHEQ consultancy and AI governance solutions for forward-thinking organisations.
-                IRCA Registered Principal Auditor. 100% Certification Success Rate.
+                ISO consultancy and audit support for UK businesses, led by an IRCA Registered Principal
+                Auditor. ISO 27001, 9001, 14001, 45001 and specialist ISO/IEC 42001 support.
               </p>
             </div>
 
             <div>
-              <h4 className="font-semibold mb-4">Company</h4>
+              <h4 className="font-semibold mb-4">Consultancy</h4>
               <ul className="space-y-2 text-slate-500">
+                <li><Link href="/services" className="hover:text-cyan-400 transition-colors">ISO Consultancy Services</Link></li>
+                <li><Link href="/iso-27001-consultancy" className="hover:text-cyan-400 transition-colors">ISO 27001 Consultancy</Link></li>
                 <li><Link href="/about" className="hover:text-cyan-400 transition-colors">About Us</Link></li>
                 <li><Link href="/blog" className="hover:text-cyan-400 transition-colors">Insights</Link></li>
                 <li><Link href="/resources" className="hover:text-cyan-400 transition-colors">Resources</Link></li>
-                <li><Link href="/#services" className="hover:text-cyan-400 transition-colors">Services</Link></li>
-                <li>
-                  <a href="https://www.picms.com" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-400 transition-colors flex items-center gap-1">
-                    PICMS Platform
-                    <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
-                  </a>
-                </li>
-                <li><Link href="/#contact" className="hover:text-cyan-400 transition-colors">Contact</Link></li>
+                <li><Link href="/#contact" className="hover:text-cyan-400 transition-colors">Book a consultation</Link></li>
               </ul>
             </div>
 
             <div>
-              <h4 className="font-semibold mb-4">Standards</h4>
+              <h4 className="font-semibold mb-4">Sectors &amp; Platform</h4>
               <ul className="space-y-2 text-slate-500">
-                <li>ISO/IEC 42001</li>
-                <li>ISO 9001</li>
-                <li>ISO 14001</li>
-                <li>ISO 45001</li>
-                <li>ISO 27001</li>
+                <li><Link href="/iso-consultancy-construction" className="hover:text-cyan-400 transition-colors">Construction</Link></li>
+                <li><Link href="/iso-consultancy-security" className="hover:text-cyan-400 transition-colors">Security</Link></li>
+                <li><Link href="/iso-consultancy-maritime" className="hover:text-cyan-400 transition-colors">Maritime</Link></li>
+                <li><Link href="/picms" className="hover:text-emerald-400 transition-colors">PICMS (ongoing management)</Link></li>
               </ul>
             </div>
           </div>

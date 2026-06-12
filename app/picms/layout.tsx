@@ -7,18 +7,24 @@ export default function PICMSLayout({ children }: { children: React.ReactNode })
     <>
       <SchemaMarkup
         type="breadcrumb"
-        data={{ items: [{ name: 'Home', url: BASE }, { name: 'PICMS Platform', url: `${BASE}/picms` }] }}
+        data={{ items: [{ name: 'Home', url: BASE }, { name: 'PICMS for Ongoing ISO Management', url: `${BASE}/picms` }] }}
       />
       <SchemaMarkup
         type="webpage"
         data={{
           pageType: 'WebPage',
-          name: 'PICMS Platform | The UK Compliance Platform Built by an IRCA Auditor',
-          description: 'The only UK compliance platform designed by an IRCA Registered Principal Auditor. 14 ISO standards, 37 modules, 3 industry packs and agentic AI (Master Agent, Smart Fill, Guardian AI v2, Golden Thread, Neural Link). Quantum-ready · NIST FIPS 203/204. Industry starter packs from £69/month.',
+          name: 'How TAC Clients Use PICMS for Ongoing ISO Management',
+          description: 'PICMS is the UK-built ISO compliance platform TAC recommends for ongoing compliance after consultancy. TAC implements your ISO management system; PICMS helps you maintain evidence, audits, actions and documentation. PICMS is a separate SaaS product at PICMS.com.',
           url: `${BASE}/picms`,
+          mainEntity: {
+            '@type': 'SoftwareApplication',
+            name: 'PICMS',
+            applicationCategory: 'BusinessApplication',
+            operatingSystem: 'Web',
+            url: 'https://www.picms.com/',
+          },
         }}
       />
-      <SchemaMarkup type="softwareApplication" />
       {children}
     </>
   );

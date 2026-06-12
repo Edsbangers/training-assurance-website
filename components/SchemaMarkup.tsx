@@ -1,7 +1,5 @@
-import Script from 'next/script';
-
 interface SchemaMarkupProps {
-  type: 'organization' | 'professionalService' | 'softwareApplication' | 'person' | 'faqPage' | 'website' | 'breadcrumb' | 'webpage' | 'localBusiness';
+  type: 'organization' | 'professionalService' | 'softwareApplication' | 'person' | 'faqPage' | 'website' | 'breadcrumb' | 'webpage' | 'localBusiness' | 'serviceList' | 'service';
   data?: Record<string, unknown>;
 }
 
@@ -14,7 +12,7 @@ export default function SchemaMarkup({ type, data }: SchemaMarkupProps) {
       '@type': 'WebSite',
       name: 'Training Assurance Consultancy',
       url: baseUrl,
-      description: 'Strategic SHEQ Lead Auditor Authority specialising in AI Governance & ISO compliance across UK, Ireland, Netherlands, Norway and Italy.',
+      description: 'ISO consultancy and audit support for UK businesses, led by an IRCA Registered Principal Auditor. Support for ISO 27001, 9001, 14001, 45001 and ISO/IEC 42001.',
       potentialAction: {
         '@type': 'SearchAction',
         target: {
@@ -68,13 +66,24 @@ export default function SchemaMarkup({ type, data }: SchemaMarkupProps) {
       alternateName: 'TAC',
       url: baseUrl,
       logo: `${baseUrl}/logo.png`,
-      description: 'Strategic SHEQ Lead Auditor Authority. Expert consultancy in AI Governance, Quality, Environmental, Health & Safety, and Information Security management systems.',
+      description: 'ISO consultancy, ISO audit support and ISO certification support for UK businesses, led by an IRCA Registered Principal Auditor. Specialists in ISO 27001, ISO 9001, ISO 14001, ISO 45001 and ISO/IEC 42001.',
+      knowsAbout: [
+        'ISO 27001',
+        'ISO 9001',
+        'ISO 14001',
+        'ISO 45001',
+        'ISO/IEC 42001',
+        'ISO audit support',
+        'ISO internal audits',
+        'ISO gap analysis',
+        'Management systems implementation',
+      ],
       foundingDate: '2022',
       founders: [
         {
           '@type': 'Person',
-          name: 'Lead Auditor',
-          jobTitle: 'Principal Consultant & Lead Auditor',
+          name: 'Principal Consultant',
+          jobTitle: 'Principal Consultant & IRCA Registered Principal Auditor',
           hasCredential: [
             {
               '@type': 'EducationalOccupationalCredential',
@@ -121,7 +130,7 @@ export default function SchemaMarkup({ type, data }: SchemaMarkupProps) {
       url: baseUrl,
       logo: `${baseUrl}/logo.png`,
       image: `${baseUrl}/logo.png`,
-      description: 'Strategic SHEQ Lead Auditor Authority providing expert consultancy in AI Governance (ISO/IEC 42001), ISO 9001, 14001, 45001, and 27001 management systems.',
+      description: 'ISO consultancy and audit support for UK businesses, led by an IRCA Registered Principal Auditor. ISO 27001, ISO 9001, ISO 14001, ISO 45001 and specialist ISO/IEC 42001 support.',
       priceRange: '££',
       address: {
         '@type': 'PostalAddress',
@@ -146,14 +155,14 @@ export default function SchemaMarkup({ type, data }: SchemaMarkupProps) {
       ],
       hasOfferCatalog: {
         '@type': 'OfferCatalog',
-        name: 'Consultancy Services',
+        name: 'ISO Consultancy Services',
         itemListElement: [
           {
             '@type': 'Offer',
             itemOffered: {
               '@type': 'Service',
-              name: 'AI Governance Audits',
-              description: 'ISO/IEC 42001 compliance auditing and implementation',
+              name: 'ISO 27001 Consultancy',
+              description: 'Information Security Management System (ISMS) implementation, risk assessment, Statement of Applicability and certification readiness',
             },
           },
           {
@@ -184,17 +193,27 @@ export default function SchemaMarkup({ type, data }: SchemaMarkupProps) {
             '@type': 'Offer',
             itemOffered: {
               '@type': 'Service',
-              name: 'ISO 27001 Consultancy',
-              description: 'Information Security Management System implementation',
+              name: 'ISO Audit Support & Internal Audits',
+              description: 'Audit preparation, internal audit programmes and certification body liaison',
+            },
+          },
+          {
+            '@type': 'Offer',
+            itemOffered: {
+              '@type': 'Service',
+              name: 'ISO Gap Analysis',
+              description: 'Independent gap analysis against the requirements of your target ISO standard',
+            },
+          },
+          {
+            '@type': 'Offer',
+            itemOffered: {
+              '@type': 'Service',
+              name: 'ISO/IEC 42001 AI Management Systems',
+              description: 'Specialist support for AI governance risk assessment and ISO/IEC 42001 readiness',
             },
           },
         ],
-      },
-      aggregateRating: {
-        '@type': 'AggregateRating',
-        ratingValue: '5',
-        ratingCount: '50',
-        bestRating: '5',
       },
       ...data,
     },
@@ -213,11 +232,6 @@ export default function SchemaMarkup({ type, data }: SchemaMarkupProps) {
         highPrice: '1199',
         priceCurrency: 'GBP',
         offerCount: '8',
-      },
-      aggregateRating: {
-        '@type': 'AggregateRating',
-        ratingValue: '4.8',
-        ratingCount: '120',
       },
       featureList: [
         'Master Agent — autonomous multi-standard orchestration',
@@ -249,20 +263,20 @@ export default function SchemaMarkup({ type, data }: SchemaMarkupProps) {
     person: {
       '@context': 'https://schema.org',
       '@type': 'Person',
-      name: 'TAC Lead Auditor',
-      jobTitle: 'Strategic SHEQ Lead Auditor',
+      name: 'TAC Principal Consultant',
+      jobTitle: 'IRCA Registered Principal Auditor & Principal ISO Consultant',
       worksFor: {
         '@type': 'Organization',
         name: 'Training Assurance Consultancy',
       },
       knowsAbout: [
-        'ISO/IEC 42001',
-        'AI Governance',
+        'ISO 27001',
         'ISO 9001',
         'ISO 14001',
         'ISO 45001',
-        'ISO 27001',
-        'SHEQ Management',
+        'ISO/IEC 42001',
+        'Information Security Management',
+        'ISO audit support',
         'Management Systems Auditing',
       ],
       hasCredential: [
@@ -293,7 +307,7 @@ export default function SchemaMarkup({ type, data }: SchemaMarkupProps) {
       url: baseUrl,
       logo: `${baseUrl}/logo.png`,
       image: `${baseUrl}/logo.png`,
-      description: 'Strategic SHEQ Lead Auditor Authority providing expert consultancy in AI Governance (ISO/IEC 42001), ISO 9001, 14001, 45001, and 27001 management systems.',
+      description: 'ISO consultancy and audit support for UK businesses, led by an IRCA Registered Principal Auditor. ISO 27001, ISO 9001, ISO 14001, ISO 45001 and specialist ISO/IEC 42001 support.',
       priceRange: '££',
       telephone: '+44-7956-139772',
       address: {
@@ -330,10 +344,26 @@ export default function SchemaMarkup({ type, data }: SchemaMarkupProps) {
       mainEntity: [
         {
           '@type': 'Question',
+          name: 'What does an ISO consultant do?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'An ISO consultant helps your organisation implement, maintain and improve an ISO management system — from gap analysis and documentation through to internal audits and certification readiness. TAC is led by an IRCA Registered Principal Auditor with 500+ audits completed, providing practical consultancy for ISO 27001, ISO 9001, ISO 14001 and ISO 45001.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Do you provide ISO 27001 consultancy?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Yes. ISO 27001 information security is our lead standard. We support gap analysis, ISMS implementation, risk assessment, Statement of Applicability, internal audit preparation, certification readiness and ongoing ISMS maintenance.',
+          },
+        },
+        {
+          '@type': 'Question',
           name: 'What is ISO/IEC 42001?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'ISO/IEC 42001 is the international standard for Artificial Intelligence Management Systems (AIMS). It provides a framework for organisations to manage AI-related risks and ensure responsible AI development and deployment.',
+            text: 'ISO/IEC 42001 is the international standard for Artificial Intelligence Management Systems (AIMS). It provides a framework for organisations to manage AI-related risks and ensure responsible AI development and deployment. TAC offers ISO/IEC 42001 as a specialist service under its ISO consultancy umbrella.',
           },
         },
         {
@@ -365,7 +395,7 @@ export default function SchemaMarkup({ type, data }: SchemaMarkupProps) {
           name: 'What is PICMS?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'PICMS (Proactive Intelligent Compliance Management System) is our ISO compliance management platform built specifically for UK SMEs. It helps businesses manage ISO 9001, 14001, 45001, and 27001 certifications with AI-powered insights, real-time dashboards, and automated audit scheduling.',
+            text: 'PICMS is a separate UK-built ISO compliance software platform, designed by an IRCA Registered Principal Auditor, available at PICMS.com. TAC recommends PICMS to clients who want to maintain evidence, audits, actions and documentation after their consultancy engagement. TAC is an independent ISO consultancy; PICMS is the software product.',
           },
         },
         {
@@ -386,15 +416,62 @@ export default function SchemaMarkup({ type, data }: SchemaMarkupProps) {
         },
         {
           '@type': 'Question',
-          name: 'Do you provide bespoke software solutions?',
+          name: 'Is TAC a consultancy or a software company?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Yes, we develop custom software solutions tailored to your business challenges. Our bespoke systems include AI-powered agentic tools, compliance management platforms, training systems, and workflow automation. Our solutions have helped clients achieve 60% productivity improvements.',
+            text: 'TAC is primarily an ISO consultancy and audit support business, led by an IRCA Registered Principal Auditor. We are not a general software development agency. Where clients need ongoing ISO management software after consultancy, we recommend PICMS — a separate platform at PICMS.com.',
           },
         },
       ],
       ...data,
     },
+
+    serviceList: {
+      '@context': 'https://schema.org',
+      '@type': 'ItemList',
+      name: 'ISO Consultancy Services',
+      itemListElement: [
+        { standard: 'ISO 27001 Consultancy', desc: 'Information security management system (ISMS) consultancy and certification support', url: `${baseUrl}/iso-27001-consultancy` },
+        { standard: 'ISO 9001 Consultancy', desc: 'Quality management system consultancy and certification support', url: `${baseUrl}/services` },
+        { standard: 'ISO 14001 Consultancy', desc: 'Environmental management system consultancy', url: `${baseUrl}/services` },
+        { standard: 'ISO 45001 Consultancy', desc: 'Occupational health & safety management system consultancy', url: `${baseUrl}/services` },
+        { standard: 'ISO Audit Preparation & Internal Audits', desc: 'Audit support, internal audit programmes and certification body liaison', url: `${baseUrl}/services` },
+        { standard: 'ISO Gap Analysis', desc: 'Independent gap analysis against ISO standard requirements', url: `${baseUrl}/services` },
+        { standard: 'ISO/IEC 42001 AI Management Systems', desc: 'Specialist AI governance and ISO/IEC 42001 readiness support', url: `${baseUrl}/services` },
+      ].map((s, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        item: {
+          '@type': 'Service',
+          name: s.standard,
+          description: s.desc,
+          url: s.url,
+          serviceType: 'ISO consultancy',
+          provider: { '@type': 'Organization', name: 'Training Assurance Consultancy', url: baseUrl },
+          areaServed: { '@type': 'Country', name: 'United Kingdom' },
+        },
+      })),
+      ...data,
+    },
+
+    service: (() => {
+      const { name, description, url, serviceType, ...rest } = data ?? {};
+      return {
+        '@context': 'https://schema.org',
+        '@type': 'Service',
+        name,
+        description,
+        url,
+        serviceType: serviceType ?? 'ISO consultancy',
+        provider: {
+          '@type': 'Organization',
+          name: 'Training Assurance Consultancy',
+          url: baseUrl,
+        },
+        areaServed: { '@type': 'Country', name: 'United Kingdom' },
+        ...rest,
+      };
+    })(),
   };
 
   const selectedSchema = schemas[type];
@@ -402,8 +479,7 @@ export default function SchemaMarkup({ type, data }: SchemaMarkupProps) {
   if (!selectedSchema) return null;
 
   return (
-    <Script
-      id={`schema-${type}`}
+    <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
         __html: JSON.stringify(selectedSchema),
