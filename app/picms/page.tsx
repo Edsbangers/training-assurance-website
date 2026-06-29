@@ -89,6 +89,14 @@ export default function PICMSBridgePage() {
             >
               Visit PICMS.com
             </a>
+            <a
+              href="https://calendly.com/jasonmisters/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-4 bg-emerald-500 text-white font-semibold rounded-xl hover:bg-emerald-600 transition-colors shadow-lg shadow-emerald-500/20"
+            >
+              Book a PICMS demo
+            </a>
           </div>
         </div>
       </section>
