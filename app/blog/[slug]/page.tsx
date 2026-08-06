@@ -95,6 +95,9 @@ export async function generateMetadata({
     title: { absolute: truncatedTitle },
     description: post.excerpt,
     keywords: post.tags?.join(', '),
+    alternates: {
+      canonical: `/blog/${post.slug}`,
+    },
     openGraph: {
       title: post.title,
       description: post.excerpt,
@@ -142,26 +145,44 @@ export default async function BlogPostPage({
 
   const relatedPosts = await getRelatedPosts(slug, post.category);
 
+  const postUrl = `https://www.trainingassuranceconsultancy.com/blog/${post.slug}`;
+  const articleImage =
+    post.featured_image ||
+    `https://www.trainingassuranceconsultancy.com/api/og?title=${encodeURIComponent(post.title)}&category=${encodeURIComponent(post.category || 'Industry Insights')}`;
+
   // Schema.org Article structured data
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: post.title,
     description: post.excerpt,
+    image: articleImage,
+    inLanguage: 'en-GB',
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': postUrl,
+    },
+    url: postUrl,
     author: {
       '@type': 'Person',
       name: post.author,
-      jobTitle: 'Lead Auditor',
+      jobTitle: 'IRCA Registered Principal Auditor',
+      worksFor: {
+        '@type': 'Organization',
+        name: 'Training Assurance Consultancy',
+      },
     },
     publisher: {
       '@type': 'Organization',
       name: 'Training Assurance Consultancy',
+      url: 'https://www.trainingassuranceconsultancy.com',
       logo: {
         '@type': 'ImageObject',
         url: 'https://www.trainingassuranceconsultancy.com/logo.png',
       },
     },
     datePublished: post.published_at,
+    dateModified: post.published_at,
     keywords: post.tags?.join(', '),
     articleSection: post.category,
   };
@@ -273,16 +294,23 @@ export default async function BlogPostPage({
                 <span className="text-white text-2xl font-bold">TA</span>
               </div>
               <div className="text-center sm:text-left flex-1">
-                <h3 className="text-lg font-bold mb-2">Need Expert Guidance?</h3>
+                <h3 className="text-lg font-bold mb-2">Need Expert ISO Guidance?</h3>
                 <p className="text-slate-400 text-sm mb-4">
-                  Our Lead Auditors can help you implement these insights in your organisation.
-                  Book a strategic consultation today.
+                  TAC provides practical ISO consultancy and audit support, led by an IRCA Registered
+                  Principal Auditor. Explore our{' '}
+                  <Link href="/iso-27001-consultancy" className="text-cyan-400 hover:underline">
+                    ISO 27001 consultancy
+                  </Link>{' '}
+                  and{' '}
+                  <Link href="/services" className="text-cyan-400 hover:underline">
+                    full ISO consultancy services
+                  </Link>, or book a consultation to discuss your management system.
                 </p>
                 <Link
                   href="/#contact"
                   className="inline-flex px-6 py-2 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-lg hover:opacity-90 transition-opacity text-sm"
                 >
-                  Book Consultation
+                  Book a consultation
                 </Link>
               </div>
             </div>

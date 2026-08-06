@@ -21,6 +21,9 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.trainingassuranceconsultancy.com"),
   title: "ISO Consultancy UK | IRCA Registered Principal Auditor | TAC",
   description: "ISO consultancy and audit support for UK businesses. TAC helps organisations implement, maintain and improve ISO 27001, ISO 9001, ISO 14001 and ISO 45001 management systems.",
+  alternates: {
+    canonical: "/",
+  },
   keywords: ["ISO consultancy", "ISO consultant UK", "IRCA Registered Principal Auditor", "ISO 27001 consultancy", "ISO 9001 consultancy", "ISO 14001 consultancy", "ISO 45001 consultancy", "ISO audit support", "ISO certification support", "ISO gap analysis", "internal audits", "ISO/IEC 42001", "AI management systems"],
   authors: [{ name: "Training Assurance Consultancy" }],
   creator: "Training Assurance Consultancy",

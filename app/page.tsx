@@ -5,6 +5,8 @@ import Link from 'next/link';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 
+import FAQSection from '@/components/FAQSection';
+
 // Lazy load components that aren't immediately visible
 const ServicesGrid = lazy(() => import('@/components/ServicesGrid'));
 
@@ -668,6 +670,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* FAQ Section (visible content backing the FAQPage schema + GEO answers) */}
+      <FAQSection intro="Common questions about ISO consultancy, audit support and certification — answered by an IRCA Registered Principal Auditor." />
 
       {/* Contact / Lead Gen Section */}
       <section id="contact" className="py-32 relative" aria-label="Contact form">

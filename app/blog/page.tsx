@@ -7,6 +7,9 @@ import Footer from '@/components/Footer';
 export const metadata: Metadata = {
   title: 'Strategic Insights | Training Assurance Consultancy',
   description: 'Expert insights on ISO compliance, AI governance, SHEQ management, and industry best practices from our Lead Auditor team.',
+  alternates: {
+    canonical: '/blog',
+  },
 };
 
 export const revalidate = 3600; // Revalidate every hour

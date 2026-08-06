@@ -5,6 +5,9 @@ import Image from 'next/image';
 export const metadata: Metadata = {
   title: 'Links | Training Assurance Consultancy',
   description: 'Quick links to TAC resources, services, and social profiles. Strategic SHEQ Lead Auditor Authority.',
+  alternates: {
+    canonical: '/links',
+  },
 };
 
 export default function LinksPage() {

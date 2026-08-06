@@ -6,6 +6,9 @@ import Footer from '@/components/Footer';
 export const metadata: Metadata = {
   title: 'ISO Consultancy for Construction UK | ISO 9001, 14001 & 45001 | TAC',
   description: 'ISO consultancy for UK construction firms covering ISO 9001 (quality), ISO 14001 (environmental) and ISO 45001 (health & safety) — aligned with CDM 2015 duties, tenders and PQQs, led by an IRCA Registered Principal Auditor.',
+  alternates: {
+    canonical: '/iso-consultancy-construction',
+  },
   keywords: ['ISO consultancy construction', 'ISO 45001 construction', 'ISO 9001 construction', 'ISO 14001 construction', 'CDM 2015 consultancy', 'contractor ISO certification', 'construction health and safety consultancy', 'CHAS SafeContractor Constructionline ISO'],
 };
 
