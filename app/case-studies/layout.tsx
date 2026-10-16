@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import SchemaMarkup from '@/components/SchemaMarkup';
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/case-studies' },
   title: 'Case Studies | Training Assurance Consultancy',
   description: 'Real results from real clients. Explore how we helped organisations achieve ISO certification, implement AI audits, and transform their compliance operations.',
   keywords: ['ISO case study', 'compliance success story', 'AI audit results', 'ISO 9001 certification', 'ISO 45001 implementation', 'SHEQ transformation'],

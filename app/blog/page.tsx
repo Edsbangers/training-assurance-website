@@ -5,6 +5,7 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/blog" },
   title: 'Strategic Insights | Training Assurance Consultancy',
   description: 'Expert insights on ISO compliance, AI governance, SHEQ management, and industry best practices from our Lead Auditor team.',
 };

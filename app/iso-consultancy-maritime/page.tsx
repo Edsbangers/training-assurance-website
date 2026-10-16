@@ -4,6 +4,7 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/iso-consultancy-maritime" },
   title: 'ISO Consultancy for Maritime & Marine UK | ISO 9001, 14001, 45001 | TAC',
   description: 'ISO consultancy for UK maritime, marine services and commercial diving operations — covering ISO 9001, 14001, 45001 and ISO 27001, led by an IRCA Registered Principal Auditor.',
   keywords: ['ISO consultancy maritime', 'marine ISO 9001', 'commercial diving ISO 45001', 'ISO 14001 maritime', 'maritime ISO consultant UK', 'marine services ISO', 'ISO 45001 diving operations', 'maritime ISO certification'],

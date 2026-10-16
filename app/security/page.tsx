@@ -4,6 +4,7 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/security' },
   title: 'Security | Training Assurance Consultancy',
   description: 'Our commitment to information security and data protection. Learn about our security practices aligned with ISO 27001 standards.',
 };

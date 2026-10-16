@@ -4,6 +4,7 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/iso-27001-consultancy" },
   title: 'ISO 27001 Consultant UK | Information Security Consultancy | TAC',
   description: 'ISO 27001 consultancy for UK businesses. We support gap analysis, ISMS implementation, risk assessment, Statement of Applicability, internal audits and certification readiness — led by an IRCA Registered Principal Auditor.',
   keywords: ['ISO 27001 consultant UK', 'ISO 27001 consultancy', 'information security consultancy', 'ISMS implementation', 'ISO 27001 gap analysis', 'Statement of Applicability', 'ISO 27001 certification', 'ISO 27001 risk assessment'],

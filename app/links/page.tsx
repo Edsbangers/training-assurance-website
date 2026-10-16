@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/links' },
   title: 'Links | Training Assurance Consultancy',
   description: 'Quick links to TAC resources, services, and social profiles. Strategic SHEQ Lead Auditor Authority.',
 };

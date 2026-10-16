@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/picms/demo" },
   title: 'PICMS Demo | Interactive Platform Preview',
   description: 'Experience PICMS v3 with our interactive demo. 14 ISO standards, 37 modules, agentic AI compliance — see how PICMS transforms your ISO journey.',
 };
