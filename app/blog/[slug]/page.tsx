@@ -94,6 +94,7 @@ export async function generateMetadata({
   return {
     title: { absolute: truncatedTitle },
     description: post.excerpt,
+    alternates: { canonical: `/blog/${slug}` },
     keywords: post.tags?.join(', '),
     openGraph: {
       title: post.title,

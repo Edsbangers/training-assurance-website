@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import SchemaMarkup from '@/components/SchemaMarkup';
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/about' },
   title: 'About Us | Training Assurance Consultancy',
   description: 'Meet our IRCA Registered Principal Auditors with 25+ years of experience in ISO compliance, SHEQ management, and AI governance across the UK and Europe.',
   keywords: ['IRCA auditor', 'principal auditor', 'ISO consultant UK', 'SHEQ consultant', 'compliance expert', 'audit team'],

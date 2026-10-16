@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import SchemaMarkup from '@/components/SchemaMarkup';
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/privacy-policy' },
   title: 'Privacy Policy | Training Assurance Consultancy',
   description: 'How Training Assurance Consultancy collects, uses, and protects your personal data in compliance with UK GDPR and data protection regulations.',
   robots: 'noindex, follow',

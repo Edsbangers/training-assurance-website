@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import SchemaMarkup from '@/components/SchemaMarkup';
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/terms-of-service' },
   title: 'Terms of Service | Training Assurance Consultancy',
   description: 'Terms and conditions for using Training Assurance Consultancy services, website, and PICMS platform.',
   robots: 'noindex, follow',
